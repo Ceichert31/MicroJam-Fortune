@@ -1,0 +1,1 @@
+public class SceneEventListener : GenericEventListener<SceneEventChannel, SceneEvent> { }
