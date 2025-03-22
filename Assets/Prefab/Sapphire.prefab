@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14143f61322725d4695c1a63c6d65381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addOre_Event: {fileID: 11400000, guid: c9770130baf0a8a4b872de6441c2bd92, type: 2}
   oreStats: {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
   currentHealth: 0
 --- !u!114 &5579239557707182764

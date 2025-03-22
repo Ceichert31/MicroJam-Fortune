@@ -10,18 +10,15 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
     [SerializeField] private int currentCarryCapacity;
 
-    [ContextMenu("TEST")]
-    public void TEST()
-    {
-        AddOre(new OreStats());
-    }
-
     /// <summary>
     /// Adds ore to the inventory
     /// </summary>
     /// <param name="ore"></param>
-    public void AddOre(OreStats ore)
+    public void AddOre(OreEvent ctx)
     {
+        //Increase carry capacity
+        currentCarryCapacity++;
+
         //Increase encumberance if above carry capacity
         if (currentCarryCapacity >= maxCarryCapacity)
         {
@@ -29,7 +26,7 @@ public class Inventory : MonoBehaviour
         }
 
         //Add ore to stack
-        inventory.Add(ore);
+        inventory.Add(ctx.Value);
     }
 
     /// <summary>
@@ -37,6 +34,9 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void DropOre()
     {
+        //Decrease current carry capacity
+        currentCarryCapacity--;
+
         //If dropping ore sets us below max carry capacity, reduce encumbrance
         if (currentCarryCapacity <= maxCarryCapacity) 
         {

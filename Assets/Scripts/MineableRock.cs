@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MineableRock : MonoBehaviour, IDamageable
 {
+    [SerializeField] private OreEventChannel addOre_Event;
     [SerializeField] private OreStats oreStats;
     [SerializeField] private int currentHealth;
 
@@ -33,6 +34,9 @@ public class MineableRock : MonoBehaviour, IDamageable
         {
             //Drop ore 
             //oreStats.dropItem;
+
+            //Add ore
+            addOre_Event.CallEvent(new OreEvent(oreStats));
 
             //Disable
             SetObjectStatus(false);
