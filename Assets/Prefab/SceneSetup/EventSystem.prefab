@@ -104,3 +104,6 @@ MonoBehaviour:
     swag: 0
     agility: 0
   baseStats: {fileID: 11400000, guid: 9b4a64d1ecfb97748bd3852ec0888e36, type: 2}
+  oreRespawn_Event: {fileID: 11400000, guid: f29133a892a7e1741a8679e2a47ee11e, type: 2}
+  gameTickUpdate_Event: {fileID: 11400000, guid: 329e493b030e7c4479e7c9bffbfaed54, type: 2}
+  gameTick: 5
