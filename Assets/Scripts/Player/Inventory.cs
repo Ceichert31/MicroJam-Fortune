@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
         currentCarryCapacity++;
 
         //Increase encumberance if above carry capacity
-        if (currentCarryCapacity >= maxCarryCapacity)
+        if (currentCarryCapacity > maxCarryCapacity)
         {
             GameManager.Instance.Encumbrance++;
         }
@@ -32,21 +32,22 @@ public class Inventory : MonoBehaviour
     /// <summary>
     /// Drops an ore on the group
     /// </summary>
-    public void DropOre()
+    public void DropNewestItem()
     {
+        //Guard Clause
+        if (inventory.Count <= 0) return;
+        
         //Decrease current carry capacity
         currentCarryCapacity--;
 
         //If dropping ore sets us below max carry capacity, reduce encumbrance
-        if (currentCarryCapacity <= maxCarryCapacity) 
+        if (GameManager.Instance.Encumbrance > 0) 
         {
             GameManager.Instance.Encumbrance--;
         }
 
         //Remove ore from stack
-        OreStats oreInstance = inventory[inventory.Count - 1];
-
-        //Instaniate ore
+        inventory.RemoveAt(inventory.Count - 1);
     }
 
     /// <summary>

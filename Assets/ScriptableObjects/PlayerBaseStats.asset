@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 7
   maxEnergy: 7
-  movementSpeed: 5
+  movementSpeed: 3
   attackDamage: 5
   vision: 3
   carryingCapacity: 3
