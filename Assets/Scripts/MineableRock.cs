@@ -10,6 +10,8 @@ public class MineableRock : MonoBehaviour, IDamageable
 
     private BoxCollider2D boxCol;
 
+    private Animator animator;
+
     private void Start()
     {
         //Set health
@@ -18,6 +20,8 @@ public class MineableRock : MonoBehaviour, IDamageable
         childObject = transform.GetChild(0).gameObject;
 
         boxCol = GetComponent<BoxCollider2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -28,6 +32,7 @@ public class MineableRock : MonoBehaviour, IDamageable
     {
         //Deal damage
         currentHealth--;
+        animator.SetTrigger("OreHit");
 
         //Destroy
         if (currentHealth <= 0)

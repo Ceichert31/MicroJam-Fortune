@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580fa565084072c41ac9cc07f976db06, type: 3}
   m_Name: BatSpawner
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnChance: 0
+  enemyPrefab: {fileID: 8029829403349781584, guid: a6c678ea520448e42854b401ecac2d1a, type: 3}
+  spawnChance: 0.2

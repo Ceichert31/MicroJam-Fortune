@@ -7,9 +7,18 @@ public class SpawnEnemy : MonoBehaviour
 
     public void TrySpawnEnemy()
     {
-        if (Random.value < spawnerInfo.spawnChance)
+        float random = Random.value;
+
+        if (random < spawnerInfo.spawnChance)
         {
             Instantiate(spawnerInfo.enemyPrefab, transform.position, Quaternion.identity);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        // arbitrary 1 value just to display where spawners are
+        Gizmos.DrawWireSphere(transform.position, 1);
     }
 }

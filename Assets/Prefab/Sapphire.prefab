@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 9160446764432955075}
   - component: {fileID: 5579239557707182764}
   - component: {fileID: 8193793469137119275}
+  - component: {fileID: 5183579900825587504}
   m_Layer: 6
   m_Name: Sapphire
   m_TagString: Untagged
@@ -211,3 +212,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.125, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!95 &5183579900825587504
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813854795817210218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b91f2d0f9d3e154da9d8e00636163ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
