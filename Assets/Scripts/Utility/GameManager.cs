@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
                 playerStats.agility += value;
                 break;
         }
+    }
 }
 [System.Serializable]
 public struct PlayerStats
