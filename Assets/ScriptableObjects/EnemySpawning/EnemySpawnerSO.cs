@@ -7,4 +7,5 @@ public class EnemySpawnerSO : ScriptableObject
     public GameObject enemyPrefab;
     [Range(0, 1)]
     public float spawnChance;
+    public bool isMushroom = true;
 }
