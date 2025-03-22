@@ -5,6 +5,7 @@ public class Inventory : MonoBehaviour
 {
     [Header("Scriptable Object Reference")]
     [SerializeField] private FloatEventChannel setCapacityText_Event;
+    [SerializeField] private OreEventChannel updateOreUI_Event;
 
     [Header("Inventory")]
     [SerializeField] private List<OreStats> inventory = new();
@@ -33,6 +34,10 @@ public class Inventory : MonoBehaviour
         //Add ore to stack
         inventory.Add(ctx.Value);
 
+        //Update ore UI
+        ctx.Count = GetOreTypeCount(ctx.Value.oreType);
+        updateOreUI_Event.CallEvent(ctx);
+
         //Update capacity text
         capacityEvent.FloatValue = currentCarryCapacity;
         setCapacityText_Event.CallEvent(capacityEvent);
@@ -55,12 +60,34 @@ public class Inventory : MonoBehaviour
             GameManager.Instance.Encumbrance--;
         }
 
+        //Cache latest ore
+        OreEvent ctx = new(inventory[inventory.Count - 1]);
+
         //Remove ore from stack
         inventory.RemoveAt(inventory.Count - 1);
+
+        //Update ore UI
+        ctx.Count = GetOreTypeCount(ctx.Value.oreType);
+        updateOreUI_Event.CallEvent(ctx);
 
         //Update capacity text
         capacityEvent.FloatValue = currentCarryCapacity;
         setCapacityText_Event.CallEvent(capacityEvent);
+    }
+    /// <summary>
+    /// Returns how many of a type of ore are in the players inventory
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    private int GetOreTypeCount(OreType type)
+    {
+        int count = 0;
+        for (int i = 0; i < inventory.Count - 1; i++)
+        {
+            if (inventory[i].oreType == type)
+                count++;
+        }
+        return count;
     }
 
     /// <summary>

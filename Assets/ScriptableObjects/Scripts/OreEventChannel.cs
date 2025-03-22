@@ -7,8 +7,10 @@ public class OreEventChannel : GenericEventChannel<OreEvent> {}
 public struct OreEvent
 {
     public OreStats Value;
-    public OreEvent(OreStats value)
+    public int Count;
+    public OreEvent(OreStats value, int count = 0)
     {
         Value = value;
+        Count = count;
     }
 }
