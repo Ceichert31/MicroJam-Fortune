@@ -15,6 +15,8 @@ public class Drill : MonoBehaviour, IDepositable
 
     public void Deposit(OreStats oreToDeposit)
     {
+        if (oreToDeposit == null) return;
+
         //Check ore type and add to current ore
         switch (oreToDeposit.oreType)
         {
@@ -24,6 +26,7 @@ public class Drill : MonoBehaviour, IDepositable
                 if (currentSapphires >= repairCost.requiredSapphires)
                 {
                     //Check off
+                    //Set game manager bool
                 }
                 break;
 
