@@ -11119,21 +11119,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2116964241453722269, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43850547
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46104693
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.090833254
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalRotation.w
