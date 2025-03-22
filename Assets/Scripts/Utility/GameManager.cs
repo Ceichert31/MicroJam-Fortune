@@ -13,9 +13,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerBaseStats baseStats;
 
     [Header("Event Channel")]
-    [SerializeField] private VoidEventChannel eventChannel;
+    [SerializeField] private VoidEventChannel oreRespawn_Event;
+    [SerializeField] private VoidEventChannel gameTickUpdate_Event;
+
+    private VoidEvent gameTickEvent;
 
     private float encumbrance;
+
+    [Header("Game Tick Settings")]
+    [SerializeField] private float gameTick = 5f;
+
+    private float gameTickTimer;
 
     //Getters
     public Transform PlayerTransform { get { return player; } }
@@ -41,13 +49,27 @@ public class GameManager : MonoBehaviour
 
         //Init player stats
         playerStats = new PlayerStats(baseStats);
+
+        gameTickTimer = gameTick;
+    }
+
+    private void Update()
+    {
+        //Game tick logic
+        gameTickTimer -= Time.deltaTime;
+        if (gameTickTimer <= 0)
+        {
+            gameTickTimer = gameTick;
+            //Call event channel
+            gameTickUpdate_Event.CallEvent(gameTickEvent);
+        }
     }
 
     private VoidEvent theEvent;
     [ContextMenu("Restart Day")]
     public void RestartDay()
     {
-        eventChannel.CallEvent(theEvent);
+        oreRespawn_Event.CallEvent(theEvent);
     }
 }
 [System.Serializable]
