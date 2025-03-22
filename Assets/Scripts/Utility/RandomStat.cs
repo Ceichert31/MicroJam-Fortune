@@ -6,13 +6,11 @@ using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
 using System.Linq;
-using UnityEngine.UI;
 
 public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
-    [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4;
-    public PlayerBaseStats playerStats;
+    PlayerBaseStats playerStats;
 
     List<int> randomNum = new List<int>();
     System.Random random = new System.Random();
@@ -28,25 +26,8 @@ public class RandomStat : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            switch (i)
-            {
-                case 0:
-                    text = string.Join("", randomNum.ElementAt(i));
-                    randomNum1.GetComponentInChildren<TextMeshProUGUI>().text = text;
-                    break;
-                case 1:
-                    text = string.Join("", randomNum.ElementAt(i));
-                    randomNum2.GetComponentInChildren<TextMeshProUGUI>().text = text;
-                    break;
-                case 2:
-                    text = string.Join("", randomNum.ElementAt(i));
-                    randomNum3.GetComponentInChildren<TextMeshProUGUI>().text = text;
-                    break;
-                case 3:
-                    text = string.Join("", randomNum.ElementAt(i));
-                    randomNum4.GetComponentInChildren<TextMeshProUGUI>().text = text;
-                    break;
-            }
+            text = string.Join("", randomNum.ElementAt(i));
+            canvas.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
         }
     }
