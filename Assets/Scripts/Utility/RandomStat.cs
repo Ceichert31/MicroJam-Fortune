@@ -7,15 +7,18 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
+    [SerializeField] private MonoScript storeNumber;
     [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4, health, movementSpeed, attackDamage, energy;
     [SerializeField] public TextMeshProUGUI randomNum1Text, randomNum2Text, randomNum3Text, randomNum4Text, healthText, movementSpeedText, attackDamageText, energyText;
 
     public static List<int> randomNum = new List<int>();
     System.Random random = new System.Random();
+    public Button button;
     public int storeNum;
     string text;
 
@@ -59,10 +62,16 @@ public class RandomStat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        randomNum1.onClick.Invoke();
-        randomNum2.onClick.Invoke();
-        randomNum3.onClick.Invoke();
-        randomNum4.onClick.Invoke();
+        randomNum1.onClick.AddListener(OnButtonClick);
+        randomNum2.onClick.AddListener(OnButtonClick);
+        randomNum3.onClick.AddListener(OnButtonClick);
+        randomNum4.onClick.AddListener(OnButtonClick);
+    }
+
+    public void OnButtonClick()
+    {
+        button = GetComponent<Button>();
+        storeNum = int.Parse(button.GetComponentInChildren<TextMeshProUGUI>().text);
     }
 
     public int ListAccess(int button)

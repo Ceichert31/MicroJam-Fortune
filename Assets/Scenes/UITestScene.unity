@@ -900,6 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 554441681}
+  storeNumber: {fileID: 11500000, guid: 71fe0d7632ebba84c8daaeb0edcb3842, type: 3}
   randomNum1: {fileID: 805645535}
   randomNum2: {fileID: 660512775}
   randomNum3: {fileID: 596962106}
@@ -1819,8 +1820,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11500000, guid: 71fe0d7632ebba84c8daaeb0edcb3842, type: 3}
         m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
