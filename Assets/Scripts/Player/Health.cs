@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int currentHealth;
-    private int maxHealth = GameManager.Instance.MaxHealth;
+    private int maxHealth => GameManager.Instance.MaxHealth;
 
     private void Start()
     {
