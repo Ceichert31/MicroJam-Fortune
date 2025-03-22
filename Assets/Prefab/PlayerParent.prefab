@@ -60,7 +60,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 430244075
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &3596207304098725195
@@ -1411,6 +1411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactLayer: 7
+  interactCooldownMax: 0.5
+  interactCooldownMin: 0.2
 --- !u!61 &1438477668929991334
 BoxCollider2D:
   m_ObjectHideFlags: 0
