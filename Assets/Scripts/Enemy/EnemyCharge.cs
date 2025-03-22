@@ -14,6 +14,8 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
     private Animator animator;
     private SpriteRenderer enemyRenderer;
+    private BoxCollider2D boxCollider;
+
     private bool isCharging = false;
     private bool isDrawingBack = false;
     private bool canCharge = true;
@@ -25,6 +27,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         enemyRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -54,6 +57,10 @@ public class EnemyCharge : MonoBehaviour, IDamageable
             {
                 StopCharging();
             }
+        }
+        else
+        {
+
         }
     }
 
