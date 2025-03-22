@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private PlayerBaseStats baseStats;
 
+    [Header("Event Channel")]
+    [SerializeField] private VoidEventChannel eventChannel;
+
     private float encumbrance;
 
     //Getters
@@ -38,6 +41,13 @@ public class GameManager : MonoBehaviour
 
         //Init player stats
         playerStats = new PlayerStats(baseStats);
+    }
+
+    private VoidEvent theEvent;
+    [ContextMenu("Restart Day")]
+    public void RestartDay()
+    {
+        eventChannel.CallEvent(theEvent);
     }
 }
 [System.Serializable]
