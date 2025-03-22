@@ -11,6 +11,8 @@ public class InputController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 10f;
 
+    private bool isMoving;
+
     private void Awake()
     {
         inputAction = new InputSystem_Actions();
@@ -21,26 +23,31 @@ public class InputController : MonoBehaviour
 
     private Vector2 MoveDirection()
     {
-        Vector2 direction = playerActions.Move.ReadValue<Vector2>();
-        return direction.normalized;
+        return playerActions.Move.ReadValue<Vector2>().normalized;
     }
 
-    private void Move(InputAction.CallbackContext ctx)
+    private void Move()
     {
         rb.linearVelocity = MoveDirection() * movementSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Update()
+    {
+        isMoving = playerActions.Move.IsInProgress();
     }
 
     private void OnEnable()
     {
         playerActions.Enable();
-
-        playerActions.Move.performed += Move;
     }
 
     private void OnDisable()
     {
         playerActions.Disable();
-
-        playerActions.Move.performed -= Move;
     }
 }
