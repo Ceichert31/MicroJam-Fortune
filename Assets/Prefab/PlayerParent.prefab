@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  iFrameDuration: 0.8
 --- !u!61 &4855546319290256026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +203,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1317,19 +1318,8 @@ MonoBehaviour:
   setCapacityText_Event: {fileID: 11400000, guid: b1a8ade8e2217364d911527b0f3bbf11, type: 2}
   updateOreUI_Event: {fileID: 11400000, guid: f313ab4778e594944ab7214a351bbd00, type: 2}
   resetOreUI_Event: {fileID: 11400000, guid: 34f2c3359f86d2045a268d09ff7f2129, type: 2}
-  inventory:
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  currentCarryCapacity: 11
+  inventory: []
+  currentCarryCapacity: 0
 --- !u!114 &2694248041791492929
 MonoBehaviour:
   m_ObjectHideFlags: 0

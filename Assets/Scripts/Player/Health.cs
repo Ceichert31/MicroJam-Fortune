@@ -3,7 +3,10 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int currentHealth;
+    [SerializeField] private float iFrameDuration = 0.8f;
     private int maxHealth => GameManager.Instance.MaxHealth;
+
+    private bool hasIFrames;
 
     private void Start()
     {
@@ -12,6 +15,12 @@ public class Health : MonoBehaviour, IDamageable
 
     public void DealDamage(int damage)
     {
+        //Prevent damage
+        if (hasIFrames) return;
+
+        hasIFrames = true;
+        Invoke(nameof(ResetIFrames), iFrameDuration);
+
         //Deal damage
         currentHealth -= damage;
 
@@ -21,6 +30,11 @@ public class Health : MonoBehaviour, IDamageable
         {
             PlayerDeath();
         }
+    }
+
+    private void ResetIFrames()
+    {
+        hasIFrames = false;
     }
 
     private void PlayerDeath()
