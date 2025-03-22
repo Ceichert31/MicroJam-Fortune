@@ -34,6 +34,7 @@ public class PlayerInteractor : MonoBehaviour
         {
             for (int i = 0; i < inventory.CurrentCarryCapcity; i++) 
             {
+                Debug.Log(inventory.CurrentCarryCapcity);
                 instance.Deposit(inventory.GetLastOre());
             }
         }
