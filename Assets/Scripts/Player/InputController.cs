@@ -8,9 +8,7 @@ public class InputController : MonoBehaviour
     InputSystem_Actions.PlayerActions playerActions;
 
     private Rigidbody2D rb;
-
-    [Header("Player Components")]
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 10f;
@@ -29,6 +27,8 @@ public class InputController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         playerRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        animator = GetComponent<Animator>();
     }
 
     private Vector2 MoveDirection()
