@@ -1,12 +1,18 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Ore")]
-public class Ore : ScriptableObject
+public class OreStats : ScriptableObject
 {
     public OreType oreType;
+    public GameObject dropItem;
     public int baseValue;
     public int minValue;
     public int maxValue;
+    public int durability;
+    [Range(0, 10)]
+    public int disableChance;
+
 }
 
 public enum OreType
