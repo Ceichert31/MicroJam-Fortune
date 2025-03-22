@@ -10,18 +10,17 @@ public class EnemySentry : MonoBehaviour, IDamageable
 
     private GameObject particleObject;
     private Animator animator;
-    private ParticleSystem particleSystem;
+    private ParticleSystem particleSys;
     private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
     private Vector3 enemyToPlayer;
     private bool attackDelay = false;
-    private bool canAttack = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         particleObject = transform.GetChild(0).gameObject;
-        particleSystem = particleObject.transform.GetChild(0).GetComponent<ParticleSystem>();
+        particleSys = particleObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     private void Update()
@@ -39,7 +38,7 @@ public class EnemySentry : MonoBehaviour, IDamageable
 
     private void PlayParticle()
     {
-        particleSystem.Play();
+        particleSys.Play();
     }
 
     private IEnumerator IAttackDelay()
