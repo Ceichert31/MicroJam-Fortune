@@ -10,6 +10,7 @@ public class OreStats : ScriptableObject
     public int minValue;
     public int maxValue;
     public int durability;
+    [Range(0, 10)]
     public int disableChance;
 
 }
