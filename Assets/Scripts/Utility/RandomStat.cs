@@ -11,15 +11,22 @@ using UnityEngine.UI;
 public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
-    [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4;
-    public PlayerBaseStats playerStats;
+    [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4, health, movementSpeed, attackDamage, energy;
+    public PlayerBaseStats playerBaseStats = new PlayerBaseStats();
+    public PlayerStats playerStats = new PlayerStats();
 
-    List<int> randomNum = new List<int>();
+    public static List<int> randomNum = new List<int>();
     System.Random random = new System.Random();
+    public int storeNum;
     string text;
 
     void Start()
     {
+        health.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.maxHealth.ToString();
+        movementSpeed.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.movementSpeed.ToString();
+        attackDamage.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.attackDamage.ToString();
+        energy.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.maxEnergy.ToString();
+
         for (int i = 0; i < 4; i++)
         {
             int randomNumber = random.Next(-1, 3);
@@ -51,8 +58,16 @@ public class RandomStat : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        
+        randomNum1.onClick.Invoke();
+        randomNum2.onClick.Invoke();
+        randomNum3.onClick.Invoke();
+        randomNum4.onClick.Invoke();
+    }
+
+    public int ListAccess(int button)
+    {
+        return 1;
     }
 }
