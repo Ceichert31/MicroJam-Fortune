@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a46b5d2dfda54ff4aa66f02d64294fae
+guid: 176924de6822dcb4bb0e2fd1d5131a8d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 16
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638781879029912897
+  platformSettingsDirtyTick: 638781879407052995
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: dg_rock_blue
+  - name: dg_9slicepanel_small
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 18
-      height: 17
-    spriteID: d1dc3536578c180448848736c0f3d0c1
+      width: 6
+      height: 6
+    spriteID: a3b6bb7c993879c4297bf110dfbfd678
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,19 +145,19 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: dg_rock_blue_0
+  - name: dg_9slicepanel_small_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1, y: 1, z: 1, w: 1}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 18
-      height: 17
-    spriteID: fe12dba0bbcdf4b4d899a79c968a6bc0
+      width: 6
+      height: 6
+    spriteID: bd97dc27be5a59b4c8be7348f89b5755
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,21 +168,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -85528410
-    name: dg_rock_blue
+    guid: -1670270509
+    name: dg_9slicepanel_small
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: dg_rock_blue
+    - name: dg_9slicepanel_small
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 18
-        height: 17
-      spriteId: d1dc3536578c180448848736c0f3d0c1
+        width: 6
+        height: 6
+      spriteId: a3b6bb7c993879c4297bf110dfbfd678
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -237,5 +237,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 18, y: 17}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 6, y: 6}
+  previousTextureSize: {x: 16, y: 16}
