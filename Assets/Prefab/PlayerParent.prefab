@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 4680714139094337562}
   - component: {fileID: 2116964241453722269}
   - component: {fileID: 2616635845315080600}
-  - component: {fileID: 8990392840728984246}
+  - component: {fileID: 2694248041791492929}
   - component: {fileID: 537110870392874641}
   - component: {fileID: 3494946060065478435}
   - component: {fileID: 1554786330631502307}
@@ -573,9 +573,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setCapacityText_Event: {fileID: 11400000, guid: b1a8ade8e2217364d911527b0f3bbf11, type: 2}
+  updateOreUI_Event: {fileID: 11400000, guid: f313ab4778e594944ab7214a351bbd00, type: 2}
   inventory: []
   currentCarryCapacity: 0
---- !u!114 &8990392840728984246
+--- !u!114 &2694248041791492929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -740,7 +741,7 @@ Transform:
   m_GameObject: {fileID: 9029177105003694483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.026, y: 0.359, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

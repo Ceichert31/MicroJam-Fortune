@@ -31,19 +31,19 @@ public class PlayerUIController : MonoBehaviour
         switch (ctx.Value.oreType)
         {
             case OreType.Sapphire:
-                sapphireText.text = ctx.Count.ToString();
+                sapphireText.text =  $"0{ctx.Count}";
                 break;
 
             case OreType.Ruby:
-                rubyText.text = ctx.Count.ToString();
+                rubyText.text = $"0{ctx.Count}";
                 break;
 
             case OreType.Emerald:
-                emeraldText.text = ctx.Count.ToString();
+                emeraldText.text = $"0{ctx.Count}";
                 break;
 
             case OreType.Topaz:
-                topazText.text = ctx.Count.ToString();
+                topazText.text = $"0{ctx.Count}";
                 break;
         }
     }
