@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3933553800382622141}
   - component: {fileID: 4845229098816976435}
   - component: {fileID: 4223135501409467890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickaxeAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8854996740332744730}
   - component: {fileID: 7819135543826862234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 3971089612358047819}
   - component: {fileID: 6782559351212433953}
   - component: {fileID: 8697526587557101350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2454162170014503206}
   - component: {fileID: 3096189031850861530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 3494946060065478435}
   - component: {fileID: 1554786330631502307}
   - component: {fileID: 8913428797270345998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281895710146524171}
   - component: {fileID: 5118176077347666468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickaxeParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
