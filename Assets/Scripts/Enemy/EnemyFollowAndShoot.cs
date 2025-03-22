@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,15 +8,21 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     [SerializeField] private float shootRadius = 3f;
     [SerializeField] private float speed = 2f;
     [SerializeField] private int enemyHealth = 3;
+    [Header("Bullet")]
+    [SerializeField] private GameObject EnemyBullet;
+    [SerializeField] private float shootDelayTime = 2.5f;
+
     private Animator animator;
-    private SpriteRenderer enemyRenderer;
+    private Transform bulletSpawn;
+
+    private bool delay = false;
 
     private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        enemyRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        bulletSpawn = transform.GetChild(0);
     }
 
     private Vector3 enemyToPlayer;
@@ -26,6 +33,29 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
         {
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
         }
+
+        if (Vector3.Distance(transform.position, playerTransform.position) <= shootRadius && !delay)
+        {
+            // add delya and shot
+            Shoot();
+            StartCoroutine(IShootDelay());
+        }
+
+
+    }
+
+    private void Shoot()
+    {
+        Instantiate(EnemyBullet, transform.position, Quaternion.identity);
+    }
+
+    private IEnumerator IShootDelay()
+    {
+        delay = true;
+
+        yield return new WaitForSeconds(shootDelayTime);
+
+        delay = false;
     }
 
     private void OnDrawGizmos()
