@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    [Header("Current Stats")]
     [SerializeField] private PlayerStats playerStats;
+
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private PlayerBaseStats baseStats;
 
     //Getters
     public Transform PlayerTransform { get { return player; } }
@@ -19,6 +23,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
 
         //Init player stats
+        playerStats = new PlayerStats(baseStats);
     }
 
     public int GetMaxHealth()
@@ -41,16 +46,30 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public struct PlayerStats
 {
+    //Core stats
     public int maxHealth;
     public int movementSpeed;
     public int attackDamage;
     public int maxEnergy;
 
-    public PlayerStats(int health, int speed, int damage, int energy)
+    //Side stats
+    public int vision;
+    public int carryingCapacity;
+    public int luck;
+    public int swag;
+    public int agility;
+
+    public PlayerStats(PlayerBaseStats baseStats)
     {
-        maxHealth = health;
-        movementSpeed = speed;
-        attackDamage = damage;
-        maxEnergy = energy;
+        maxHealth = baseStats.maxHealth;
+        movementSpeed = baseStats.movementSpeed;
+        attackDamage = baseStats.attackDamage;
+        maxEnergy = baseStats.maxEnergy;
+
+        vision = baseStats.vision;
+        carryingCapacity = baseStats.carryingCapacity;
+        luck = baseStats.luck;
+        swag = baseStats.swag;
+        agility = baseStats.agility;
     }
 }
