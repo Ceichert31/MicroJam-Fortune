@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oreType: 2
   dropItem: {fileID: 0}
-  baseValue: 0
-  minValue: 0
-  maxValue: 0
-  durability: 0
+  baseValue: 1
+  minValue: 1
+  maxValue: 1
+  durability: 3
   disableChance: 0
