@@ -12,8 +12,7 @@ public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4, health, movementSpeed, attackDamage, energy;
-    public PlayerBaseStats playerBaseStats = new PlayerBaseStats();
-    public PlayerStats playerStats = new PlayerStats();
+    [SerializeField] public TextMeshProUGUI randomNum1Text, randomNum2Text, randomNum3Text, randomNum4Text, healthText, movementSpeedText, attackDamageText, energyText;
 
     public static List<int> randomNum = new List<int>();
     System.Random random = new System.Random();
@@ -22,10 +21,10 @@ public class RandomStat : MonoBehaviour
 
     void Start()
     {
-        health.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.maxHealth.ToString();
-        movementSpeed.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.movementSpeed.ToString();
-        attackDamage.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.attackDamage.ToString();
-        energy.GetComponentInChildren<TextMeshProUGUI>().text = playerStats.maxEnergy.ToString();
+        healthText.text = GameManager.Instance.MaxHealth.ToString();
+        movementSpeedText.text = GameManager.Instance.MovementSpeed.ToString();
+        attackDamageText.text = GameManager.Instance.AttackDamage.ToString();
+        energyText.text = GameManager.Instance.MaxEnergy.ToString();
 
         for (int i = 0; i < 4; i++)
         {
@@ -39,19 +38,19 @@ public class RandomStat : MonoBehaviour
             {
                 case 0:
                     text = string.Join("", randomNum.ElementAt(i));
-                    randomNum1.GetComponentInChildren<TextMeshProUGUI>().text = text;
+                    randomNum1Text.text = text;
                     break;
                 case 1:
                     text = string.Join("", randomNum.ElementAt(i));
-                    randomNum2.GetComponentInChildren<TextMeshProUGUI>().text = text;
+                    randomNum2Text.text = text;
                     break;
                 case 2:
                     text = string.Join("", randomNum.ElementAt(i));
-                    randomNum3.GetComponentInChildren<TextMeshProUGUI>().text = text;
+                    randomNum3Text.text = text;
                     break;
                 case 3:
                     text = string.Join("", randomNum.ElementAt(i));
-                    randomNum4.GetComponentInChildren<TextMeshProUGUI>().text = text;
+                    randomNum4Text.text = text;
                     break;
             }
 

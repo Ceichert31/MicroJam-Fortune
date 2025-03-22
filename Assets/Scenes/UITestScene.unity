@@ -908,7 +908,14 @@ MonoBehaviour:
   movementSpeed: {fileID: 1953630320}
   attackDamage: {fileID: 1524232051}
   energy: {fileID: 763645837}
-  playerBaseStats: {fileID: 0}
+  randomNum1Text: {fileID: 1201583329}
+  randomNum2Text: {fileID: 1415080459}
+  randomNum3Text: {fileID: 315138360}
+  randomNum4Text: {fileID: 286050031}
+  healthText: {fileID: 1812848075}
+  movementSpeedText: {fileID: 745480944}
+  attackDamageText: {fileID: 2072367294}
+  energyText: {fileID: 206213616}
   storeNum: 0
 --- !u!114 &554441679
 MonoBehaviour:
