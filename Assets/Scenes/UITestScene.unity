@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 805645536}
   - component: {fileID: 805645535}
   m_Layer: 5
-  m_Name: Add
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1032,8 +1032,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: filler
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3a5021306c4680c4badb37102554df5a, type: 2}
-  m_sharedMaterial: {fileID: -4786275140981440734, guid: 3a5021306c4680c4badb37102554df5a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
+  m_sharedMaterial: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
