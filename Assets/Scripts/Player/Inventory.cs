@@ -1,15 +1,20 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     [Header("Inventory")]
-    [SerializeField] private Stack<Ore> inventory = new();
+    [SerializeField] private List<Ore> inventory = new();
 
     //Gets stat from game manager
-    private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
-    private int currentCarryCapacity;
+    [SerializeField] private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
+    [SerializeField] private int currentCarryCapacity;
+
+    [ContextMenu("TEST")]
+    public void TEST()
+    {
+        AddOre(new Ore());
+    }
 
     /// <summary>
     /// Adds ore to the inventory
@@ -24,7 +29,7 @@ public class Inventory : MonoBehaviour
         }
 
         //Add ore to stack
-        inventory.Push(ore);
+        inventory.Add(ore);
     }
 
     /// <summary>
@@ -39,7 +44,7 @@ public class Inventory : MonoBehaviour
         }
 
         //Remove ore from stack
-        Ore oreInstance = inventory.Pop();
+        Ore oreInstance = inventory[inventory.Count - 1];
 
         //Instaniate ore
     }
