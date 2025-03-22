@@ -9,6 +9,9 @@ public class InputController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [Header("Player Components")]
+    [SerializeField] private Animator animator;
+
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 10f;
 
@@ -59,6 +62,8 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         isMoving = playerActions.Move.IsInProgress();
+
+        animator.SetBool("isWalking", isMoving);
     }
 
     private void OnEnable()
