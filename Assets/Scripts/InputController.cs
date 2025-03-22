@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
@@ -11,6 +12,8 @@ public class InputController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 10f;
 
+    private SpriteRenderer playerRenderer;
+
     private bool isMoving;
 
     private void Awake()
@@ -19,16 +22,30 @@ public class InputController : MonoBehaviour
         playerActions = inputAction.Player;
 
         rb = GetComponent<Rigidbody2D>();
+        playerRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     private Vector2 MoveDirection()
     {
-        return playerActions.Move.ReadValue<Vector2>().normalized;
+        Vector2 moveDirection = playerActions.Move.ReadValue<Vector2>().normalized;
+
+        //Sprite flipping
+        if (moveDirection.x > 0)
+        {
+            playerRenderer.flipX = false;
+        }
+        else if (moveDirection.x < 0)
+        {
+            playerRenderer.flipX = true;
+        }
+
+        return moveDirection;
     }
 
     private void Move()
     {
-        rb.linearVelocity = MoveDirection() * movementSpeed;
+
+        rb.linearVelocity = (Time.fixedDeltaTime * 100) * movementSpeed * MoveDirection();
     }
 
     private void FixedUpdate()
