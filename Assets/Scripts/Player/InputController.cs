@@ -18,6 +18,10 @@ public class InputController : MonoBehaviour
 
     private bool isMoving;
 
+    [Header("Event Variables")]
+    [SerializeField] private VoidEventChannel eventChannel;
+    private VoidEvent theEvent;
+
     //Getters 
     public bool IsMoving { get { return isMoving; } }
 
@@ -61,7 +65,8 @@ public class InputController : MonoBehaviour
 
     private void LeftClickFunc(InputAction.CallbackContext ctx)
     {
-
+        // send pickaxe swing event
+        eventChannel.CallEvent(theEvent);
     }
 
     private void FixedUpdate()

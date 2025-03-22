@@ -11119,6 +11119,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2116964241453722269, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b07584494888614d9c2e69a584f3819, type: 2}
+    - target: {fileID: 3971089612358047819, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
