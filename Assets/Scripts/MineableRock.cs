@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class MineableRock : MonoBehaviour, IMineable
+public class MineableRock : MonoBehaviour, IDamageable
 {
     [SerializeField] private OreStats oreStats;
     [SerializeField] private int currentHealth;
 
     private GameObject childObject;
+
+    private BoxCollider2D boxCol;
 
     private void Start()
     {
@@ -13,6 +15,8 @@ public class MineableRock : MonoBehaviour, IMineable
         currentHealth = oreStats.durability;
 
         childObject = transform.GetChild(0).gameObject;
+
+        boxCol = GetComponent<BoxCollider2D>();
     }
 
     /// <summary>
@@ -22,7 +26,7 @@ public class MineableRock : MonoBehaviour, IMineable
     public void DealDamage(int damage)
     {
         //Deal damage
-        currentHealth -= damage;
+        currentHealth--;
 
         //Destroy
         if (currentHealth <= 0)
@@ -31,7 +35,7 @@ public class MineableRock : MonoBehaviour, IMineable
             //oreStats.dropItem;
 
             //Disable
-            childObject.SetActive(false);
+            SetObjectStatus(false);
         }
     }
 
@@ -45,13 +49,20 @@ public class MineableRock : MonoBehaviour, IMineable
         currentHealth = oreStats.durability;
 
         //Reenable object
-        childObject.SetActive(true);
+        SetObjectStatus(true);
+   
 
         //Check if object should be disabled
         if (ShouldDisable())
         {
-            childObject.SetActive(false);
+            SetObjectStatus(false);
         }
+    }
+
+    private void SetObjectStatus(bool isEnabled)
+    {
+        childObject.SetActive(isEnabled);
+        boxCol.enabled = isEnabled;
     }
 
     /// <summary>
@@ -66,7 +77,7 @@ public class MineableRock : MonoBehaviour, IMineable
     }
 }
 
-interface IMineable 
+interface IDamageable 
 {
     void DealDamage(int damage);
 }
