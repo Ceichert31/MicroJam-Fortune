@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using DG.Tweening;
 
 public class Drill : MonoBehaviour, IDepositable
 {
@@ -12,6 +13,14 @@ public class Drill : MonoBehaviour, IDepositable
         currentRubies,
         currentTopaz,
         currentEmerald;
+
+    [Header("UI")]
+    private GameObject canvas;
+
+    private void Start()
+    {
+        canvas = transform.GetChild(1).gameObject;
+    }
 
     public void Deposit(OreStats oreToDeposit)
     {
@@ -62,6 +71,24 @@ public class Drill : MonoBehaviour, IDepositable
 
         //If true start defence
         //procceed once player has survived 30 seconds
+    }
+
+    //open when player near
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canvas.transform.DOScaleX(1, 0.2f).SetEase(Ease.OutQuint);
+        }
+    }
+
+    //close when player not near
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canvas.transform.DOScaleX(0, 0.2f).SetEase(Ease.OutQuint);
+        }
     }
 }
 
