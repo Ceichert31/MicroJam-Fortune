@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5eae3600e5361d46950e086b574e12f, type: 3}
-  m_Name: PlayerBaseStats
+  m_Script: {fileID: 11500000, guid: bac913c2994a6f34cba02011b3542d00, type: 3}
+  m_Name: AddOreEventChannel
   m_EditorClassIdentifier: 
-  maxHealth: 7
-  maxEnergy: 7
-  movementSpeed: 3
-  attackDamage: 5
-  vision: 3
-  carryingCapacity: 3
-  luck: 3
-  swag: 0
-  agility: 3
+  OnEventCalled:
+    m_PersistentCalls:
+      m_Calls: []

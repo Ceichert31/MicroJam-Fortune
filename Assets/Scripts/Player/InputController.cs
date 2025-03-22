@@ -18,6 +18,8 @@ public class InputController : MonoBehaviour
 
     private bool isMoving;
 
+    private Inventory playerInventory;
+
     [Header("Event Variables")]
     [SerializeField] private VoidEventChannel eventChannel;
     private VoidEvent theEvent;
@@ -34,6 +36,8 @@ public class InputController : MonoBehaviour
         playerRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
         animator = GetComponent<Animator>();
+
+        playerInventory = GetComponent<Inventory>();    
     }
 
     private Vector2 MoveDirection()
@@ -55,8 +59,13 @@ public class InputController : MonoBehaviour
 
     private void Move()
     {
+        //Calculate drag
+        float dragForce = encumberance;
+        dragForce = Mathf.Clamp(dragForce, 0, movementSpeed - 1);
+        Debug.Log(dragForce);
+
         //Calculate target velocity
-        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - encumberance) * MoveDirection();
+        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - dragForce) * MoveDirection();
 
         rb.linearVelocity = (targetVelocity);
     }
@@ -65,6 +74,11 @@ public class InputController : MonoBehaviour
     {
         // send pickaxe swing event
         eventChannel.CallEvent(theEvent);
+    }
+
+    private void DropLatestItem(InputAction.CallbackContext ctx)
+    {
+        playerInventory.DropNewestItem();
     }
 
     private void FixedUpdate()
@@ -84,6 +98,8 @@ public class InputController : MonoBehaviour
         playerActions.Enable();
 
         playerActions.Fire.performed += LeftClickFunc;
+
+        playerActions.Drop.performed += DropLatestItem;
     }
 
     private void OnDisable()
@@ -91,5 +107,7 @@ public class InputController : MonoBehaviour
         playerActions.Disable();
 
         playerActions.Fire.performed -= LeftClickFunc;
+
+        playerActions.Drop.performed -= DropLatestItem;
     }
 }
