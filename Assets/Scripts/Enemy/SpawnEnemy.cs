@@ -26,7 +26,22 @@ public class SpawnEnemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        if (spawnerInfo.enemyType == EnemyType.BAT_ENEMY)
+        {
+            Gizmos.color = Color.blue;
+        }
+        else if (spawnerInfo.enemyType == EnemyType.FIRE_ENEMY)
+        {
+            Gizmos.color = Color.red;
+        }
+        else if (spawnerInfo.enemyType == EnemyType.MUSHROOM_ENEMY)
+        {
+            Gizmos.color = Color.green;
+        }
+        else if (spawnerInfo.enemyType == EnemyType.ROCK_ENEMY)
+        {
+            Gizmos.color = Color.yellow;
+        }
         // arbitrary 1 value just to display where spawners are
         Gizmos.DrawWireSphere(transform.position, 1);
     }

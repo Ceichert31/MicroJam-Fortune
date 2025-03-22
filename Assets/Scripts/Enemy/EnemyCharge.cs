@@ -60,7 +60,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         }
         else
         {
-
+            boxCollider.enabled = true;
         }
     }
 
