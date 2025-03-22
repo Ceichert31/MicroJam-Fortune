@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
+using Unity.VisualScripting;
+using System.Linq;
 
 public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
-
     PlayerBaseStats playerStats;
 
     List<int> randomNum = new List<int>();
@@ -23,9 +24,12 @@ public class RandomStat : MonoBehaviour
             randomNum.Add(randomNumber);
         }
 
-        text = string.Join(",", randomNum.ToArray());
+        for (int i = 0; i < 4; i++)
+        {
+            text = string.Join("", randomNum.ElementAt(i));
+            canvas.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
-        canvas.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        }
     }
 
     void Update()
