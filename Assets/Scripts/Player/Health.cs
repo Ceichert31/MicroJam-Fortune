@@ -4,6 +4,8 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int currentHealth;
     [SerializeField] private float iFrameDuration = 0.8f;
+    [SerializeField] private FloatEventChannel removeHealthUI_Event;
+    [SerializeField] private FloatEventChannel addHealthUI_Event;
     private int maxHealth => GameManager.Instance.MaxHealth;
 
     private bool hasIFrames;
@@ -25,6 +27,8 @@ public class Health : MonoBehaviour, IDamageable
         currentHealth -= damage;
 
         //Update health UI
+        //Send current health
+        removeHealthUI_Event.CallEvent(new FloatEvent(damage));
 
         if (currentHealth <= 0) 
         {
@@ -39,6 +43,6 @@ public class Health : MonoBehaviour, IDamageable
 
     private void PlayerDeath()
     {
-
+        
     }
 }

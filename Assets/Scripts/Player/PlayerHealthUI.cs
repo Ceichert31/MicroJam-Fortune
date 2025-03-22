@@ -7,44 +7,51 @@ public class PlayerHealthUI : MonoBehaviour
 {
     private int MaxHearts => GameManager.Instance.MaxHealth;
 
+    [SerializeField] GameObject heartPrefab;
+
     [SerializeField] private List<GameObject> layoutGroup;
-    private List<Image> heartImages;
 
     [Header("Heart Settings")]
     [SerializeField] private float transitionTime;
 
     private void Start()
     {
-        
+        AddHearts(new FloatEvent(MaxHearts));
     }
 
     [ContextMenu("Take Damage")]
     public void TEST()
     {
-        UpdateHealthFromDamage(new FloatEvent(2));
+        RemoveHearts(new FloatEvent(2));
     }
-
-    public void UpdateHealthFromDamage(FloatEvent ctx)
+    public void AddHearts(FloatEvent ctx)
     {
-        //9 hearts
-        //Start at end of list
-        //Skip disabled hearts
+        if (ctx.FloatValue > MaxHearts) return;
 
-        for (int i = 0; i < layoutGroup.Count; i++)
+        for (int i = 0; i < ctx.FloatValue; i++)
         {
-            //Enable hearts below max health
-            if (i <= MaxHearts)
-            {
-                layoutGroup[i].SetActive(true);
-
-                //Start at end of list and damage hearts 
-            }
+            //Add heart
+            layoutGroup.Add(Instantiate(heartPrefab, transform.GetChild(0)));
         }
 
-        //Start from max hearts and go down list
-        for (int i = MaxHearts - 1; i < ctx.FloatValue; i--) 
+        //Instaniate and add new hearts when healing
+        //Destroy old hearts
+
+    }
+    public void RemoveHearts(FloatEvent ctx)
+    {
+        if (layoutGroup.Count <= 0) return;
+
+        for (int i = 0; i < ctx.FloatValue; i++)
         {
-            layoutGroup[i].GetComponent<Image>().DOFade(0.3f, transitionTime);
-        }        
+            //Destroy last heart
+            GameObject objectToRemove = layoutGroup[layoutGroup.Count - 1];
+            layoutGroup.RemoveAt(layoutGroup.Count - 1);
+            Destroy(objectToRemove);
+        }
+
+        //Instaniate and add new hearts when healing
+        //Destroy old hearts
+
     }
 }

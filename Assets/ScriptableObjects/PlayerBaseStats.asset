@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5eae3600e5361d46950e086b574e12f, type: 3}
   m_Name: PlayerBaseStats
   m_EditorClassIdentifier: 
-  maxHealth: 7
+  maxHealth: 3
   maxEnergy: 7
   movementSpeed: 3
   attackDamage: 5
