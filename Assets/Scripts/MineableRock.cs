@@ -3,12 +3,16 @@ using UnityEngine;
 public class MineableRock : MonoBehaviour, IMineable
 {
     [SerializeField] private OreStats oreStats;
-    [SerializeField] private int health;
+    [SerializeField] private int currentHealth;
+
+    private GameObject childObject;
 
     private void Start()
     {
         //Set health
-        health = oreStats.durability;
+        currentHealth = oreStats.durability;
+
+        childObject = transform.GetChild(0).gameObject;
     }
 
     /// <summary>
@@ -17,16 +21,17 @@ public class MineableRock : MonoBehaviour, IMineable
     /// <param name="damage"></param>
     public void DealDamage(int damage)
     {
-        health -= damage;
+        //Deal damage
+        currentHealth -= damage;
 
         //Destroy
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             //Drop ore 
             //oreStats.dropItem;
 
             //Disable
-            gameObject.SetActive(false);
+            childObject.SetActive(false);
         }
     }
 
@@ -37,18 +42,22 @@ public class MineableRock : MonoBehaviour, IMineable
     public void ResetObject(VoidEvent ctx)
     {
         //Reset health
-        health = oreStats.durability;
+        currentHealth = oreStats.durability;
 
         //Reenable object
-        gameObject.SetActive(true);
+        childObject.SetActive(true);
 
         //Check if object should be disabled
         if (ShouldDisable())
         {
-            gameObject.SetActive(false);
+            childObject.SetActive(false);
         }
     }
 
+    /// <summary>
+    /// Returns whether the current ore should be disabled
+    /// </summary>
+    /// <returns></returns>
     private bool ShouldDisable()
     {
         int chance = Random.Range(0, 10);
