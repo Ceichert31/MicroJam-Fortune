@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Ore")]
+[CreateAssetMenu(menuName = "Ore/Ore Stats")]
 public class OreStats : ScriptableObject
 {
     public OreType oreType;
