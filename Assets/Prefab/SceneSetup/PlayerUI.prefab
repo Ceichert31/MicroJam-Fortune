@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 788963771319368845}
   - component: {fileID: 1971346987254198737}
   - component: {fileID: 1032620438887498426}
+  - component: {fileID: 6928424768459025614}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -178,6 +179,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6928424768459025614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122208386561497164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c699cd94647b1394d977d42a2d2d1135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 34f2c3359f86d2045a268d09ff7f2129, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 788963771319368845}
+        m_TargetAssemblyTypeName: PlayerUIController, Assembly-CSharp
+        m_MethodName: ResetOreUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4661280328275782682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
