@@ -8,7 +8,7 @@ public struct OreEvent
 {
     public OreStats Value;
     public int Count;
-    public OreEvent(OreStats value, int count = 0)
+    public OreEvent(OreStats value, int count)
     {
         Value = value;
         Count = count;

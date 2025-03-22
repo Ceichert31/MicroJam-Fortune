@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50dba97a70ec47c4bae0722d050a4102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: c9770130baf0a8a4b872de6441c2bd92, type: 2}
+  eventChannel: {fileID: 11400000, guid: f313ab4778e594944ab7214a351bbd00, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.099976
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

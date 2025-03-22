@@ -12,6 +12,8 @@ public class MineableRock : MonoBehaviour, IDamageable
 
     private Animator animator;
 
+    private OreEvent oreEvent;
+
     private void Start()
     {
         //Set health
@@ -41,7 +43,9 @@ public class MineableRock : MonoBehaviour, IDamageable
             //oreStats.dropItem;
 
             //Add ore
-            addOre_Event.CallEvent(new OreEvent(oreStats));
+            oreEvent.Value = oreStats;
+            oreEvent.Count = Random.Range(oreStats.minValue, oreStats.maxValue);
+            addOre_Event.CallEvent(oreEvent);
 
             //Disable
             SetObjectStatus(false);
