@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -17,6 +18,9 @@ public class Inventory : MonoBehaviour
 
     private FloatEvent capacityEvent;
     private OreEvent oreEvent;
+
+    //Getters
+    public int CurrentCarryCapcity { get { return currentCarryCapacity; } }
 
     /// <summary>
     /// Adds ore to the inventory
@@ -144,11 +148,36 @@ public class Inventory : MonoBehaviour
     /// Returns the inventory and clears it
     /// </summary>
     /// <returns></returns>
-    public List<OreStats> GetAllOre()
+    public OreStats GetLastOre()
     {
-        //Cache list, clear it, then return ore
-        List<OreStats> list = inventory;
-        ClearInventory();
-        return list;
+        //Cache last ore, clear it, return it
+        //Guard Clause
+        if (inventory.Count <= 0) return null;
+
+        //Decrease current carry capacity
+        currentCarryCapacity--;
+
+        //If dropping ore sets us below max carry capacity, reduce encumbrance
+        if (GameManager.Instance.Encumbrance > 0)
+        {
+            GameManager.Instance.Encumbrance--;
+        }
+
+        //Cache latest ore
+        OreStats ore = inventory[inventory.Count - 1];
+
+        //Remove ore from stack
+        inventory.RemoveAt(inventory.Count - 1);
+
+        //Update capacity text
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
+
+        //Update ore UI
+        oreEvent.Value = ore;
+        oreEvent.Count = GetOreTypeCount(ore.oreType);
+        updateOreUI_Event.CallEvent(oreEvent);
+
+        return ore;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -19,11 +20,9 @@ public class PlayerInteractor : MonoBehaviour
         hasInteracted = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //Check layer
-        //Try get
-        //check for e
         if (collision.gameObject.layer != interactLayer) return;
 
         //Check for button press
@@ -31,22 +30,17 @@ public class PlayerInteractor : MonoBehaviour
 
         hasInteracted = false;
 
-        Debug.Log("1");
-
         if (collision.gameObject.TryGetComponent(out IDepositable instance))
         {
-            Debug.Log("2");
-            foreach (OreStats ore in inventory.GetAllOre()) 
+            for (int i = 0; i < inventory.CurrentCarryCapcity; i++) 
             {
-                Debug.Log("3");
-                instance.Deposit(ore, 1);
+                instance.Deposit(inventory.GetLastOre());
             }
-
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        //Clear text prompt
     }
 }

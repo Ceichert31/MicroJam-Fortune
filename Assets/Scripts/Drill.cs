@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Drill : MonoBehaviour, IDepositable
@@ -11,14 +13,13 @@ public class Drill : MonoBehaviour, IDepositable
         currentTopaz,
         currentEmerald;
 
-    public void Deposit(OreStats ore, int count)
+    public void Deposit(OreStats oreToDeposit)
     {
-        Debug.Log("TEST");
-        //Check if all ores have been deposited
-        switch (ore.oreType) 
+        //Check ore type and add to current ore
+        switch (oreToDeposit.oreType)
         {
             case OreType.Sapphire:
-                currentSapphires += count;
+                currentSapphires++;
 
                 if (currentSapphires >= repairCost.requiredSapphires)
                 {
@@ -27,7 +28,7 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Ruby:
-                currentRubies += count;
+                currentRubies++;
 
                 if (currentRubies >= repairCost.requiredRubies)
                 {
@@ -36,7 +37,7 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Topaz:
-                currentTopaz += count;
+                currentTopaz++;
 
                 if (currentTopaz >= repairCost.requiredTopaz)
                 {
@@ -45,7 +46,7 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Emerald:
-                currentEmerald += count;
+                currentEmerald++;
 
                 if (currentEmerald >= repairCost.requiredEmerald)
                 {
@@ -63,5 +64,5 @@ public class Drill : MonoBehaviour, IDepositable
 
 interface IDepositable
 {
-    public void Deposit(OreStats ore, int count);
+    public void Deposit(OreStats oreToDeposit);
 }
