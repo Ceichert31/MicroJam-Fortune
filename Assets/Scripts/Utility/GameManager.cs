@@ -25,6 +25,17 @@ public class GameManager : MonoBehaviour
 
     private float gameTickTimer;
 
+    private GameStates currentGameState = GameStates.Exploration;
+    private bool reachedSapphireQuota;
+    private bool reachedRubyQuota;
+    private bool reachedEmeraldQuota;
+    private bool reachedTopazQuota;
+
+    public bool ReachedSapphireQuota { get { return reachedSapphireQuota; } }
+    public bool ReachedRubyQuota { get { return reachedRubyQuota; } }
+    public bool ReachedEmeraldQuota { get { return reachedEmeraldQuota; } }
+    public bool ReachedTopazQuota { get { return reachedTopazQuota; } }
+
     private enum CoreStats
     {
         Health,
@@ -42,6 +53,13 @@ public class GameManager : MonoBehaviour
         Agility
     }
 
+    public enum GameStates
+    {
+        Paused,
+        Exploration,
+        Defense,
+    }
+
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
@@ -56,6 +74,7 @@ public class GameManager : MonoBehaviour
     public int Luck { get { return playerStats.luck; } }
     public int Swag { get { return playerStats.swag; } }
     public int Agility { get { return playerStats.agility; } }
+    public GameStates CurrentGameState { get { return currentGameState; } }
 
     private void Awake()
     {
@@ -88,7 +107,10 @@ public class GameManager : MonoBehaviour
     {
         oreRespawn_Event.CallEvent(theEvent);
     }
-
+    public void SetGameState(GameStates state)
+    {
+        currentGameState = state;
+    }
     private void UpdateCoreStat(CoreStats coreStats, int value)
     {
         switch (coreStats)
@@ -127,6 +149,38 @@ public class GameManager : MonoBehaviour
             case SideStats.Agility:
                 playerStats.agility += value;
                 break;
+        }
+    }
+
+    /// <summary>
+    /// Sets a quota as reached
+    /// </summary>
+    /// <param name="type"></param>
+    public void QuotaReached(OreType type)
+    {
+        switch (type)
+        {
+            case OreType.Sapphire:
+                reachedSapphireQuota = true;
+                break;
+
+            case OreType.Ruby:
+                reachedRubyQuota = true;
+                break;
+
+            case OreType.Topaz:
+                reachedTopazQuota = true;
+                break;
+
+            case OreType.Emerald:
+                reachedEmeraldQuota = true;
+                break;
+        }
+
+        //If all quotas are reached, change game state
+        if (ReachedSapphireQuota && ReachedRubyQuota && reachedEmeraldQuota && ReachedTopazQuota) 
+        {
+            currentGameState = GameStates.Defense;
         }
     }
 }
