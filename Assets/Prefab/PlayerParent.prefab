@@ -194,6 +194,8 @@ GameObject:
   m_Component:
   - component: {fileID: 869926781014052881}
   - component: {fileID: 3971089612358047819}
+  - component: {fileID: 6782559351212433953}
+  - component: {fileID: 8697526587557101350}
   m_Layer: 0
   m_Name: Pickaxe
   m_TagString: Untagged
@@ -271,6 +273,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6782559351212433953
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024324409643358884}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &8697526587557101350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024324409643358884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4b02421e2e1341a40177a57847d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageValue: 1
+  isPlayer: 1
+  targetLayer: 6
 --- !u!1 &4870837055833942579
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680714139094337562}
   - component: {fileID: 2116964241453722269}
+  - component: {fileID: 2616635845315080600}
   - component: {fileID: 537110870392874641}
   - component: {fileID: 3494946060065478435}
   - component: {fileID: 1554786330631502307}
@@ -410,6 +474,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventChannel: {fileID: 11400000, guid: 2b07584494888614d9c2e69a584f3819, type: 2}
+--- !u!114 &2616635845315080600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413403391528749219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788b4e3d8a879534dae0f42a0ba188fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
+  currentCarryCapacity: 0
 --- !u!50 &537110870392874641
 Rigidbody2D:
   serializedVersion: 5
