@@ -11,7 +11,8 @@ public class InputController : MonoBehaviour
     private Animator animator;
 
     [Header("Movement Settings")]
-    [SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private int movementSpeed => GameManager.Instance.MovementSpeed;
+    private float encumberance => GameManager.Instance.Encumbrance;
 
     private SpriteRenderer playerRenderer;
 
@@ -51,7 +52,16 @@ public class InputController : MonoBehaviour
     private void Move()
     {
 
-        rb.linearVelocity = (Time.fixedDeltaTime * 100) * movementSpeed * MoveDirection();
+        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * movementSpeed * MoveDirection();
+
+        Vector2 dragForce = new (encumberance, encumberance);
+
+        rb.linearVelocity = (targetVelocity - dragForce);
+    }
+
+    private void LeftClickFunc(InputAction.CallbackContext ctx)
+    {
+
     }
 
     private void FixedUpdate()
@@ -69,10 +79,14 @@ public class InputController : MonoBehaviour
     private void OnEnable()
     {
         playerActions.Enable();
+
+        playerActions.Fire.performed += LeftClickFunc;
     }
 
     private void OnDisable()
     {
         playerActions.Disable();
+
+        playerActions.Fire.performed -= LeftClickFunc;
     }
 }
