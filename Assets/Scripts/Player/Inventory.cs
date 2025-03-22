@@ -72,4 +72,30 @@ public class Inventory : MonoBehaviour
         //Add money
         inventory.Clear();
     }
+
+    [ContextMenu("Remove")]
+    /// <summary>
+    /// Removes over capacity ore
+    /// </summary>
+    public void RemoveOverflow()
+    {
+        //Remove everything after max carry capacity
+        for (int i = maxCarryCapacity - 1; i < inventory.Count; i++) 
+        {
+            //Remove ore
+            inventory.RemoveAt(i);
+
+            //Reduce capacity
+            currentCarryCapacity--;
+
+            //Reduce encumbrance
+            if (GameManager.Instance.Encumbrance > 0)
+            {
+                GameManager.Instance.Encumbrance--;
+            }
+        }
+        //Update capacity text
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
+    }
 }
