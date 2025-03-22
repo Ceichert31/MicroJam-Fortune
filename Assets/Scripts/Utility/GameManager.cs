@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public bool ReachedEmeraldQuota { get { return reachedEmeraldQuota; } }
     public bool ReachedTopazQuota { get { return reachedTopazQuota; } }
 
-    private enum CoreStats
+    public enum CoreStats
     {
         Health,
         MovementSpeed,
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         Energy
     }
 
-    private enum SideStats
+    public enum SideStats
     {
         Vision,
         CarryingCapacity,
@@ -111,7 +111,8 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = state;
     }
-    private void UpdateCoreStat(CoreStats coreStats, int value)
+    // Updating player stats
+    public void UpdateCoreStat(CoreStats coreStats, int value)
     {
         switch (coreStats)
         {
@@ -130,7 +131,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void UpdateSideStat(SideStats sideStats, int value)
+     public void UpdateSideStat(SideStats sideStats, int value)
     {
         switch (sideStats)
         {
