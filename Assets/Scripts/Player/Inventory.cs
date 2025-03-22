@@ -4,7 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [Header("Inventory")]
-    [SerializeField] private List<Ore> inventory = new();
+    [SerializeField] private List<OreStats> inventory = new();
 
     //Gets stat from game manager
     [SerializeField] private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
@@ -13,14 +13,14 @@ public class Inventory : MonoBehaviour
     [ContextMenu("TEST")]
     public void TEST()
     {
-        AddOre(new Ore());
+        AddOre(new OreStats());
     }
 
     /// <summary>
     /// Adds ore to the inventory
     /// </summary>
     /// <param name="ore"></param>
-    public void AddOre(Ore ore)
+    public void AddOre(OreStats ore)
     {
         //Increase encumberance if above carry capacity
         if (currentCarryCapacity >= maxCarryCapacity)
@@ -44,7 +44,7 @@ public class Inventory : MonoBehaviour
         }
 
         //Remove ore from stack
-        Ore oreInstance = inventory[inventory.Count - 1];
+        OreStats oreInstance = inventory[inventory.Count - 1];
 
         //Instaniate ore
     }
