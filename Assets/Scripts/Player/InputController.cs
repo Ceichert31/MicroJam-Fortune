@@ -55,12 +55,10 @@ public class InputController : MonoBehaviour
 
     private void Move()
     {
+        //Calculate target velocity
+        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - encumberance) * MoveDirection();
 
-        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * movementSpeed * MoveDirection();
-
-        Vector2 dragForce = new (encumberance, encumberance);
-
-        rb.linearVelocity = (targetVelocity - dragForce);
+        rb.linearVelocity = (targetVelocity);
     }
 
     private void LeftClickFunc(InputAction.CallbackContext ctx)
