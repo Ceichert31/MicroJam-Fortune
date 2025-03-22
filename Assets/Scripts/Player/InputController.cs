@@ -16,6 +16,9 @@ public class InputController : MonoBehaviour
 
     private bool isMoving;
 
+    //Getters 
+    public bool IsMoving { get { return isMoving; } }
+
     private void Awake()
     {
         inputAction = new InputSystem_Actions();
