@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredSapphires: 5
   requiredRubies: 2
-  requiredTopaz: 11
+  requiredTopaz: 3
   requiredEmerald: 4

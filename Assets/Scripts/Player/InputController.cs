@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -87,7 +88,15 @@ public class InputController : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext ctx)
     {
-        playerInteractor.CanInteract();
+        playerInteractor.CanInteract(true);
+    }
+    /// <summary>
+    /// Cancel interact
+    /// </summary>
+    /// <param name="ctx"></param>
+    private void StopInteracting(InputAction.CallbackContext ctx)
+    {
+        playerInteractor.CanInteract(false);
     }
 
     private void FixedUpdate()
@@ -111,6 +120,7 @@ public class InputController : MonoBehaviour
         playerActions.Drop.performed += DropLatestItem;
 
         playerActions.Interact.performed += Interact;
+        playerActions.Interact.canceled += StopInteracting;
     }
 
     private void OnDisable()
@@ -122,5 +132,6 @@ public class InputController : MonoBehaviour
         playerActions.Drop.performed -= DropLatestItem;
 
         playerActions.Interact.performed -= Interact;
+        playerActions.Interact.canceled -= StopInteracting;
     }
 }
