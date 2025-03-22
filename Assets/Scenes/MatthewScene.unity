@@ -666,6 +666,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3971089612358047819, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4680714139094337562, guid: ff0b3eb3ecffb0c4e8ee7659fc3f37de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -844,8 +848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'COOL COOL SWAG SWAG SWAG COOL AWESOMENESS :]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
-  m_sharedMaterial: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f9756bfac14d72a49b7abfcd7acebb67, type: 2}
+  m_sharedMaterial: {fileID: 4919512505236685079, guid: f9756bfac14d72a49b7abfcd7acebb67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
