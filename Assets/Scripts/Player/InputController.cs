@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
@@ -16,16 +15,21 @@ public class InputController : MonoBehaviour
 
     private SpriteRenderer playerRenderer;
 
-    private bool isMoving;
-
     private Inventory playerInventory;
+
+    private PlayerInteractor playerInteractor;
 
     [Header("Event Variables")]
     [SerializeField] private VoidEventChannel eventChannel;
     private VoidEvent theEvent;
 
+    private bool isMoving;
+    private bool hasInteracted;
+
     //Getters 
     public bool IsMoving { get { return isMoving; } }
+    public bool HasInteracted { get { return hasInteracted;} }
+
 
     private void Awake()
     {
@@ -38,6 +42,7 @@ public class InputController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         playerInventory = GetComponent<Inventory>();    
+        playerInteractor = GetComponentInChildren<PlayerInteractor>();
     }
 
     private Vector2 MoveDirection()
@@ -80,6 +85,11 @@ public class InputController : MonoBehaviour
         playerInventory.DropNewestItem();
     }
 
+    private void Interact(InputAction.CallbackContext ctx)
+    {
+        playerInteractor.CanInteract();
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -99,6 +109,8 @@ public class InputController : MonoBehaviour
         playerActions.Fire.performed += LeftClickFunc;
 
         playerActions.Drop.performed += DropLatestItem;
+
+        playerActions.Interact.performed += Interact;
     }
 
     private void OnDisable()
@@ -108,5 +120,7 @@ public class InputController : MonoBehaviour
         playerActions.Fire.performed -= LeftClickFunc;
 
         playerActions.Drop.performed -= DropLatestItem;
+
+        playerActions.Interact.performed -= Interact;
     }
 }

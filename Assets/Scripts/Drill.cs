@@ -5,7 +5,7 @@ public class Drill : MonoBehaviour, IDepositable
     [Header("Repair Cost")]
     [SerializeField] private OreCost repairCost;
 
-    private int 
+    [SerializeField] private int 
         currentSapphires,
         currentRubies,
         currentTopaz,
@@ -13,6 +13,7 @@ public class Drill : MonoBehaviour, IDepositable
 
     public void Deposit(OreStats ore, int count)
     {
+        Debug.Log("TEST");
         //Check if all ores have been deposited
         switch (ore.oreType) 
         {

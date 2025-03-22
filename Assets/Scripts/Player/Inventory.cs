@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private FloatEventChannel setCapacityText_Event;
     [SerializeField] private OreEventChannel updateOreUI_Event;
+    [SerializeField] private VoidEventChannel resetOreUI_Event;
 
     [Header("Inventory")]
     [SerializeField] private List<OreStats> inventory = new();
@@ -94,10 +95,22 @@ public class Inventory : MonoBehaviour
     /// <summary>
     /// Clears inventory
     /// </summary>
-    public void RemoveOre()
+    public void ClearInventory()
     {
-        //Calculate value
-        //Add money
+        //Guard Clause
+        if (inventory.Count <= 0) return;
+
+        //Get rid of speed penalty
+        GameManager.Instance.Encumbrance = 0;
+
+        //Empty carry capacity
+        currentCarryCapacity = 0;
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
+
+        //Set all ore UI to zero
+        resetOreUI_Event.CallEvent(new VoidEvent());
+
         inventory.Clear();
     }
 
@@ -125,5 +138,17 @@ public class Inventory : MonoBehaviour
         //Update capacity text
         capacityEvent.FloatValue = currentCarryCapacity;
         setCapacityText_Event.CallEvent(capacityEvent);
+    }
+
+    /// <summary>
+    /// Returns the inventory and clears it
+    /// </summary>
+    /// <returns></returns>
+    public List<OreStats> GetAllOre()
+    {
+        //Cache list, clear it, then return ore
+        List<OreStats> list = inventory;
+        ClearInventory();
+        return list;
     }
 }

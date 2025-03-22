@@ -47,4 +47,11 @@ public class PlayerUIController : MonoBehaviour
                 break;
         }
     }
+    public void ResetOreUI(VoidEvent ctx)
+    {
+        sapphireText.text = "00";
+        rubyText.text = "00";
+        emeraldText.text = "00";
+        topazText.text = "00";
+    }
 }
