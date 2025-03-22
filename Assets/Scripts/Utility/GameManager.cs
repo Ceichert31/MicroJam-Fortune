@@ -25,6 +25,23 @@ public class GameManager : MonoBehaviour
 
     private float gameTickTimer;
 
+    private enum CoreStats
+    {
+        Health,
+        MovementSpeed,
+        AttackDamage,
+        Energy
+    }
+
+    private enum SideStats
+    {
+        Vision,
+        CarryingCapacity,
+        Luck,
+        Swag,
+        Agility
+    }
+
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
@@ -71,6 +88,46 @@ public class GameManager : MonoBehaviour
     {
         oreRespawn_Event.CallEvent(theEvent);
     }
+
+    private void UpdateCoreStat(CoreStats coreStats, int value)
+    {
+        switch (coreStats)
+        {
+            case CoreStats.Health:
+                playerStats.maxHealth += value;
+                break;
+            case CoreStats.MovementSpeed:
+                playerStats.movementSpeed += value;
+                break;
+            case CoreStats.AttackDamage:
+                playerStats.attackDamage += value;
+                break;
+            case CoreStats.Energy:
+                playerStats.maxEnergy += value;
+                break;
+        }
+    }
+
+    private void UpdateSideStat(SideStats sideStats, int value)
+    {
+        switch (sideStats)
+        {
+            case SideStats.Vision:
+                playerStats.vision += value;
+                break;
+            case SideStats.CarryingCapacity:
+                playerStats.carryingCapacity += value;
+                break;
+            case SideStats.Luck:
+                playerStats.luck += value;
+                break;
+            case SideStats.Swag:
+                playerStats.swag += value;
+                break;
+            case SideStats.Agility:
+                playerStats.agility += value;
+                break;
+        }
 }
 [System.Serializable]
 public struct PlayerStats
