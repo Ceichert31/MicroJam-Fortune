@@ -12,8 +12,22 @@ public class GameManager : MonoBehaviour
     [Header("Scriptable Object Reference")]
     [SerializeField] private PlayerBaseStats baseStats;
 
+    private float encumbrance;
+
     //Getters
     public Transform PlayerTransform { get { return player; } }
+    //Core stat getters
+    public int MaxHealth { get { return playerStats.maxHealth; } }
+    public int MovementSpeed { get { return playerStats.movementSpeed; } }
+    public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
+    public int AttackDamage { get { return playerStats.attackDamage; } }
+    public int MaxEnergy { get { return playerStats.maxEnergy; } }
+    //Side stat getters
+    public int Vision { get { return playerStats.vision; } }
+    public int CarryCapacity { get { return playerStats.carryingCapacity; } }
+    public int Luck { get { return playerStats.luck; } }
+    public int Swag { get { return playerStats.swag; } }
+    public int Agility { get { return playerStats.agility; } }
 
     private void Awake()
     {
@@ -24,23 +38,6 @@ public class GameManager : MonoBehaviour
 
         //Init player stats
         playerStats = new PlayerStats(baseStats);
-    }
-
-    public int GetMaxHealth()
-    {
-        return playerStats.maxHealth;
-    }
-    public int GetMovementSpeed()
-    {
-        return playerStats.movementSpeed;
-    }
-    public int GetAttackDamage()
-    {
-        return playerStats.attackDamage;
-    }
-    public int GetMaxEnergy()
-    {
-        return playerStats.maxEnergy;
     }
 }
 [System.Serializable]
