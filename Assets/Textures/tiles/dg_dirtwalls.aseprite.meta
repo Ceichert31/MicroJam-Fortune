@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638782421962167132
+  platformSettingsDirtyTick: 638782428572541781
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: dg_dirtwalls
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.525, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 208
+      width: 320
       height: 96
-    spriteID: aec1c0c2e7f4c6f458d0cf85ec19cc14
+    spriteID: 997334cef95f6bc4aab5f2651c93b2a6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,8 +147,8 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: dg_dirtwalls_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -157,7 +157,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: f64c30abc8a449a48894f3e2c0259c92
+    spriteID: f654c6e4b5af61c4f9d8684501b6a325
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,8 +168,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -178,7 +178,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: a3a4b0648a212bd4894d459332f55f33
+    spriteID: 4436983aa51f2ea4eb0c1fb461fcd680
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -189,8 +189,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -199,7 +199,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: 455d219f5c6566f4c9ef983030bcd71a
+    spriteID: 6670fa7a95ae2bc4f83885ab44f036e7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -210,8 +210,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -220,7 +220,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: 19d1c659f4d041244bdffe6d5b22d8c2
+    spriteID: fbbc776289a318149bbc4c6ead5603a9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -231,8 +231,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -241,7 +241,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: e1388519b4667804c8380af0659b9a6a
+    spriteID: f876ee0dbaf387447b2c7a9842c7d0bb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,8 +252,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -262,7 +262,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: 5e8f1154fea7d224cbfafde716aba725
+    spriteID: 9a24227466fb96e44a47e4246acc97cd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -273,8 +273,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -283,7 +283,7 @@ ScriptedImporter:
       y: 68
       width: 16
       height: 32
-    spriteID: 21d2f78f24ac27642830500ba8740c7b
+    spriteID: cf1fd071ce769404e8574d18875eae09
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -294,17 +294,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 36
+      x: 244
+      y: 68
       width: 16
       height: 32
-    spriteID: 3b8ec3481d343de44acaa6db13c46b94
+    spriteID: 4e7b1873af7613744b785210065473ab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -315,17 +315,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 36
-      y: 36
+      x: 292
+      y: 68
       width: 16
       height: 32
-    spriteID: 894d8be9073f1ec44b202accd3da868e
+    spriteID: 1928dd7e3033b97458802a8903700f4f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -336,17 +336,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 52
-      y: 36
+      x: 308
+      y: 68
       width: 16
       height: 32
-    spriteID: 688840f3a2973654c97e9231a2c7c8c8
+    spriteID: d203095cc9738784193e98d59713ad6e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -357,17 +357,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 68
+      x: 4
       y: 36
       width: 16
       height: 32
-    spriteID: 8eb30b0e1d5878f4b82129fa2eb7195f
+    spriteID: d7866efe68aa6154f83379505088218a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -378,17 +378,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 100
+      x: 36
       y: 36
       width: 16
       height: 32
-    spriteID: a3a53c6efbe3cd540ab5717dcd1ee62f
+    spriteID: 521490718bbf92a4381b2870f55a15d5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -399,17 +399,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
+      x: 52
       y: 36
       width: 16
       height: 32
-    spriteID: 3ecba7926b98caf43b2ee60235a8dd50
+    spriteID: 6c2189406eec85b47b989a28ab87be33
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -420,17 +420,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 132
+      x: 68
       y: 36
       width: 16
       height: 32
-    spriteID: be1c322b2baff2544bbc293a8014f3a0
+    spriteID: d9da2f6de267c5e4a8b319866829e464
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -441,17 +441,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 164
+      x: 100
       y: 36
       width: 16
       height: 32
-    spriteID: 2f83d147bede5304cbd7244ebca557cd
+    spriteID: a0019a4589a4fcb49a963549f85ce7d3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -462,17 +462,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_15
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 196
+      x: 116
       y: 36
       width: 16
       height: 32
-    spriteID: 418a23ed2b152a2498b7fa7981bdcb5a
+    spriteID: dd3a951a45c0bb843957225f47811a4b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -483,17 +483,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_16
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 52
-      y: 4
+      x: 132
+      y: 36
       width: 16
       height: 32
-    spriteID: e823159cff4a1c54b96092e3988eb054
+    spriteID: 7a308545aec14c543b4dc5e26c858039
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -504,17 +504,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_17
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 100
-      y: 4
+      x: 164
+      y: 36
       width: 16
       height: 32
-    spriteID: c798aab598dfe2241b10091939e77af1
+    spriteID: c4408b07489ffd84b9008c926bab97ad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -525,17 +525,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_18
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
-      y: 4
+      x: 196
+      y: 36
       width: 16
       height: 32
-    spriteID: f12aa0042e9de5f40b2466ada0de0c5e
+    spriteID: fa906706039f29b42aad2ed8381b5edf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -546,17 +546,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_19
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 132
-      y: 4
+      x: 228
+      y: 36
       width: 16
       height: 32
-    spriteID: 53ac8b3aa39a4604aafe7ba178090e66
+    spriteID: d0351124840f36d48a804730ab7e0424
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -567,17 +567,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_20
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 164
-      y: 4
+      x: 260
+      y: 36
       width: 16
       height: 32
-    spriteID: 849a964023b6c9f478d6d9a2a504e8d1
+    spriteID: d4d97be87868bfe498e06d04d924f809
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -588,17 +588,17 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_21
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 180
-      y: 4
+      x: 292
+      y: 36
       width: 16
       height: 32
-    spriteID: 5cc20d5135bfc4640a5144e21326cbaa
+    spriteID: b7f9c80c3a412574eb0c5f75d4a63520
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -609,17 +609,185 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: dg_dirtwalls_22
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 196
+      x: 308
+      y: 36
+      width: 16
+      height: 32
+    spriteID: 0615735c55a6b6d41a7f232d6804d4bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_23
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 52
       y: 4
       width: 16
       height: 32
-    spriteID: 44aa0d451c002f444b178616be47f6e1
+    spriteID: 5f2f0f27c53b74840b29fd0757946a24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_24
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 4
+      width: 16
+      height: 32
+    spriteID: b6de2295d3062e94e8efb3970d1ae6fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_25
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 5280e3d2773025249b5a7ebe5f50f6c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_26
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 7d41c83aff6a9ed4b8e7ac3ebd248496
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_27
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 4
+      width: 16
+      height: 32
+    spriteID: f35d78d2f41157e4ca351a41d435e0ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_28
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 76a67246516dbfb419d34d89e5fc38d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_29
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 197
+      y: 3
+      width: 16
+      height: 32
+    spriteID: 01f71635f4f360141b2d9da6bcc3efdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: dg_dirtwalls_30
+    originalName: 
+    pivot: {x: 0.5, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 4
+      width: 16
+      height: 32
+    spriteID: e73247c2c2e97c3479b219252ecdac97
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -642,9 +810,9 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 208
+        width: 320
         height: 96
-      spriteId: aec1c0c2e7f4c6f458d0cf85ec19cc14
+      spriteId: 997334cef95f6bc4aab5f2651c93b2a6
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -699,5 +867,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 208, y: 96}
-  previousTextureSize: {x: 256, y: 128}
+  canvasSize: {x: 336, y: 96}
+  previousTextureSize: {x: 512, y: 128}
