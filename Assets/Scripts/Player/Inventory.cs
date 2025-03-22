@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private FloatEventChannel setCapacityText_Event;
+
     [Header("Inventory")]
     [SerializeField] private List<OreStats> inventory = new();
 
     //Gets stat from game manager
     [SerializeField] private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
     [SerializeField] private int currentCarryCapacity;
+
+    private FloatEvent capacityEvent;
 
     /// <summary>
     /// Adds ore to the inventory
@@ -27,6 +32,10 @@ public class Inventory : MonoBehaviour
 
         //Add ore to stack
         inventory.Add(ctx.Value);
+
+        //Update capacity text
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
     }
 
     /// <summary>
@@ -48,6 +57,10 @@ public class Inventory : MonoBehaviour
 
         //Remove ore from stack
         inventory.RemoveAt(inventory.Count - 1);
+
+        //Update capacity text
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
     }
 
     /// <summary>

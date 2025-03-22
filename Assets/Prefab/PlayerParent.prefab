@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3933553800382622141}
   - component: {fileID: 4845229098816976435}
   - component: {fileID: 4223135501409467890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickaxeAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8854996740332744730}
   - component: {fileID: 7819135543826862234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 3971089612358047819}
   - component: {fileID: 6782559351212433953}
   - component: {fileID: 8697526587557101350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2454162170014503206}
   - component: {fileID: 3096189031850861530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,11 +432,12 @@ GameObject:
   - component: {fileID: 4680714139094337562}
   - component: {fileID: 2116964241453722269}
   - component: {fileID: 2616635845315080600}
+  - component: {fileID: 8990392840728984246}
   - component: {fileID: 537110870392874641}
   - component: {fileID: 3494946060065478435}
   - component: {fileID: 1554786330631502307}
   - component: {fileID: 8913428797270345998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,8 +487,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788b4e3d8a879534dae0f42a0ba188fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setCapacityText_Event: {fileID: 11400000, guid: b1a8ade8e2217364d911527b0f3bbf11, type: 2}
   inventory: []
   currentCarryCapacity: 0
+--- !u!114 &8990392840728984246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413403391528749219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dba97a70ec47c4bae0722d050a4102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c9770130baf0a8a4b872de6441c2bd92, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2616635845315080600}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: AddOre
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &537110870392874641
 Rigidbody2D:
   serializedVersion: 5
@@ -609,7 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281895710146524171}
   - component: {fileID: 5118176077347666468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickaxeParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
