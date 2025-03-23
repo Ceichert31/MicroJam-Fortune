@@ -185,7 +185,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3620949
+    rgba: 4281811029
   m_fontColor: {r: 0.3333333, g: 0.2521775, b: 0.21558347, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -314,14 +314,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: CANIK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
-  m_sharedMaterial: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d0e61abff3cc5c43b0a79b4e74dd60f, type: 2}
+  m_sharedMaterial: {fileID: 8678611575728400928, guid: 2d0e61abff3cc5c43b0a79b4e74dd60f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3620949
+    rgba: 4281811029
   m_fontColor: {r: 0.3333333, g: 0.2521775, b: 0.21558347, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3620949
+    rgba: 4281811029
   m_fontColor: {r: 0.3333333, g: 0.2521775, b: 0.21558347, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3620949
+    rgba: 4281811029
   m_fontColor: {r: 0.3333333, g: 0.2521775, b: 0.21558347, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3620949
+    rgba: 4281811029
   m_fontColor: {r: 0.3333333, g: 0.2521775, b: 0.21558347, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
