@@ -206,6 +206,8 @@ GameObject:
   - component: {fileID: 39040057}
   - component: {fileID: 39040056}
   - component: {fileID: 39040058}
+  - component: {fileID: 39040060}
+  - component: {fileID: 39040059}
   m_Layer: 5
   m_Name: RandomNum8
   m_TagString: Untagged
@@ -293,8 +295,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -315,6 +317,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &39040059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39040054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 39040060}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 39040060}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &39040060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39040054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 8
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &127920137
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +916,8 @@ GameObject:
   - component: {fileID: 308028726}
   - component: {fileID: 308028725}
   - component: {fileID: 308028724}
+  - component: {fileID: 308028728}
+  - component: {fileID: 308028727}
   m_Layer: 5
   m_Name: RandomNum4
   m_TagString: Untagged
@@ -903,8 +967,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -963,6 +1027,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308028722}
   m_CullTransparentMesh: 1
+--- !u!114 &308028727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308028722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 308028728}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 308028728}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &308028728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308028722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 4
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &315138358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2162,8 @@ GameObject:
   - component: {fileID: 596962108}
   - component: {fileID: 596962107}
   - component: {fileID: 596962106}
+  - component: {fileID: 596962110}
+  - component: {fileID: 596962109}
   m_Layer: 5
   m_Name: RandomNum3
   m_TagString: Untagged
@@ -2087,8 +2213,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2147,6 +2273,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596962104}
   m_CullTransparentMesh: 1
+--- !u!114 &596962109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596962104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 596962110}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 596962110}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &596962110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596962104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 3
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &660512773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2345,8 @@ GameObject:
   - component: {fileID: 660512777}
   - component: {fileID: 660512776}
   - component: {fileID: 660512775}
+  - component: {fileID: 660512779}
+  - component: {fileID: 660512778}
   m_Layer: 5
   m_Name: RandomNum2
   m_TagString: Untagged
@@ -2208,8 +2396,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2268,6 +2456,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660512773}
   m_CullTransparentMesh: 1
+--- !u!114 &660512778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660512773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 660512779}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 660512779}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &660512779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660512773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 2
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &745480942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +3061,8 @@ GameObject:
   - component: {fileID: 805645537}
   - component: {fileID: 805645536}
   - component: {fileID: 805645535}
+  - component: {fileID: 805645538}
+  - component: {fileID: 805645539}
   m_Layer: 5
   m_Name: RandomNum1
   m_TagString: Untagged
@@ -2862,8 +3112,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705884, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2922,6 +3172,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805645533}
   m_CullTransparentMesh: 1
+--- !u!114 &805645538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805645533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 1
+  description: click to select, and then click on a stat to increment/decrement.
+--- !u!114 &805645539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805645533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 805645538}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 805645538}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &849037584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3380,8 @@ GameObject:
   - component: {fileID: 867719316}
   - component: {fileID: 867719315}
   - component: {fileID: 867719314}
+  - component: {fileID: 867719318}
+  - component: {fileID: 867719317}
   m_Layer: 5
   m_Name: RandomNum7
   m_TagString: Untagged
@@ -3119,8 +3431,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3179,6 +3491,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867719312}
   m_CullTransparentMesh: 1
+--- !u!114 &867719317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867719312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 867719318}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 867719318}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &867719318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867719312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 7
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &929751694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3473,7 +3845,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 30}
-  m_SizeDelta: {x: 750, y: 50}
+  m_SizeDelta: {x: 900, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944586084
 MonoBehaviour:
@@ -8840,6 +9212,8 @@ GameObject:
   - component: {fileID: 1190250857}
   - component: {fileID: 1190250856}
   - component: {fileID: 1190250858}
+  - component: {fileID: 1190250860}
+  - component: {fileID: 1190250859}
   m_Layer: 5
   m_Name: RandomNum9
   m_TagString: Untagged
@@ -8927,8 +9301,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -8949,6 +9323,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1190250859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190250854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1190250860}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1190250860}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1190250860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190250854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 9
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &1201583327
 GameObject:
   m_ObjectHideFlags: 0
@@ -9417,6 +9851,8 @@ GameObject:
   - component: {fileID: 1411264303}
   - component: {fileID: 1411264302}
   - component: {fileID: 1411264301}
+  - component: {fileID: 1411264305}
+  - component: {fileID: 1411264304}
   m_Layer: 5
   m_Name: RandomNum6
   m_TagString: Untagged
@@ -9466,8 +9902,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -9526,6 +9962,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411264299}
   m_CullTransparentMesh: 1
+--- !u!114 &1411264304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411264299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1411264305}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1411264305}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1411264305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411264299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 6
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &1415080457
 GameObject:
   m_ObjectHideFlags: 0
@@ -9874,7 +10370,7 @@ RectTransform:
   m_GameObject: {fileID: 1563994876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 465529988}
@@ -9884,7 +10380,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: -35}
-  m_SizeDelta: {x: 800, y: 375}
+  m_SizeDelta: {x: 1000, y: 375}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1563994878
 MonoBehaviour:
@@ -10525,6 +11021,8 @@ GameObject:
   - component: {fileID: 1733717696}
   - component: {fileID: 1733717695}
   - component: {fileID: 1733717694}
+  - component: {fileID: 1733717698}
+  - component: {fileID: 1733717697}
   m_Layer: 5
   m_Name: RandomNum5
   m_TagString: Untagged
@@ -10574,8 +11072,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.37254903, g: 0.3921569, b: 0.4431373, a: 1}
-    m_HighlightedColor: {r: 0.34901962, g: 0.24705882, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.5, g: 0.37647763, b: 0.12028301, a: 1}
+    m_HighlightedColor: {r: 0.44313726, g: 0.47058824, b: 0.5411765, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.29803923, b: 0.3372549, a: 1}
     m_SelectedColor: {r: 0.5019608, g: 0.37647063, b: 0.121568635, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10634,6 +11132,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733717692}
   m_CullTransparentMesh: 1
+--- !u!114 &1733717697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733717692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1733717698}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1733717698}
+          m_TargetAssemblyTypeName: Stat, Assembly-CSharp
+          m_MethodName: UnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1733717698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733717692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588c1cca6eec28341a9cad5a626085a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  describer: {fileID: 1563994880}
+  title: RANDOM NUMBER 5
+  description: click to select, and then click on a stat to increment/decrement.
 --- !u!1 &1751779968
 GameObject:
   m_ObjectHideFlags: 0
