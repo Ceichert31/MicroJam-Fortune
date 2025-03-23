@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.Port;
 
 public class PlayerUIController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerUIController : MonoBehaviour
 
     private Animator bagAnimator;
 
+    private int carryCapacity => GameManager.Instance.CarryingCapacity;
+    private int capacity;
+
     [SerializeField] private AudioPitcherSO bagOpen;
     [SerializeField] private AudioPitcherSO bagClose;
     private AudioSource source;
@@ -22,12 +26,14 @@ public class PlayerUIController : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
-        carryCapacityText.text = $"0/{GameManager.Instance.CarryingCapacity}";
+        capacity = Mathf.Clamp(capacity, 1, 100);
+
+        carryCapacityText.text = $"0/{capacity}";
     }
 
     public void SetCapacityText(FloatEvent ctx)
     {
-        carryCapacityText.text = $"{ctx.FloatValue}/{GameManager.Instance.CarryingCapacity}";
+        carryCapacityText.text = $"{ctx.FloatValue}/{capacity}";
     }
 
     /// <summary>

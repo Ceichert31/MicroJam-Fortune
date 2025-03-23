@@ -57,12 +57,6 @@ public class MineableRock : MonoBehaviour, IDamageable
             oreEvent.Count = Random.Range(oreStats.minValue, oreStats.maxValue);
             addOre_Event.CallEvent(oreEvent);
 
-            float luck = GameManager.Instance.Luck * 0.1f;
-            if (Random.Range(0, 1) > luck)
-            {
-                Debug.Log(luck);
-            }
-
             //Disable
             SetObjectStatus(false);
         }
