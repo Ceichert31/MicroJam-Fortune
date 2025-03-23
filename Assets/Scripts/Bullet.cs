@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private float lifeTime = 5f;
     private Rigidbody2D rb;
     private Vector3 bulletPath;
 
@@ -15,6 +16,8 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         rb.linearVelocity = bulletPath * bulletSpeed;
+
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
