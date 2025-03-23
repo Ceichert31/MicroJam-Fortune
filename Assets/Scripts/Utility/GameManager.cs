@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    private bool isPaused = false;
+
     [Header("Current Stats")]
     [SerializeField] private PlayerStats playerStats;
 
@@ -91,6 +93,13 @@ public class GameManager : MonoBehaviour
     public int Agility { get { return playerStats.agility; } }
     public GameStates CurrentGameState { get { return currentGameState; } }
     public Biomes CurrentBiome { get { return currentBiome; } }
+    // getter for pause state
+    public bool IsPaused { get { return isPaused; } }
+    // setter just toggles pause state
+    public void SetPauseState()
+    {
+        isPaused = !isPaused;
+    }
 
     private void Awake()
     {

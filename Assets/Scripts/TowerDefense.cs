@@ -14,6 +14,17 @@ public class TowerDefense : MonoBehaviour
     [SerializeField] private float waveDuration = 60f;
     [SerializeField] private float spawnTimeVariation = 0.5f;
 
+    [SerializeField] private SceneEventChannel eventChannel;
+    [SerializeField] private SceneEvent value;
+
+    private SceneEvent theEvent;
+
+    public void SendScene()
+    {
+        theEvent.SceneType = value.SceneType;
+        eventChannel.CallEvent(theEvent);
+    }
+
     private float waveTimer = 0f;
     private float nextSpawnTime = 0f;
     private bool isSpawning = false;
@@ -26,7 +37,7 @@ public class TowerDefense : MonoBehaviour
 
         if (waveTimer >= waveDuration)
         {
-            Debug.Log("Wave ended");
+            SendScene();
             StopSpawning();
             return;
         }
