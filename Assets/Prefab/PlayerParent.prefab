@@ -119,7 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 950444367246564538, guid: 3eedb970e41ad43479a2beecfa6bcaed, type: 3}
   heartList: []
-  transitionTime: 0.5
+  fadeTime: 1
+  fadeDelay: 2
 --- !u!114 &4922683440972700285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,7 +842,7 @@ MonoBehaviour:
   iFrameDuration: 12
   spriteFlashInterval: 0.05
   removeHealthUI_Event: {fileID: 11400000, guid: c9050f227fa23434cac9a7fd5cf738d2, type: 2}
-  addHealthUI_Event: {fileID: 0}
+  addHealthUI_Event: {fileID: 11400000, guid: a808048ea45c15046af9af857fc46f4b, type: 2}
 --- !u!114 &2616635845315080600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,8 +1045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactLayer: 7
-  interactCooldownMax: 0.5
-  interactCooldownMin: 0.2
+  interactCooldownMax: 0.2
+  interactCooldownMin: 0.1
 --- !u!61 &1438477668929991334
 BoxCollider2D:
   m_ObjectHideFlags: 0
