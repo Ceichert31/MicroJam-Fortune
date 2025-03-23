@@ -21,8 +21,10 @@ public class TowerDefense : MonoBehaviour
     [SerializeField] private GameObject quotaUI;
     [SerializeField] private GameObject chargeMeterGO;
     [SerializeField] private Image chargeMeter;
+    [SerializeField] private float chargeRadius = 10f;
 
     private GameManager.GameStates gameState => GameManager.Instance.CurrentGameState;
+    private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
     private SceneEvent theEvent;
 
@@ -40,6 +42,7 @@ public class TowerDefense : MonoBehaviour
     {
         if (!isSpawning) return;
 
+        if (Vector3.Distance(transform.position, playerTransform.position) <= chargeRadius)
         waveTimer += Time.deltaTime;
 
         if (waveTimer >= waveDuration)
@@ -124,5 +127,11 @@ public class TowerDefense : MonoBehaviour
         {
             StopSpawning();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chargeRadius);
     }
 }

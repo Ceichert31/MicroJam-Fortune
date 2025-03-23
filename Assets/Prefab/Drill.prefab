@@ -1605,7 +1605,7 @@ MonoBehaviour:
   rockPrefab: {fileID: 5793195367633245575, guid: 858121c4b27071b4cbfb3f037be32cee, type: 3}
   radiusObject: {fileID: 6007236267750562159}
   spawnInterval: 4
-  waveDuration: 60
+  waveDuration: 45
   spawnTimeVariation: 0.5
   eventChannel: {fileID: 11400000, guid: 9461f800e58c4014fbf2c202538bfcde, type: 2}
   value:
@@ -1613,6 +1613,7 @@ MonoBehaviour:
   quotaUI: {fileID: 3567963191275044817}
   chargeMeterGO: {fileID: 6617502033364506005}
   chargeMeter: {fileID: 8142125349235780445}
+  chargeRadius: 8
 --- !u!114 &248616591733188996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2709365056869892394
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,7 +1890,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7641044398090760499}
