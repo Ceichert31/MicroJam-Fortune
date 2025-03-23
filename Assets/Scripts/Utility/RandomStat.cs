@@ -75,15 +75,78 @@ public class RandomStat : MonoBehaviour
             randomNum.Add(randomNumber);
         }
 
-        randomNum1Text.text = randomNum[0].ToString();
-        randomNum2Text.text = randomNum[1].ToString();
-        randomNum3Text.text = randomNum[2].ToString();
-        randomNum4Text.text = randomNum[3].ToString();
-        randomNum5Text.text = randomNum[4].ToString();
-        randomNum6Text.text = randomNum[5].ToString();
-        randomNum7Text.text = randomNum[6].ToString();
-        randomNum8Text.text = randomNum[7].ToString();
-        randomNum9Text.text = randomNum[8].ToString();
+        if (randomNum[0] > 0)
+        {
+            randomNum1Text.text = "+" + randomNum[0].ToString();
+        }
+        else
+        {
+            randomNum1Text.text = randomNum[0].ToString();
+        }
+        if (randomNum[1] > 0)
+        {
+            randomNum2Text.text = "+" + randomNum[1].ToString();
+        }
+        else
+        {
+            randomNum2Text.text = randomNum[1].ToString();
+        }
+        if (randomNum[2] > 0)
+        {
+            randomNum3Text.text = "+" + randomNum[2].ToString();
+        }
+        else
+        {
+            randomNum3Text.text = randomNum[2].ToString();
+        }
+        if (randomNum[3] > 0)
+        {
+            randomNum4Text.text = "+" + randomNum[3].ToString();
+        }
+        else
+        {
+            randomNum4Text.text = randomNum[3].ToString();
+        }
+        if (randomNum[4] > 0)
+        {
+            randomNum5Text.text = "+" + randomNum[4].ToString();
+        }
+        else
+        {
+            randomNum5Text.text = randomNum[4].ToString();
+        }
+        if (randomNum[5] > 0)
+        {
+            randomNum6Text.text = "+" + randomNum[5].ToString();
+        }
+        else
+        {
+            randomNum6Text.text = randomNum[5].ToString();
+        }
+        if (randomNum[6] > 0)
+        {
+            randomNum7Text.text = "+" + randomNum[6].ToString();
+        }
+        else
+        {
+            randomNum7Text.text = randomNum[6].ToString();
+        }
+        if (randomNum[7] > 0)
+        {
+            randomNum8Text.text = "+" + randomNum[7].ToString();
+        }
+        else
+        {
+            randomNum8Text.text = randomNum[7].ToString();
+        }
+        if (randomNum[8] > 0)
+        {
+            randomNum9Text.text = "+" + randomNum[8].ToString();
+        }
+        else
+        {
+            randomNum9Text.text = randomNum[8].ToString();
+        }
     }
 
     private void Update()
