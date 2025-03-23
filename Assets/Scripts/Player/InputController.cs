@@ -26,6 +26,7 @@ public class InputController : MonoBehaviour
 
     [Header("Event Variables")]
     [SerializeField] private VoidEventChannel eventChannel;
+    [SerializeField] private BoolEventChannel bagEventChannel;
     private VoidEvent theEvent;
 
     private bool isMoving;
@@ -69,7 +70,7 @@ public class InputController : MonoBehaviour
         dragForce = Mathf.Clamp(dragForce, 0, movementSpeed - 1);
 
         //Calculate target velocity
-        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - dragForce) * MoveDirection();
+        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - dragForce)* MoveDirection();
 
         rb.linearVelocity = (targetVelocity);
     }
@@ -109,6 +110,15 @@ public class InputController : MonoBehaviour
         playerInteractor.CanInteract(false);
     }
 
+    private bool isBagOpen = true;
+    private void SetBag(InputAction.CallbackContext ctx)
+    {
+        isBagOpen = !isBagOpen;
+
+        //Call event 
+        bagEventChannel.CallEvent(new BoolEvent(isBagOpen));
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -131,6 +141,8 @@ public class InputController : MonoBehaviour
 
         playerActions.Interact.performed += Interact;
         playerActions.Interact.canceled += StopInteracting;
+
+        playerActions.Bag.performed += SetBag;
     }
 
     private void OnDisable()
@@ -143,5 +155,7 @@ public class InputController : MonoBehaviour
 
         playerActions.Interact.performed -= Interact;
         playerActions.Interact.canceled -= StopInteracting;
+
+        playerActions.Bag.performed -= SetBag;
     }
 }

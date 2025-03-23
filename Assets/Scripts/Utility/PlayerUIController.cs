@@ -12,8 +12,12 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI emeraldText;
     [SerializeField] private TextMeshProUGUI topazText;
 
+    private Animator bagAnimator;
+
     private void Start()
     {
+        bagAnimator = GetComponent<Animator>();
+
         carryCapacityText.text = $"0/{GameManager.Instance.Confidence}";
     }
 
@@ -53,5 +57,14 @@ public class PlayerUIController : MonoBehaviour
         rubyText.text = "00";
         emeraldText.text = "00";
         topazText.text = "00";
+    }
+
+    /// <summary>
+    /// Sets the bag animaton
+    /// </summary>
+    /// <param name="ctx"></param>
+    public void SetBagState(BoolEvent ctx)
+    {
+        bagAnimator.SetBool("IsOpen", ctx.Value);
     }
 }
