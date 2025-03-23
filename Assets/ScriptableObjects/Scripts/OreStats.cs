@@ -14,7 +14,7 @@ public class OreStats : ScriptableObject
     public int disableChance;
 
 }
-
+[System.Serializable]
 public enum OreType
 {
     Ruby,
