@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
+using System.Collections.Generic;
+using System.Collections;
 
 public class MusicController : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MusicController : MonoBehaviour
         blueSource,
         greenSource,
         yellowSource;
+
+    [SerializeField] private float musicTransitionTime = 3f;
+
+    private string currentMusic = "Default";
 
     [SerializeField] private AudioMixer mixer;
 
@@ -21,24 +26,25 @@ public class MusicController : MonoBehaviour
     private IEnumerator SwitchMusic(string newMusic)
     {
         float timeElapsed = 0;
-        while (timeElapsed < volumeTransitionTime)
+        while (timeElapsed < musicTransitionTime)
         {
             timeElapsed += Time.deltaTime;
 
-            currentVolume.weight -= Time.deltaTime;
-            newVolume.weight += Time.deltaTime;
+            mixer.SetFloat(currentMusic, -80f);
+            //newVolume.weight += Time.deltaTime;
+            mixer.SetFloat(newMusic, 80f);
 
             yield return null;
         }
 
         //Swap weights
-        currentVolume.weight = 0;
-        newVolume.weight = 1;
+        //currentVolume.weight = 0;
+        //newVolume.weight = 1;
 
         //Set new volume
-        currentVolume = newVolume;
+        currentMusic = newMusic;
 
-        instance = null;
+        //instance = null;
     }
 
 }
