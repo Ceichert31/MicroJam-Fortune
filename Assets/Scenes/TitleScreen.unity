@@ -282,7 +282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238, y: 200}
+  m_AnchoredPosition: {x: -238, y: 201}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107666467
@@ -306,7 +306,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: " - WASD to move\n - Left Click to swing your pickaxe\n - Right Click to
-    place dynamite\n - Q to drop most recently collected ore"
+    place dynamite\n - Q to drop most recently collected ore\n - E to deposit ores
+    in your drill\n - Tab to open your inventory"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
   m_sharedMaterial: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
@@ -333,8 +334,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -419,7 +420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: -17}
+  m_AnchoredPosition: {x: -343, y: -70}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206522013
@@ -6566,7 +6567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238, y: -100}
+  m_AnchoredPosition: {x: -238, y: -148}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1683869326
@@ -7001,7 +7002,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834086505}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 0.95
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
