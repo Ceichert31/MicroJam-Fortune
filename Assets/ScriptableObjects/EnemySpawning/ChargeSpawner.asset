@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ChargeSpawner
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5793195367633245575, guid: 858121c4b27071b4cbfb3f037be32cee, type: 3}
-  spawnChance: 0
-  isMushroom: 1
+  spawnChance: 0.1
+  isMushroom: 0
   enemyType: 3
