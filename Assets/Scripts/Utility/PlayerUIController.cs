@@ -12,9 +12,15 @@ public class PlayerUIController : MonoBehaviour
 
     private Animator bagAnimator;
 
+    [SerializeField] private AudioPitcherSO bagOpen;
+    [SerializeField] private AudioPitcherSO bagClose;
+    private AudioSource source;
+
     private void Start()
     {
         bagAnimator = GetComponent<Animator>();
+
+        source = GetComponent<AudioSource>();
 
         carryCapacityText.text = $"0/{GameManager.Instance.CarryingCapacity}";
     }
@@ -64,5 +70,14 @@ public class PlayerUIController : MonoBehaviour
     public void SetBagState(BoolEvent ctx)
     {
         bagAnimator.SetBool("IsOpen", ctx.Value);
+
+        if (ctx.Value)
+        {
+            bagOpen.Play(source);
+        }
+        else
+        {
+            bagClose.Play(source);
+        }
     }
 }
