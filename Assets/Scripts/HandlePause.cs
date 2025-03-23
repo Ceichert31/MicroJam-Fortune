@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class HandlePause : MonoBehaviour
 {
-    private CanvasGroup pauseMenu;
+    private GameObject pauseMenu;
     private CanvasGroup tutorialMenu;
+
+    [SerializeField] private const string SCENE_NAME_1 = "TitleScreen";
 
     private bool isTutorial = false;
 
     private void Awake()
     {
-        pauseMenu = transform.GetChild(0).GetComponent<CanvasGroup>();
+        pauseMenu = transform.GetChild(0).gameObject;
         if (SceneManager.GetActiveScene().name == "TitleScreen")
             tutorialMenu = GameObject.Find("Canvas").transform.GetChild(3).GetComponent<CanvasGroup>();
     }
@@ -23,32 +25,32 @@ public class HandlePause : MonoBehaviour
             if (GameManager.Instance.IsPaused)
             {
                 Time.timeScale = 0;
-                pauseMenu.alpha = 0.9f;
-                pauseMenu.interactable = true;
-                pauseMenu.blocksRaycasts = true;
+                pauseMenu.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    QuitToStart();
+                }
             }
             else
             {
                 Time.timeScale = 1;
-                pauseMenu.alpha = 0;
-                pauseMenu.interactable = false;
-                pauseMenu.blocksRaycasts = false;
+                pauseMenu.SetActive(false);
             }
-        }
 
-        if (SceneManager.GetActiveScene().name == "TitleScreen")
-        {
-            if (isTutorial)
+            if (SceneManager.GetActiveScene().name == "TitleScreen")
             {
-                tutorialMenu.alpha = 0.95f;
-                tutorialMenu.interactable = true;
-                tutorialMenu.blocksRaycasts = true;
-            }
-            else
-            {
-                tutorialMenu.alpha = 0f;
-                tutorialMenu.interactable = false;
-                tutorialMenu.blocksRaycasts = false;
+                if (isTutorial)
+                {
+                    tutorialMenu.alpha = 0.95f;
+                    tutorialMenu.interactable = true;
+                    tutorialMenu.blocksRaycasts = true;
+                }
+                else
+                {
+                    tutorialMenu.alpha = 0f;
+                    tutorialMenu.interactable = false;
+                    tutorialMenu.blocksRaycasts = false;
+                }
             }
         }
     }
@@ -56,5 +58,11 @@ public class HandlePause : MonoBehaviour
     public void TutorialButton()
     {
         isTutorial = !isTutorial;
+    }
+
+    public void QuitToStart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SCENE_NAME_1);
     }
 }
