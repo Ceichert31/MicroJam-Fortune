@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e18d5cb4c7e8284385c07a5c807a73d, type: 3}
   m_Name: RepairCostLevel1
   m_EditorClassIdentifier: 
-  requiredSapphires: 5
-  requiredRubies: 2
-  requiredTopaz: 3
-  requiredEmerald: 4
+  minRequiredSapphires: 7
+  maxRequiredSapphires: 12
+  minRequiredRubies: 7
+  maxRequiredRubies: 12
+  minRequiredTopaz: 7
+  maxRequiredTopaz: 12
+  minRequiredEmerald: 7
+  maxRequiredEmerald: 12
+  requiredSapphires: 0
+  requiredRubies: 0
+  requiredTopaz: 0
+  requiredEmerald: 0

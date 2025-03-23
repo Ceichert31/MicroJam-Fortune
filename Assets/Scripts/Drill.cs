@@ -21,11 +21,16 @@ public class Drill : MonoBehaviour, IDepositable
 
     private AudioSource source;
 
-    private void Start()
+    private void Awake()
     {
         canvas = transform.GetChild(1).gameObject;
 
         source = GetComponent<AudioSource>();
+
+        repairCost.requiredSapphires = Random.Range(repairCost.minRequiredSapphires, repairCost.maxRequiredSapphires);
+        repairCost.requiredEmerald = Random.Range(repairCost.minRequiredEmerald, repairCost.maxRequiredEmerald);
+        repairCost.requiredRubies = Random.Range(repairCost.minRequiredRubies, repairCost.maxRequiredRubies);
+        repairCost.requiredTopaz = Random.Range(repairCost.minRequiredTopaz, repairCost.maxRequiredTopaz);
     }
 
     public void Deposit(OreStats oreToDeposit)
