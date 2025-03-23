@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyFollow : MonoBehaviour, IDamageable
 {
@@ -18,6 +20,10 @@ public class EnemyFollow : MonoBehaviour, IDamageable
     [SerializeField] private AudioPitcherSO damageAudio;
     [SerializeField] private AudioPitcherSO flyAudio;
     [SerializeField] private GameObject deathAudioObject;
+
+    [Header("Sprite Flash")]
+    [SerializeField] private int iFrameDuration = 10;
+    [SerializeField] private float spriteFlashInterval = 0.05f;
 
     [SerializeField] private float flyingAudioDelay = 1f;
     private float flyingTimer;
@@ -75,6 +81,7 @@ public class EnemyFollow : MonoBehaviour, IDamageable
         Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
 
         KnockBack(-dir * knockbackForce);
+        StartCoroutine(DamageFlash());
 
         if (enemyHealth <= 0)
         {
@@ -87,5 +94,18 @@ public class EnemyFollow : MonoBehaviour, IDamageable
     public void SetDetectionRadius(float radius)
     {
         chaseRadius = radius;
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        float flashNumber = 0;
+        while (flashNumber < iFrameDuration)
+        {
+            enemyRenderer.enabled = false;
+            yield return new WaitForSeconds(spriteFlashInterval);
+            enemyRenderer.enabled = true;
+            flashNumber++;
+            yield return new WaitForSeconds(spriteFlashInterval);
+        }
     }
 }
