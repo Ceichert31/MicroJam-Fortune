@@ -24,6 +24,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     private BoxCollider2D boxCollider;
     private Rigidbody2D rb;
 
+    private bool canHitWall = false;
     private bool isCharging = false;
     private bool isDrawingBack = false;
     private bool canCharge = true;
@@ -61,13 +62,19 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         {
             transform.position += chargeDirection * chargeSpeed * Time.deltaTime;
 
+            StartCoroutine(ReenableCollisionAfterDelay(0.25f));
+
+            StartCoroutine(CanHitWall(0.3f));
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position, chargeDirection, 0.5f, obstacleLayer);
 
-            if (hit.collider != null)
+            if (hit.collider != null && canHitWall)
             {
                 Vector3 wallPosition = transform.position;
                 StopCharging();
                 StartCoroutine(BackupFromWall(wallPosition));
+
+                canHitWall = false;
             }
         }
         else
@@ -87,6 +94,21 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         rb.linearVelocity = Vector2.zero;
     }
 
+    private IEnumerator ReenableCollisionAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Debug.Log("added back");
+        int defaultLayer = LayerMask.NameToLayer("Default");
+        int myObjectLayer = gameObject.layer;
+        Physics2D.IgnoreLayerCollision(myObjectLayer, defaultLayer, false);
+    }
+    private IEnumerator CanHitWall(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        canHitWall = true;
+    }
 
     private IEnumerator ChargeSequence()
     {
@@ -101,6 +123,11 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         chargeDirection = (playerTransform.position - transform.position).normalized;
 
         isDrawingBack = true;
+
+        Debug.Log("ignored");
+        int defaultLayer = LayerMask.NameToLayer("Default");
+        int myObjectLayer = gameObject.layer;
+        Physics2D.IgnoreLayerCollision(myObjectLayer, defaultLayer);
 
         Vector3 drawBackPosition = transform.position - (chargeDirection * drawBackDistance);
 
