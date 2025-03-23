@@ -21,13 +21,13 @@ public class StatsDescriptions : MonoBehaviour
 
     public void UpdateText(string title, string desc)
     {
-        transform.DOScaleX(1, 0.2f).SetEase(Ease.OutQuint);
+        transform.DOScaleY(1, 0.2f).SetEase(Ease.OutQuint);
         titleText.text = title;
         descText.text = desc;
     }
 
     public void Close()
     {
-        transform.DOScaleX(0, 0.2f).SetEase(Ease.OutQuint);
+        transform.DOScaleY(0, 0.2f).SetEase(Ease.OutQuint);
     }
 }
