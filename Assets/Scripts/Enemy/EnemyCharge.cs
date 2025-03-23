@@ -32,14 +32,6 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (playerTransform == null) return;
-
-        if (enemyRenderer != null && !isCharging)
-        {
-            Vector3 direction = playerTransform.position - transform.position;
-            enemyRenderer.flipX = direction.x < 0;
-        }
-
         if (!isCharging && !isDrawingBack && canCharge)
         {
             if (Vector3.Distance(transform.position, playerTransform.position) <= detectionRadius)
@@ -52,7 +44,8 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         {
             transform.position += chargeDirection * chargeSpeed * Time.deltaTime;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, chargeDirection, 0.5f, LayerMask.GetMask("Wall", "Obstacle"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, chargeDirection, 0.5f, 0);
+
             if (hit.collider != null)
             {
                 StopCharging();
@@ -68,6 +61,12 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     {
         canCharge = false;
 
+        if (enemyRenderer != null && !isCharging)
+        {
+            Vector3 direction = playerTransform.position - transform.position;
+            enemyRenderer.flipX = direction.x < 0;
+        }
+
         chargeDirection = (playerTransform.position - transform.position).normalized;
 
         isDrawingBack = true;
@@ -76,6 +75,8 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
         float elapsed = 0;
         Vector3 startPos = transform.position;
+
+        animator.SetTrigger("RockAttack");
 
         while (elapsed < drawBackDuration)
         {
