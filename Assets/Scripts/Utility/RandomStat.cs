@@ -101,68 +101,71 @@ public class RandomStat : MonoBehaviour
     {
         selectedButton = clickedButton;
 
-        if (selectedButton == randomNum1)
+        if (randomStatClicked == false)
         {
-            randomNum1.interactable = false;
-            storeNum = randomNum[0];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum2)
-        {
-            randomNum2.interactable = false;
-            storeNum = randomNum[1];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum3)
-        {
-            randomNum3.interactable = false;
-            storeNum = randomNum[2];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum4)
-        {
-            randomNum4.interactable = false;
-            storeNum = randomNum[3];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum5)
-        {
-            randomNum5.interactable = false;
-            storeNum = randomNum[4];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum6)
-        {
-            randomNum6.interactable = false;
-            storeNum = randomNum[5];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum7)
-        {
-            randomNum7.interactable = false;
-            storeNum = randomNum[6];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum8)
-        {
-            randomNum8.interactable = false;
-            storeNum = randomNum[7];
-            buttonDisabledCount++;
-            randomStatClicked = true;
-        }
-        else if (selectedButton == randomNum9)
-        {
-            randomNum9.interactable = false;
-            storeNum = randomNum[8];
-            buttonDisabledCount++;
-            randomStatClicked = true;
+            if (selectedButton == randomNum1)
+            {
+                randomNum1.interactable = false;
+                storeNum = randomNum[0];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum2)
+            {
+                randomNum2.interactable = false;
+                storeNum = randomNum[1];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum3)
+            {
+                randomNum3.interactable = false;
+                storeNum = randomNum[2];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum4)
+            {
+                randomNum4.interactable = false;
+                storeNum = randomNum[3];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum5)
+            {
+                randomNum5.interactable = false;
+                storeNum = randomNum[4];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum6)
+            {
+                randomNum6.interactable = false;
+                storeNum = randomNum[5];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum7)
+            {
+                randomNum7.interactable = false;
+                storeNum = randomNum[6];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum8)
+            {
+                randomNum8.interactable = false;
+                storeNum = randomNum[7];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum9)
+            {
+                randomNum9.interactable = false;
+                storeNum = randomNum[8];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
         }
     }
 
