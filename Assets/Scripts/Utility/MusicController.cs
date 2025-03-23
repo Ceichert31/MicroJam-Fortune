@@ -19,11 +19,15 @@ public class MusicController : MonoBehaviour
     private float newVolume = -80;
 
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioSource battleSource;
+    [SerializeField] private AudioClip battleClip;
+    [SerializeField] private AudioSource mainSource;
 
     private GameManager.Biomes currentBiome => GameManager.Instance.CurrentBiome;
 
     private Coroutine instance = null;
+
+    private const float MIN_VOLUME = -80f;
+    private const float MAX_VOLUME = -5f;
     private void Update()
     {
         if (instance != null) return;
@@ -35,22 +39,26 @@ public class MusicController : MonoBehaviour
                 break;
 
             case GameManager.Biomes.BLUE:
-                //ResetVolumes();
+                if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) return;
+
                 instance = StartCoroutine(SwitchMusic(blueSource));
                 break;
 
             case GameManager.Biomes.YELLOW:
-                //ResetVolumes();
+                if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) return;
+
                 instance = StartCoroutine(SwitchMusic(yellowSource));
                 break;
 
             case GameManager.Biomes.GREEN:
-                //ResetVolumes();
+                if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) return;
+
                 instance = StartCoroutine(SwitchMusic(greenSource));
                 break;
 
             case GameManager.Biomes.RED:
-                //();
+                if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) return;
+
                 instance = StartCoroutine(SwitchMusic(redSource));
                 break;
         }
@@ -68,8 +76,8 @@ public class MusicController : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
 
-            currentVolume = Mathf.Lerp(currentVolume, -80f, timeElapsed / musicTransitionTime);
-            newVolume = Mathf.Lerp(newVolume, 0f, timeElapsed / musicTransitionTime);
+            currentVolume = Mathf.Lerp(currentVolume, MIN_VOLUME, timeElapsed / musicTransitionTime);
+            newVolume = Mathf.Lerp(newVolume, MAX_VOLUME, timeElapsed / musicTransitionTime);
 
             mixer.SetFloat(currentMusic, currentVolume);
             mixer.SetFloat(newMusic, newVolume);
@@ -77,8 +85,8 @@ public class MusicController : MonoBehaviour
             yield return null;
         }
 
-        mixer.SetFloat(currentMusic, -80f);
-        mixer.SetFloat(newMusic, 0f);
+        mixer.SetFloat(currentMusic, MIN_VOLUME);
+        mixer.SetFloat(newMusic, MAX_VOLUME);
 
         //Set new volume
         currentMusic = newMusic;
@@ -92,12 +100,15 @@ public class MusicController : MonoBehaviour
     /// <param name="ctx"></param>
     public void PlayBattleTheme(VoidEvent ctx)
     {
-        mixer.SetFloat(defaultSource, -80f);
-        mixer.SetFloat(redSource, -80f);
-        mixer.SetFloat(blueSource, -80f);
-        mixer.SetFloat(greenSource, -80f);
-        mixer.SetFloat(yellowSource, -80f);
+        //Set all 
+        mixer.SetFloat(defaultSource, MIN_VOLUME);
+        mixer.SetFloat(redSource, MIN_VOLUME);
+        mixer.SetFloat(blueSource, MIN_VOLUME);
+        mixer.SetFloat(greenSource, MIN_VOLUME);
+        mixer.SetFloat(yellowSource, MIN_VOLUME);
 
-        battleSource.Play();
+        //Switch clips
+        mainSource.clip = battleClip;
+        mainSource.Play();
     }
 }

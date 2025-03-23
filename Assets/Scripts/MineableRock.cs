@@ -5,6 +5,9 @@ public class MineableRock : MonoBehaviour, IDamageable
     [SerializeField] private OreEventChannel addOre_Event;
     [SerializeField] private OreStats oreStats;
     [SerializeField] private int currentHealth;
+    [SerializeField] AudioPitcherSO damageSound;
+    [SerializeField] AudioPitcherSO breakSound;
+
 
     private GameObject childObject;
 
@@ -14,6 +17,7 @@ public class MineableRock : MonoBehaviour, IDamageable
 
     private OreEvent oreEvent;
 
+    private AudioSource source;
     private void Start()
     {
         //Set health
@@ -24,6 +28,8 @@ public class MineableRock : MonoBehaviour, IDamageable
         boxCol = GetComponent<BoxCollider2D>();
 
         animator = GetComponent<Animator>();
+
+        source = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -36,11 +42,15 @@ public class MineableRock : MonoBehaviour, IDamageable
         currentHealth--;
         animator.SetTrigger("OreHit");
 
+        damageSound.Play(source);
+
         //Destroy
         if (currentHealth <= 0)
         {
             //Drop ore 
             //oreStats.dropItem;
+
+            breakSound.Play(source);
 
             //Add ore
             oreEvent.Value = oreStats;
