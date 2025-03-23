@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathAudio: {fileID: 11400000, guid: eb52ad8c91ddc8046a09055f2063f912, type: 2}
-  lifetime: 6
+  lifetime: 2

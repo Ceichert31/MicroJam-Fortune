@@ -8,6 +8,7 @@ public class Drill : MonoBehaviour, IDepositable
     [Header("Repair Cost")]
     [SerializeField] private OreCost repairCost;
     [SerializeField] private OreEventChannel updateOreUI_Event;
+    [SerializeField] private AudioPitcherSO depositAudio;
 
     [SerializeField] private int 
         currentSapphires,
@@ -18,9 +19,13 @@ public class Drill : MonoBehaviour, IDepositable
     [Header("UI")]
     private GameObject canvas;
 
+    private AudioSource source;
+
     private void Start()
     {
         canvas = transform.GetChild(1).gameObject;
+
+        source = GetComponent<AudioSource>();
     }
 
     public void Deposit(OreStats oreToDeposit)
@@ -87,6 +92,7 @@ public class Drill : MonoBehaviour, IDepositable
                 }
                 break;
         }
+        depositAudio.Play(source);
     }
 
     //open when player near
