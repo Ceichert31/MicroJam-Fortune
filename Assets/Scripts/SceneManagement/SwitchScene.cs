@@ -7,7 +7,7 @@ public class SwitchScene : MonoBehaviour
 {
     [SerializeField] private const string SCENE_NAME_1 = "TitleScreen";
     [SerializeField] private const string SCENE_NAME_2 = "EnemyScene";
-    [SerializeField] private const string SCENE_NAME_3 = "Scene3";
+    [SerializeField] private const string SCENE_NAME_3 = "WinScreen";
     [SerializeField] private const string SCENE_NAME_4 = "Scene4";
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime = 1f;

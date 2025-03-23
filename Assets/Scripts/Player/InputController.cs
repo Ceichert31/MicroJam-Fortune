@@ -119,6 +119,11 @@ public class InputController : MonoBehaviour
         bagEventChannel.CallEvent(new BoolEvent(isBagOpen));
     }
 
+    private void Pause(InputAction.CallbackContext ctx)
+    {
+        GameManager.Instance.SetPauseState();
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -143,6 +148,8 @@ public class InputController : MonoBehaviour
         playerActions.Interact.canceled += StopInteracting;
 
         playerActions.Bag.performed += SetBag;
+
+        playerActions.Pause.performed += Pause;
     }
 
     private void OnDisable()
@@ -157,5 +164,7 @@ public class InputController : MonoBehaviour
         playerActions.Interact.canceled -= StopInteracting;
 
         playerActions.Bag.performed -= SetBag;
+
+        playerActions.Pause.performed -= Pause;
     }
 }

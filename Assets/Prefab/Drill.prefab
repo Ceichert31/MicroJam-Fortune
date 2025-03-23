@@ -1192,6 +1192,9 @@ MonoBehaviour:
   spawnInterval: 4
   waveDuration: 60
   spawnTimeVariation: 0.5
+  eventChannel: {fileID: 11400000, guid: 9461f800e58c4014fbf2c202538bfcde, type: 2}
+  value:
+    SceneType: 0
 --- !u!114 &248616591733188996
 MonoBehaviour:
   m_ObjectHideFlags: 0
