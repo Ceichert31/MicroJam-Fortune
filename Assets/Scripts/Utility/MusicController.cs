@@ -27,7 +27,7 @@ public class MusicController : MonoBehaviour
     private Coroutine instance = null;
 
     private const float MIN_VOLUME = -80f;
-    private const float MAX_VOLUME = -5f;
+    private const float MAX_VOLUME = -8f;
     private void Update()
     {
         if (instance != null) return;

@@ -980,27 +980,7 @@ MonoBehaviour:
   resetOreUI_Event: {fileID: 11400000, guid: 34f2c3359f86d2045a268d09ff7f2129, type: 2}
   inventory:
   - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
-  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
-  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
-  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
-  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
-  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
-  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
-  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
-  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
-  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
-  currentCarryCapacity: 21
+  currentCarryCapacity: 0
 --- !u!114 &2694248041791492929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,7 +1846,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: ccd44edd4a1c65945a8b9ed2b96c0ae0, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 784345edc75127e41b2d007e82bd22a0, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

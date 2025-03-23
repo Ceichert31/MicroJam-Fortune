@@ -150,6 +150,8 @@ MonoBehaviour:
     m_Bits: 1
   postChargeBackupDistance: 1.5
   postChargeBackupDuration: 0.3
+  iFrameDuration: 10
+  spriteFlashInterval: 0.05
   stunTime: 0.3
   knockbackForce: 5
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
@@ -322,14 +324,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2643260162481347542, guid: ccd44edd4a1c65945a8b9ed2b96c0ae0, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 82
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

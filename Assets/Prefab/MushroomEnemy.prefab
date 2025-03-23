@@ -5144,6 +5144,8 @@ MonoBehaviour:
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
   fireAudio: {fileID: 11400000, guid: 5df3feb27f9409242a862071ea1e8751, type: 2}
   deathAudioObject: {fileID: 445899319095006209, guid: 6f91bc129bb64454eb570729462379ec, type: 3}
+  iFrameDuration: 10
+  spriteFlashInterval: 0.05
 --- !u!95 &405494286889892288
 Animator:
   serializedVersion: 7
@@ -5251,14 +5253,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2643260162481347542, guid: ccd44edd4a1c65945a8b9ed2b96c0ae0, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 75
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

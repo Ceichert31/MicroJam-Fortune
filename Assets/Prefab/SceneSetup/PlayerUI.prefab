@@ -125,6 +125,8 @@ MonoBehaviour:
   rubyText: {fileID: 8486392108077777666}
   emeraldText: {fileID: 1246680863322532957}
   topazText: {fileID: 9016202008479154775}
+  bagOpen: {fileID: 11400000, guid: 21aa78f7f1e1f4248b488a4051520e32, type: 2}
+  bagClose: {fileID: 11400000, guid: 2fc56ccae205a6a48836363ec0d2566c, type: 2}
 --- !u!114 &1971346987254198737
 MonoBehaviour:
   m_ObjectHideFlags: 0
