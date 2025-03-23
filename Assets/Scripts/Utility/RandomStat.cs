@@ -25,7 +25,7 @@ public class RandomStat : MonoBehaviour
     System.Random random = new System.Random();
     private Button selectedButton;
     public int storeNum, buttonDisabledCount;
-    public bool allButtonsDisabled = false;
+    public bool allButtonsDisabled = false, randomStatClicked = false;
 
     void Start()
     {
@@ -101,59 +101,71 @@ public class RandomStat : MonoBehaviour
     {
         selectedButton = clickedButton;
 
-        if (selectedButton == randomNum1)
+        if (randomStatClicked == false)
         {
-            randomNum1.interactable = false;
-            storeNum = randomNum[0];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum2)
-        {
-            randomNum2.interactable = false;
-            storeNum = randomNum[1];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum3)
-        {
-            randomNum3.interactable = false;
-            storeNum = randomNum[2];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum4)
-        {
-            randomNum4.interactable = false;
-            storeNum = randomNum[3];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum5)
-        {
-            randomNum5.interactable = false;
-            storeNum = randomNum[4];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum6)
-        {
-            randomNum6.interactable = false;
-            storeNum = randomNum[5];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum7)
-        {
-            randomNum7.interactable = false;
-            storeNum = randomNum[6];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum8)
-        {
-            randomNum8.interactable = false;
-            storeNum = randomNum[7];
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == randomNum9)
-        {
-            randomNum9.interactable = false;
-            storeNum = randomNum[8];
-            buttonDisabledCount++;
+            if (selectedButton == randomNum1)
+            {
+                randomNum1.interactable = false;
+                storeNum = randomNum[0];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum2)
+            {
+                randomNum2.interactable = false;
+                storeNum = randomNum[1];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum3)
+            {
+                randomNum3.interactable = false;
+                storeNum = randomNum[2];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum4)
+            {
+                randomNum4.interactable = false;
+                storeNum = randomNum[3];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum5)
+            {
+                randomNum5.interactable = false;
+                storeNum = randomNum[4];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum6)
+            {
+                randomNum6.interactable = false;
+                storeNum = randomNum[5];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum7)
+            {
+                randomNum7.interactable = false;
+                storeNum = randomNum[6];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum8)
+            {
+                randomNum8.interactable = false;
+                storeNum = randomNum[7];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
+            else if (selectedButton == randomNum9)
+            {
+                randomNum9.interactable = false;
+                storeNum = randomNum[8];
+                buttonDisabledCount++;
+                randomStatClicked = true;
+            }
         }
     }
 
@@ -161,76 +173,73 @@ public class RandomStat : MonoBehaviour
     {
         selectedButton = clickedButton;
 
-        if (selectedButton == health)
+        if (randomStatClicked == true)
         {
-            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.Health, storeNum);
-            healthText.text = GameManager.Instance.MaxHealth.ToString();
-            health.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == movementSpeed)
-        {
-            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.MovementSpeed, storeNum);
-            movementSpeedText.text = GameManager.Instance.MovementSpeed.ToString();
-            movementSpeed.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == attackDamage)
-        {
-            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.AttackDamage, storeNum);
-            attackDamageText.text = GameManager.Instance.AttackDamage.ToString();
-            attackDamage.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == carryingCapacity)
-        {
-            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.CarryingCapacity, storeNum);
-            carryingCapacityText.text = GameManager.Instance.CarryingCapacity.ToString();
-            carryingCapacity.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == vision)
-        {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Vision, storeNum);
-            visionText.text = GameManager.Instance.Vision.ToString();
-            vision.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == confidence)
-        {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Confidence, storeNum);
-            confidenceText.text = GameManager.Instance.Confidence.ToString();
-            confidence.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == luck)
-        {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Luck, storeNum);
-            luckText.text = GameManager.Instance.Luck.ToString();
-            luck.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == swag)
-        {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Swag, storeNum);
-            swagText.text = GameManager.Instance.Swag.ToString();
-            swag.interactable = false;
-            buttonDisabledCount++;
-        }
-        else if (selectedButton == agility)
-        {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Agility, storeNum);
-            agilityText.text = GameManager.Instance.Agility.ToString();
-            agility.interactable = false;
-            buttonDisabledCount++;
+            if (selectedButton == health)
+            {
+                GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.Health, storeNum);
+                healthText.text = GameManager.Instance.MaxHealth.ToString();
+                health.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == movementSpeed)
+            {
+                GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.MovementSpeed, storeNum);
+                movementSpeedText.text = GameManager.Instance.MovementSpeed.ToString();
+                movementSpeed.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == attackDamage)
+            {
+                GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.AttackDamage, storeNum);
+                attackDamageText.text = GameManager.Instance.AttackDamage.ToString();
+                attackDamage.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == carryingCapacity)
+            {
+                GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.CarryingCapacity, storeNum);
+                carryingCapacityText.text = GameManager.Instance.CarryingCapacity.ToString();
+                carryingCapacity.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == vision)
+            {
+                GameManager.Instance.UpdateSideStat(GameManager.SideStats.Vision, storeNum);
+                visionText.text = GameManager.Instance.Vision.ToString();
+                vision.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == confidence)
+            {
+                GameManager.Instance.UpdateSideStat(GameManager.SideStats.Confidence, storeNum);
+                confidenceText.text = GameManager.Instance.Confidence.ToString();
+                confidence.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == luck)
+            {
+                GameManager.Instance.UpdateSideStat(GameManager.SideStats.Luck, storeNum);
+                luckText.text = GameManager.Instance.Luck.ToString();
+                luck.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == swag)
+            {
+                GameManager.Instance.UpdateSideStat(GameManager.SideStats.Swag, storeNum);
+                swagText.text = GameManager.Instance.Swag.ToString();
+                swag.interactable = false;
+                buttonDisabledCount++;
+            }
+            else if (selectedButton == agility)
+            {
+                GameManager.Instance.UpdateSideStat(GameManager.SideStats.Agility, storeNum);
+                agilityText.text = GameManager.Instance.Agility.ToString();
+                agility.interactable = false;
+                buttonDisabledCount++;
+            }
         }
         storeNum = 0;
-
-    }
-
-    public int CreateRandomInt()
-    {
-
-        return random.Next(0, 3);
+        randomStatClicked = false;
     }
 }
