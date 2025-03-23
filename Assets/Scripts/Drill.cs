@@ -31,6 +31,8 @@ public class Drill : MonoBehaviour, IDepositable
         switch (oreToDeposit.oreType)
         {
             case OreType.Sapphire:
+                if (GameManager.Instance.ReachedSapphireQuota) return;
+
                 currentSapphires++;
 
                 updateOreUI_Event.CallEvent(new(oreToDeposit, currentSapphires));
@@ -44,6 +46,8 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Ruby:
+                if (GameManager.Instance.ReachedRubyQuota) return;
+
                 currentRubies++;
 
                 updateOreUI_Event.CallEvent(new(oreToDeposit, currentRubies));
@@ -56,6 +60,8 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Topaz:
+                if (GameManager.Instance.ReachedTopazQuota) return;
+
                 currentTopaz++;
 
                 updateOreUI_Event.CallEvent(new(oreToDeposit, currentTopaz));
@@ -68,6 +74,8 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
 
             case OreType.Emerald:
+                if (GameManager.Instance.ReachedEmeraldQuota) return;
+
                 currentEmerald++;
 
                 updateOreUI_Event.CallEvent(new(oreToDeposit, currentEmerald));
