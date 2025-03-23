@@ -19,6 +19,8 @@ public class PickaxeMovement : MonoBehaviour
 
     public void PickaxeSwing()
     {
+        if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Death) return;
+
         animator.SetTrigger("Swing");
         rotatePickaxe.TimedFreeze(PICKAXE_SWING_TIME);
     }

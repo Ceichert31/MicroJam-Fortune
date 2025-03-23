@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
@@ -13,11 +14,18 @@ public class Health : MonoBehaviour, IDamageable
 
     private SpriteRenderer playerRenderer;
 
+    private Inventory inventory;
+
     private bool isDamageable = true;
+
+    [Header("Death Settings")]
+    [SerializeField] private float deathSlowTime = 0.5f;
 
     private void Start()
     {
         currentHealth = maxHealth;
+
+        inventory = GetComponent<Inventory>();
 
         playerRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
@@ -38,7 +46,6 @@ public class Health : MonoBehaviour, IDamageable
         if (currentHealth <= 0) 
         {
             PlayerDeath();
-            Time.timeScale = 0;
         }
 
         StartCoroutine(StartIFrames());
@@ -64,6 +71,21 @@ public class Health : MonoBehaviour, IDamageable
 
     private void PlayerDeath()
     {
-        
+        if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) 
+        {
+            //Slow game time
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0, deathSlowTime).SetEase(Ease.InQuad).SetUpdate(true);
+
+            GameManager.Instance.SetGameState(GameManager.GameStates.Death);
+            //Play death animation
+        }
+
+        //Clear player inventory
+        inventory.ClearInventory();
+        //Teleport player to 0,0
+        GameManager.Instance.ResetPlayerPosition();
+
+        currentHealth = maxHealth;
+        addHealthUI_Event.CallEvent(new (maxHealth));
     }
 }

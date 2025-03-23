@@ -17,5 +17,5 @@ MonoBehaviour:
   baseValue: 1
   minValue: 1
   maxValue: 1
-  durability: 4
-  disableChance: 0
+  durability: 5
+  disableChance: 2

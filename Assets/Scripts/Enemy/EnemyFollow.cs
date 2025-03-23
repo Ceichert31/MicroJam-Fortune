@@ -20,7 +20,7 @@ public class EnemyFollow : MonoBehaviour, IDamageable
     private Vector3 enemyToPlayer;
     private void Update()
     {
-        enemyToPlayer = transform.position - playerTransform.position;
+        //enemyToPlayer = transform.position - playerTransform.position;
         if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= chaseRadius)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         Paused,
         Exploration,
         Defense,
+        Death,
     }
 
     public enum Biomes
@@ -147,6 +148,10 @@ public class GameManager : MonoBehaviour
     public void RestartDay()
     {
         oreRespawn_Event.CallEvent(theEvent);
+    }
+    public void ResetPlayerPosition()
+    {
+        PlayerTransform.position = Vector3.zero;
     }
     public void SetGameState(GameStates state)
     {
