@@ -38,7 +38,7 @@ public class SwitchScene : MonoBehaviour
         transition.SetTrigger("Fade");
 
         // Wait 'transitionTime' seconds before loading the scene
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
 
         // Load scene
         SceneManager.LoadScene(SCENE_NAME);

@@ -11,6 +11,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private FloatEventChannel removeHealthUI_Event;
     [SerializeField] private FloatEventChannel addHealthUI_Event;
     [SerializeField] private AudioPitcherSO damageAudio;
+    [SerializeField] private SceneEventChannel deathSceneSwitch;
     private int maxHealth => GameManager.Instance.MaxHealth;
 
     private SpriteRenderer playerRenderer;
@@ -81,10 +82,14 @@ public class Health : MonoBehaviour, IDamageable
         if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Defense) 
         {
             //Slow game time
-            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0, deathSlowTime).SetEase(Ease.InQuad).SetUpdate(true);
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.1f, deathSlowTime).SetEase(Ease.InQuad).SetUpdate(true);
 
             GameManager.Instance.SetGameState(GameManager.GameStates.Death);
+
+            deathSceneSwitch.CallEvent(new SceneEvent(SceneEventType.Title));
             //Play death animation
+
+            return;
         }
 
         //Clear player inventory

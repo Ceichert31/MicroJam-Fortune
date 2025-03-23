@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: RockBreak
   m_EditorClassIdentifier: 
   audioClipList:
-  - {fileID: 8300000, guid: adb2c92e8dea8934c81e2defac1efd43, type: 3}
-  - {fileID: 8300000, guid: 9b3c2683ee5bc834c80d8f81f7edc422, type: 3}
-  - {fileID: 8300000, guid: 0ca1c9a25776d4743a3690e5de038539, type: 3}
-  - {fileID: 8300000, guid: 7e5da7a8f2d0bfe488a3d8243f703671, type: 3}
+  - {fileID: 8300000, guid: 93e10a61a785dd34c986101cc7331646, type: 3}
+  - {fileID: 8300000, guid: 79b3759a22e04394e949bca77d9976b8, type: 3}
   volume:
     minValue: 1
     maxValue: 1

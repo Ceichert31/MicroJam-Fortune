@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 869926781014052881}
   - component: {fileID: 3971089612358047819}
   - component: {fileID: 6782559351212433953}
+  - component: {fileID: 7283761972211010291}
   - component: {fileID: 8697526587557101350}
   m_Layer: 3
   m_Name: Pickaxe
@@ -598,7 +599,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1426522315851604854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
@@ -703,6 +704,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &7283761972211010291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024324409643358884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36beb3b376ea2b4db89e0e415513fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8697526587557101350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +959,8 @@ MonoBehaviour:
   removeHealthUI_Event: {fileID: 11400000, guid: c9050f227fa23434cac9a7fd5cf738d2, type: 2}
   addHealthUI_Event: {fileID: 11400000, guid: a808048ea45c15046af9af857fc46f4b, type: 2}
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
-  deathSlowTime: 0
+  deathSceneSwitch: {fileID: 11400000, guid: 9461f800e58c4014fbf2c202538bfcde, type: 2}
+  deathSlowTime: 1
 --- !u!114 &2616635845315080600
 MonoBehaviour:
   m_ObjectHideFlags: 0
