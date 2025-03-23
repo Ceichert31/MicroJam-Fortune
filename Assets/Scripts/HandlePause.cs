@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class HandlePause : MonoBehaviour
@@ -12,19 +13,22 @@ public class HandlePause : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.IsPaused)
+        if (SceneManager.GetActiveScene().name == "EnemyScene")
         {
-            Time.timeScale = 0;
-            pauseMenu.alpha = 0.9f;
-            pauseMenu.interactable = true;
-            pauseMenu.blocksRaycasts = true;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            pauseMenu.alpha = 0;
-            pauseMenu.interactable = false;
-            pauseMenu.blocksRaycasts = false;
+            if (GameManager.Instance.IsPaused)
+            {
+                Time.timeScale = 0;
+                pauseMenu.alpha = 0.9f;
+                pauseMenu.interactable = true;
+                pauseMenu.blocksRaycasts = true;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                pauseMenu.alpha = 0;
+                pauseMenu.interactable = false;
+                pauseMenu.blocksRaycasts = false;
+            }
         }
     }
 }
