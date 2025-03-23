@@ -92,11 +92,11 @@ public class MusicController : MonoBehaviour
     /// <param name="ctx"></param>
     public void PlayBattleTheme(VoidEvent ctx)
     {
-        mixer.SetFloat(defaultSource, 0f);
-        mixer.SetFloat(redSource, 0f);
-        mixer.SetFloat(blueSource, 0f);
-        mixer.SetFloat(greenSource, 0f);
-        mixer.SetFloat(yellowSource, 0f);
+        mixer.SetFloat(defaultSource, -80f);
+        mixer.SetFloat(redSource, -80f);
+        mixer.SetFloat(blueSource, -80f);
+        mixer.SetFloat(greenSource, -80f);
+        mixer.SetFloat(yellowSource, -80f);
 
         battleSource.Play();
     }
