@@ -82,16 +82,16 @@ public class GameManager : MonoBehaviour
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
-    public int MaxHealth { get { return Mathf.Clamp(playerStats.maxHealth, 1, 100); } }
+    public int MaxHealth { get { return playerStats.maxHealth; } }
     public int MovementSpeed { get { return playerStats.movementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
-    public int AttackDamage { get { return Mathf.Clamp(playerStats.attackDamage, 1, 100); } }
-    public int CarryingCapacity { get { return Mathf.Clamp(playerStats.carryingCapacity, 1, 100); } }
+    public int AttackDamage { get { return playerStats.attackDamage; } }
+    public int CarryingCapacity { get { return playerStats.carryingCapacity; } }
     //Side stat getters
-    public int Vision { get { return Mathf.Clamp(playerStats.vision, 1, 10); } }
+    public int Vision { get { return playerStats.vision; } }
     public int Confidence { get { return playerStats.confidence; } }
-    public int Luck { get { return Mathf.Clamp(playerStats.luck, 1, 100); } }
-    public int Swag { get { return Mathf.Clamp(playerStats.swag, 1, 3); } }
+    public int Luck { get { return playerStats.luck; } }
+    public int Swag { get { return playerStats.swag; } }
     public int Agility { get { return playerStats.agility; } }
     public PlayerStats PlayerStats { get { return playerStats; } }
     public GameStates CurrentGameState { get { return currentGameState; } }
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         if (currentTotalOres < 20)
         {
             RestartDay();
-            currentTotalOres = maxTotalOres;
+            currentTotalOres += 5;
         }
     }
 
