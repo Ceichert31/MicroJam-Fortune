@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class DrillUIController : MonoBehaviour
 
     public void Start()
     {
+
         //Init text
         sapphireText.text = $"00/{repairCost.requiredSapphires}";
         rubyText.text = $"00/{repairCost.requiredRubies}";
@@ -38,6 +40,23 @@ public class DrillUIController : MonoBehaviour
             case OreType.Topaz:
                 topazText.text = $"0{ctx.Count}/{repairCost.requiredTopaz}";
                 break;
+        }
+    }
+    //open when player near
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gameObject.transform.GetChild(0).DOScaleX(1, 0.2f).SetEase(Ease.OutQuint);
+        }
+    }
+
+    //close when player not near
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gameObject.transform.GetChild(0).DOScaleX(0, 0.2f).SetEase(Ease.OutQuint);
         }
     }
 }

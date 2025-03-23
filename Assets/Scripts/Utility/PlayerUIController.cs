@@ -26,6 +26,7 @@ public class PlayerUIController : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
+        capacity = carryCapacity;
         capacity = Mathf.Clamp(capacity, 1, 100);
 
         carryCapacityText.text = $"0/{capacity}";
