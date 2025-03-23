@@ -14,6 +14,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     [SerializeField] private float shootDelayTime = 2.5f;
 
     private Animator animator;
+    private SpriteRenderer enemyRenderer;
     private Transform enemySpr;
     private Transform bulletSpawn;
 
@@ -30,11 +31,16 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     private AudioSource source;
 
+    [Header("Sprite Flash")]
+    [SerializeField] private int iFrameDuration = 10;
+    [SerializeField] private float spriteFlashInterval = 0.05f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         bulletSpawn = transform.GetChild(0);
         enemySpr = transform.GetChild(1);
+        enemyRenderer = enemySpr.GetComponent<SpriteRenderer>();
 
         source = GetComponent<AudioSource>();
 
@@ -114,6 +120,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
         Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
 
         KnockBack(-dir * knockbackForce);
+        StartCoroutine(DamageFlash());
 
         if (enemyHealth <= 0)
         {
@@ -127,5 +134,18 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     public void SetDetectionRadius(float radius)
     {
         chaseRadius = radius;
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        float flashNumber = 0;
+        while (flashNumber < iFrameDuration)
+        {
+            enemyRenderer.enabled = false;
+            yield return new WaitForSeconds(spriteFlashInterval);
+            enemyRenderer.enabled = true;
+            flashNumber++;
+            yield return new WaitForSeconds(spriteFlashInterval);
+        }
     }
 }

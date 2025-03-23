@@ -284,6 +284,8 @@ MonoBehaviour:
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
   fireAudio: {fileID: 11400000, guid: dd336f09e7df2844f8f48f5e0fcd17a1, type: 2}
   deathAudioObject: {fileID: 445899319095006209, guid: 6f91bc129bb64454eb570729462379ec, type: 3}
+  iFrameDuration: 10
+  spriteFlashInterval: 0.075
 --- !u!50 &917377326891079149
 Rigidbody2D:
   serializedVersion: 5
