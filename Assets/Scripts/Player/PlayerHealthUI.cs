@@ -112,6 +112,10 @@ public class PlayerHealthUI : MonoBehaviour
     {
         switch (ctx.FloatValue)
         {
+            case 2:
+                layoutGroup.spacing = -3;
+                break;
+
             case 3:
                 layoutGroup.spacing = -2;
                 break;

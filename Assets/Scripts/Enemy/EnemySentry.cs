@@ -16,9 +16,16 @@ public class EnemySentry : MonoBehaviour, IDamageable
     private Vector3 enemyToPlayer;
     private bool attackDelay = false;
 
+    [SerializeField] private AudioPitcherSO damageAudio;
+    [SerializeField] private AudioPitcherSO fireAudio;
+    [SerializeField] private GameObject deathAudioObject;
+
+    private AudioSource source;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         particleObject = transform.GetChild(0).gameObject;
         particleSys = particleObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
@@ -38,6 +45,7 @@ public class EnemySentry : MonoBehaviour, IDamageable
 
     private void PlayParticle()
     {
+        fireAudio.Play(source);
         particleSys.Play();
     }
 
@@ -58,8 +66,11 @@ public class EnemySentry : MonoBehaviour, IDamageable
     {
         enemyHealth -= damage;
 
+        damageAudio.Play(source);
+
         if (enemyHealth <= 0)
         {
+            Instantiate(deathAudioObject, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

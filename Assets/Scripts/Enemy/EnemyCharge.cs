@@ -31,12 +31,16 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
     [SerializeField] private float stunTime = 1f;
     [SerializeField] private float knockbackForce = 10f;
+    [SerializeField] private AudioPitcherSO damageAudio;
+    [SerializeField] private GameObject deathAudioObject;
 
+    private AudioSource source;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         enemyRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -71,7 +75,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
     public void KnockBack(Vector2 knockbackDir)
     {
-        rb.linearVelocity = knockbackDir;
+        rb.AddForce(knockbackDir, ForceMode2D.Impulse);
         Invoke(nameof(ResetCanMove), stunTime);
     }
 
@@ -145,12 +149,16 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     {
         enemyHealth -= damage;
 
+        damageAudio.Play(source);
+
         Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
 
         KnockBack(-dir * knockbackForce);
 
         if (enemyHealth <= 0)
         {
+            Instantiate(deathAudioObject, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
     }

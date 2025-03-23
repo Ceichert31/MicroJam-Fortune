@@ -23,13 +23,20 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     private Rigidbody2D rb;
     [SerializeField] private float stunTime = 1f;
-    [SerializeField] private float knockbackForce = 10f; 
+    [SerializeField] private float knockbackForce = 10f;
+    [SerializeField] private AudioPitcherSO damageAudio;
+    [SerializeField] private AudioPitcherSO fireAudio;
+    [SerializeField] private GameObject deathAudioObject;
+
+    private AudioSource source;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         bulletSpawn = transform.GetChild(0);
         enemySpr = transform.GetChild(1);
+
+        source = GetComponent<AudioSource>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -66,7 +73,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     public void KnockBack(Vector2 knockbackDir)
     {
-        rb.linearVelocity = knockbackDir;
+        rb.AddForce(knockbackDir, ForceMode2D.Impulse);
         Invoke(nameof(ResetCanMove), stunTime);
     }
 
@@ -77,6 +84,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     private void Shoot()
     {
+        fireAudio.Play(source);
         Instantiate(EnemyBullet, transform.position, Quaternion.identity);
     }
 
@@ -101,12 +109,17 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     {
         enemyHealth -= damage;
 
+        damageAudio.Play(source);
+
         Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
 
         KnockBack(-dir * knockbackForce);
 
         if (enemyHealth <= 0)
         {
+            //deathAudio.Play(source);
+            Instantiate(deathAudioObject, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
     }
