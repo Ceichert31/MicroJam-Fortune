@@ -14,12 +14,12 @@ public class PlayerUIController : MonoBehaviour
 
     private void Start()
     {
-        carryCapacityText.text = $"0/{GameManager.Instance.CarryCapacity}";
+        carryCapacityText.text = $"0/{GameManager.Instance.Confidence}";
     }
 
     public void SetCapacityText(FloatEvent ctx)
     {
-        carryCapacityText.text = $"{ctx.FloatValue}/{GameManager.Instance.CarryCapacity}";
+        carryCapacityText.text = $"{ctx.FloatValue}/{GameManager.Instance.Confidence}";
     }
 
     /// <summary>
