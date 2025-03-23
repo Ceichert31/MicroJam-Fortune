@@ -5,10 +5,14 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private EnemySpawnerSO spawnerInfo;
+    [SerializeField] private float spawnCancelRadius = 15f;
 
     private int enemiesSpawned = 0;
     private int activeEnemies = 0;
     private bool spawnEnemy = true;
+
+
+    private Transform player => GameManager.Instance.PlayerTransform;
 
     [SerializeField] private int maxActiveEnemies = 3;
 
@@ -36,16 +40,19 @@ public class SpawnEnemy : MonoBehaviour
         {
             if (spawnEnemy)
             {
-                GameObject obj = Instantiate(spawnerInfo.enemyPrefab, transform.position, Quaternion.identity);
-
-                spawnedEnemies.Add(obj);
-
-                enemiesSpawned++;
-                activeEnemies++;
-
-                if (spawnerInfo.isMushroom)
+                if (Vector3.Distance(transform.position, player.position) > spawnCancelRadius)
                 {
-                    spawnEnemy = false;
+                    GameObject obj = Instantiate(spawnerInfo.enemyPrefab, transform.position, Quaternion.identity);
+
+                    spawnedEnemies.Add(obj);
+
+                    enemiesSpawned++;
+                    activeEnemies++;
+
+                    if (spawnerInfo.isMushroom)
+                    {
+                        spawnEnemy = false;
+                    }
                 }
             }
         }
