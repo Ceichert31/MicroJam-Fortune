@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private VoidEventChannel oreRespawn_Event;
     [SerializeField] private VoidEventChannel gameTickUpdate_Event;
     [SerializeField] private VoidEventChannel defenseStarted_Event;
+    [SerializeField] private int maxTotalOres;
+    [SerializeField] private int currentTotalOres;
 
     private VoidEvent gameTickEvent;
 
@@ -154,6 +156,12 @@ public class GameManager : MonoBehaviour
         {
             currentBiome = Biomes.BLUE;
         }
+
+        if (currentTotalOres < 20)
+        {
+            RestartDay();
+            currentTotalOres = maxTotalOres;
+        }
     }
 
     private void OnDrawGizmos()
@@ -250,6 +258,11 @@ public class GameManager : MonoBehaviour
             //Call defense started event
             defenseStarted_Event.CallEvent(theEvent);
         }
+    }
+
+    public void RemoveOre()
+    {
+        currentTotalOres--;
     }
 }
 

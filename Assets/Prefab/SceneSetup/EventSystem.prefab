@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7676735294350525029}
   - component: {fileID: 2555789176881953989}
   - component: {fileID: 4291051291820042708}
+  - component: {fileID: 9092770032835139842}
+  - component: {fileID: 2307788923007204001}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -107,5 +109,57 @@ MonoBehaviour:
   oreRespawn_Event: {fileID: 11400000, guid: f29133a892a7e1741a8679e2a47ee11e, type: 2}
   gameTickUpdate_Event: {fileID: 11400000, guid: 329e493b030e7c4479e7c9bffbfaed54, type: 2}
   defenseStarted_Event: {fileID: 11400000, guid: 552075644cda98549950ab144cf77324, type: 2}
+  maxTotalOres: 39
+  currentTotalOres: 39
   defaultBiomeRadius: 17
   gameTick: 2.5
+--- !u!114 &9092770032835139842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582298246427147196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48ff31133e583f4e93a3faab33e1dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    maxHealth: 0
+    movementSpeed: 0
+    attackDamage: 0
+    carryingCapacity: 0
+    vision: 0
+    confidence: 0
+    luck: 0
+    swag: 0
+    agility: 0
+--- !u!114 &2307788923007204001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582298246427147196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dba97a70ec47c4bae0722d050a4102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: c9770130baf0a8a4b872de6441c2bd92, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4291051291820042708}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RemoveOre
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
