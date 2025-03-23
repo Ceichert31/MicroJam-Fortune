@@ -8,7 +8,7 @@ public class SwitchScene : MonoBehaviour
     [SerializeField] private const string SCENE_NAME_1 = "TitleScreen";
     [SerializeField] private const string SCENE_NAME_2 = "EnemyScene";
     [SerializeField] private const string SCENE_NAME_3 = "WinScreen";
-    [SerializeField] private const string SCENE_NAME_4 = "Scene4";
+    [SerializeField] private const string SCENE_NAME_4 = "StatsScene";
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime = 1f;
 
@@ -20,12 +20,16 @@ public class SwitchScene : MonoBehaviour
                 StartCoroutine(LoadLevel(SCENE_NAME_1));
                 break;
             case SceneEventType.Play:
+                //Load data from stats scene
+                PlayerDataManager.Instance.Load();
                 StartCoroutine(LoadLevel(SCENE_NAME_2));
                 break;
             case SceneEventType.Scene3:
                 StartCoroutine(LoadLevel(SCENE_NAME_3));
                 break;
             case SceneEventType.Scene4:
+                //Save data before moving from stats scene
+                PlayerDataManager.Instance.Save();
                 StartCoroutine(LoadLevel(SCENE_NAME_4));
                 break;
         }

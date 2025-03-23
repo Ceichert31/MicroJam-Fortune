@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     public int Luck { get { return playerStats.luck; } }
     public int Swag { get { return playerStats.swag; } }
     public int Agility { get { return playerStats.agility; } }
+    public PlayerStats PlayerStats { get { return playerStats; } }
     public GameStates CurrentGameState { get { return currentGameState; } }
     public Biomes CurrentBiome { get { return currentBiome; } }
     // getter for pause state
@@ -112,6 +113,14 @@ public class GameManager : MonoBehaviour
         playerStats = new PlayerStats(baseStats);
 
         gameTickTimer = gameTick;
+    }
+    /// <summary>
+    /// Sets stats
+    /// </summary>
+    /// <param name="stats"></param>
+    public void SetStats(PlayerStats stats)
+    {
+        playerStats = stats;
     }
 
     private void Update()
