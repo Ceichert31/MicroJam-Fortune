@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerBaseStats
   m_EditorClassIdentifier: 
   maxHealth: 3
-  maxEnergy: 7
+  carryingCapacity: 3
   movementSpeed: 3
   attackDamage: 5
   vision: 3
-  carryingCapacity: 3
+  confidence: 3
   luck: 3
   swag: 0
-  agility: 3
+  agility: 1
