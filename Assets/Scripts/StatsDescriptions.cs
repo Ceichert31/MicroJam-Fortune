@@ -6,7 +6,6 @@ public class StatsDescriptions : MonoBehaviour
 {
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text descText;
-    [SerializeField] private TMP_Text startAmountText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,12 +19,11 @@ public class StatsDescriptions : MonoBehaviour
         
     }
 
-    public void UpdateText(string title, string desc, string startAmount)
+    public void UpdateText(string title, string desc)
     {
         transform.DOScaleX(1, 0.2f).SetEase(Ease.OutQuint);
         titleText.text = title;
         descText.text = desc;
-        startAmountText.text = startAmount;
     }
 
     public void Close()
