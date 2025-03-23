@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 30
-  detectionRadius: 7
+  detectionRadius: 3
   chargeCooldown: 3
   chargeSpeed: 6
-  drawBackDistance: 1.5
+  drawBackDistance: 0.6
   drawBackDuration: 0.5
   obstacleLayer:
     serializedVersion: 2
