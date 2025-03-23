@@ -15,7 +15,11 @@ public class MusicController : MonoBehaviour
 
     private string currentMusic = "Default";
 
+    private float currentVolume = 0;
+    private float newVolume = -80;
+
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioSource battleSource;
 
     private GameManager.Biomes currentBiome => GameManager.Instance.CurrentBiome;
 
@@ -64,16 +68,17 @@ public class MusicController : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
 
-            mixer.SetFloat(currentMusic, -80f);
-            //newVolume.weight += Time.deltaTime;
-            mixer.SetFloat(newMusic, 0f);
+            currentVolume = Mathf.Lerp(currentVolume, -80f, timeElapsed / musicTransitionTime);
+            newVolume = Mathf.Lerp(newVolume, 0f, timeElapsed / musicTransitionTime);
+
+            mixer.SetFloat(currentMusic, currentVolume);
+            mixer.SetFloat(newMusic, newVolume);
 
             yield return null;
         }
 
-        //Swap weights
-        //currentVolume.weight = 0;
-        //newVolume.weight = 1;
+        mixer.SetFloat(currentMusic, -80f);
+        mixer.SetFloat(newMusic, 0f);
 
         //Set new volume
         currentMusic = newMusic;
@@ -87,6 +92,12 @@ public class MusicController : MonoBehaviour
     /// <param name="ctx"></param>
     public void PlayBattleTheme(VoidEvent ctx)
     {
+        mixer.SetFloat(defaultSource, 0f);
+        mixer.SetFloat(redSource, 0f);
+        mixer.SetFloat(blueSource, 0f);
+        mixer.SetFloat(greenSource, 0f);
+        mixer.SetFloat(yellowSource, 0f);
 
+        battleSource.Play();
     }
 }
