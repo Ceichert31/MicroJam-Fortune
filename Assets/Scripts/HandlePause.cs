@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 public class HandlePause : MonoBehaviour
 {
     private CanvasGroup pauseMenu;
+    private CanvasGroup tutorialMenu;
+
+    private bool isTutorial = false;
 
     private void Awake()
     {
         pauseMenu = transform.GetChild(0).GetComponent<CanvasGroup>();
+        if (SceneManager.GetActiveScene().name == "TitleScreen")
+            tutorialMenu = GameObject.Find("Canvas").transform.GetChild(3).GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -30,5 +35,26 @@ public class HandlePause : MonoBehaviour
                 pauseMenu.blocksRaycasts = false;
             }
         }
+
+        if (SceneManager.GetActiveScene().name == "TitleScreen")
+        {
+            if (isTutorial)
+            {
+                tutorialMenu.alpha = 0.95f;
+                tutorialMenu.interactable = true;
+                tutorialMenu.blocksRaycasts = true;
+            }
+            else
+            {
+                tutorialMenu.alpha = 0f;
+                tutorialMenu.interactable = false;
+                tutorialMenu.blocksRaycasts = false;
+            }
+        }
+    }
+
+    public void TutorialButton()
+    {
+        isTutorial = !isTutorial;
     }
 }
