@@ -9,6 +9,7 @@ public class TowerDefense : MonoBehaviour
     [SerializeField] private GameObject batPrefab;
     [SerializeField] private GameObject firePrefab;
     [SerializeField] private GameObject rockPrefab;
+    [SerializeField] private GameObject radiusObject;
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float waveDuration = 60f;
     [SerializeField] private float spawnTimeVariation = 0.5f;
@@ -81,6 +82,7 @@ public class TowerDefense : MonoBehaviour
         if (!isSpawning)
         {
             StartSpawning();
+            radiusObject.SetActive(true);
         }
     }
 
