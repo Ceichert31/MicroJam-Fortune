@@ -15,3 +15,4 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8029829403349781584, guid: a6c678ea520448e42854b401ecac2d1a, type: 3}
   spawnChance: 0.2
   isMushroom: 0
+  enemyType: 0

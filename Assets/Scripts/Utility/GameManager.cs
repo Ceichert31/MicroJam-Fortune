@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     private float encumbrance;
 
+    [Header("Biome Settings")]
+    [SerializeField] private float defaultBiomeRadius = 15f;
+    private Biomes currentBiome = Biomes.DEFAULT;
+
     [Header("Game Tick Settings")]
     [SerializeField] private float gameTick = 5f;
 
@@ -60,6 +64,15 @@ public class GameManager : MonoBehaviour
         Defense,
     }
 
+    public enum Biomes
+    {
+        YELLOW,
+        RED,
+        GREEN,
+        BLUE,
+        DEFAULT
+    }
+
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
@@ -75,6 +88,7 @@ public class GameManager : MonoBehaviour
     public int Swag { get { return playerStats.swag; } }
     public int Agility { get { return playerStats.agility; } }
     public GameStates CurrentGameState { get { return currentGameState; } }
+    public Biomes CurrentBiome { get { return currentBiome; } }
 
     private void Awake()
     {
@@ -99,6 +113,33 @@ public class GameManager : MonoBehaviour
             //Call event channel
             gameTickUpdate_Event.CallEvent(gameTickEvent);
         }
+
+        if (Vector3.Distance(Vector3.zero, PlayerTransform.position) <= defaultBiomeRadius)
+        {
+            currentBiome = Biomes.DEFAULT;
+        }
+        else if (PlayerTransform.position.x >= 0 && PlayerTransform.position.y >= 0)
+        {
+            currentBiome = Biomes.YELLOW;
+        }
+        else if (PlayerTransform.position.x < 0 && PlayerTransform.position.y >= 0)
+        {
+            currentBiome = Biomes.GREEN;
+        }
+        else if (PlayerTransform.position.x < 0 && PlayerTransform.position.y < 0)
+        {
+            currentBiome = Biomes.RED;
+        }
+        else if (PlayerTransform.position.x >= 0 && PlayerTransform.position.y < 0)
+        {
+            currentBiome = Biomes.BLUE;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(Vector3.zero, defaultBiomeRadius);
     }
 
     private VoidEvent theEvent;
@@ -185,6 +226,7 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
 [System.Serializable]
 public struct PlayerStats
 {
