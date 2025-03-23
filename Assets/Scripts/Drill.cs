@@ -7,6 +7,7 @@ public class Drill : MonoBehaviour, IDepositable
 {
     [Header("Repair Cost")]
     [SerializeField] private OreCost repairCost;
+    [SerializeField] private OreCost hardModeCost;
     [SerializeField] private OreEventChannel updateOreUI_Event;
     [SerializeField] private AudioPitcherSO depositAudio;
 
@@ -26,11 +27,22 @@ public class Drill : MonoBehaviour, IDepositable
         canvas = transform.GetChild(1).gameObject;
 
         source = GetComponent<AudioSource>();
-
-        repairCost.requiredSapphires = Random.Range(repairCost.minRequiredSapphires, repairCost.maxRequiredSapphires);
-        repairCost.requiredEmerald = Random.Range(repairCost.minRequiredEmerald, repairCost.maxRequiredEmerald);
-        repairCost.requiredRubies = Random.Range(repairCost.minRequiredRubies, repairCost.maxRequiredRubies);
-        repairCost.requiredTopaz = Random.Range(repairCost.minRequiredTopaz, repairCost.maxRequiredTopaz);
+        
+        if (true)
+        {
+            repairCost.requiredSapphires = Random.Range(repairCost.minRequiredSapphires, repairCost.maxRequiredSapphires);
+            repairCost.requiredEmerald = Random.Range(repairCost.minRequiredEmerald, repairCost.maxRequiredEmerald);
+            repairCost.requiredRubies = Random.Range(repairCost.minRequiredRubies, repairCost.maxRequiredRubies);
+            repairCost.requiredTopaz = Random.Range(repairCost.minRequiredTopaz, repairCost.maxRequiredTopaz);
+        }
+        else
+        {
+            //Hard
+            hardModeCost.requiredSapphires = Random.Range(hardModeCost.minRequiredSapphires, hardModeCost.maxRequiredSapphires);
+            hardModeCost.requiredEmerald = Random.Range(hardModeCost.minRequiredEmerald, hardModeCost.maxRequiredEmerald);
+            hardModeCost.requiredRubies = Random.Range(hardModeCost.minRequiredRubies, hardModeCost.maxRequiredRubies);
+            hardModeCost.requiredTopaz = Random.Range(hardModeCost.minRequiredTopaz, hardModeCost.maxRequiredTopaz);
+        }
     }
 
     public void Deposit(OreStats oreToDeposit)
