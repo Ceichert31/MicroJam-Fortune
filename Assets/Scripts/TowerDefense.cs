@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TowerDefense : MonoBehaviour
 {
     [Header("Spawner Settings")]
@@ -16,6 +16,15 @@ public class TowerDefense : MonoBehaviour
 
     [SerializeField] private SceneEventChannel eventChannel;
     [SerializeField] private SceneEvent value;
+
+    [Header("UI References")]
+    [SerializeField] private GameObject quotaUI;
+    [SerializeField] private GameObject chargeMeterGO;
+    [SerializeField] private Image chargeMeter;
+    [SerializeField] private float chargeRadius = 10f;
+
+    private GameManager.GameStates gameState => GameManager.Instance.CurrentGameState;
+    private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
     private SceneEvent theEvent;
 
@@ -33,6 +42,7 @@ public class TowerDefense : MonoBehaviour
     {
         if (!isSpawning) return;
 
+        if (Vector3.Distance(transform.position, playerTransform.position) <= chargeRadius)
         waveTimer += Time.deltaTime;
 
         if (waveTimer >= waveDuration)
@@ -49,6 +59,19 @@ public class TowerDefense : MonoBehaviour
             float variation = Random.Range(-spawnTimeVariation, spawnTimeVariation);
             nextSpawnTime = Time.time + spawnInterval + variation;
         }
+
+        if (gameState == GameManager.GameStates.Defense)
+        {
+            UpdateChargeMeter();
+        }
+    }
+
+    private void UpdateChargeMeter()
+    {
+        quotaUI.SetActive(false);
+        chargeMeterGO.SetActive(true);
+
+        chargeMeter.fillAmount = waveTimer / waveDuration;
     }
 
     private void StartSpawning()
@@ -104,5 +127,11 @@ public class TowerDefense : MonoBehaviour
         {
             StopSpawning();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chargeRadius);
     }
 }
