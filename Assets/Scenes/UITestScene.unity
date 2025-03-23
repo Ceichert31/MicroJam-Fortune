@@ -1801,6 +1801,7 @@ MonoBehaviour:
   buttonDisabledCount: 0
   allButtonsDisabled: 0
   randomStatClicked: 0
+  sceneSender: {fileID: 1818895233}
 --- !u!114 &554441679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,6 +10135,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812848073}
   m_CullTransparentMesh: 1
+--- !u!1001 &1818895232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 312583489104296703, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: saveScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 312583489104296703, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: value.SceneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508412961737175216, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715731659853712670, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+--- !u!114 &1818895233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 312583489104296703, guid: 25604812bdea9164fb91896a31a3beb0, type: 3}
+  m_PrefabInstance: {fileID: 1818895232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb52a8e476d3f6141800bdb6e4bc7776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1935487564
 GameObject:
   m_ObjectHideFlags: 0
@@ -11217,6 +11294,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5631592579928871671, guid: 19fa2f46752ff7c48958f3070120b57a, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b4a64d1ecfb97748bd3852ec0888e36, type: 2}
     - target: {fileID: 6582298246427147196, guid: 19fa2f46752ff7c48958f3070120b57a, type: 3}
       propertyPath: m_Name
       value: EventSystem
@@ -11238,3 +11319,4 @@ SceneRoots:
   - {fileID: 375127050}
   - {fileID: 473526467}
   - {fileID: 785840311}
+  - {fileID: 1818895232}

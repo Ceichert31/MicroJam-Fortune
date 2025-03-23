@@ -7,10 +7,17 @@ public class SceneSender : MonoBehaviour
 
     private SceneEvent theEvent;
 
+    [SerializeField] private bool saveScene;
+
     [ContextMenu("Send Scene")]
 
     public void SendScene()
     {
+        if (saveScene)
+        {
+            PlayerDataManager.Instance.Save();
+        }
+
         theEvent.SceneType = value.SceneType;
         eventChannel.CallEvent(theEvent);
     }

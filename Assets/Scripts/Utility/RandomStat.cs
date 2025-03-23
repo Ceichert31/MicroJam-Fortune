@@ -2,14 +2,12 @@ using NUnit.Framework;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEditor;
 using DG.Tweening.Core.Easing;
-using System.Security.Cryptography.X509Certificates;
 
 public class RandomStat : MonoBehaviour
 {
@@ -24,6 +22,8 @@ public class RandomStat : MonoBehaviour
     private Button selectedButton;
     public int storeNum, buttonDisabledCount;
     public bool allButtonsDisabled = false, randomStatClicked = false;
+
+    [SerializeField] private SceneSender sceneSender;
 
     void Start()
     {
@@ -46,7 +46,7 @@ public class RandomStat : MonoBehaviour
         GameManager.Instance.UpdateSideStat(GameManager.SideStats.Luck, randomNumber);
         randomNumber = random.Next(0, 3);
         GameManager.Instance.UpdateSideStat(GameManager.SideStats.Swag, randomNumber);
-        randomNumber = random.Next(-3, 0);
+        randomNumber = random.Next(-1, 2);
         GameManager.Instance.UpdateSideStat(GameManager.SideStats.Agility, randomNumber);
 
         health.onClick.AddListener(() => OnButtonClickStats(health));
@@ -71,7 +71,7 @@ public class RandomStat : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
-            randomNumber = random.Next(-1, 3);
+            randomNumber = random.Next(-1, 5);
             randomNum.Add(randomNumber);
         }
 
@@ -86,6 +86,13 @@ public class RandomStat : MonoBehaviour
         randomNum9Text.text = randomNum[8].ToString();
     }
 
+    private void Update()
+    {
+        if (allButtonsDisabled)
+        {
+            sceneSender.SendScene();
+        }
+    }
     private void FixedUpdate()
     {
         if (buttonDisabledCount == 18) 

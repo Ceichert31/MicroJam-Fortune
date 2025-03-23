@@ -21,7 +21,7 @@ public class SwitchScene : MonoBehaviour
                 break;
             case SceneEventType.Play:
                 //Load data from stats scene
-                PlayerDataManager.Instance.Save();
+                //PlayerDataManager.Instance.Save();
                 StartCoroutine(LoadLevel(SCENE_NAME_2));
                 break;
             case SceneEventType.Scene3:
