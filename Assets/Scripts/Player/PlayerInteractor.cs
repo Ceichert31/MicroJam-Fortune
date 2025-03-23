@@ -36,19 +36,22 @@ public class PlayerInteractor : MonoBehaviour
         //Speed up deposit
         currentDelay = Mathf.Lerp(interactCooldownMax, interactCooldownMin, Time.deltaTime);
 
-        //Check if object has IDepositable interface
-        if (collision.gameObject.TryGetComponent(out IDepositable instance))
+        for (int i = 0; i < inventory.CurrentCarryCapcity; i++) 
         {
-            //Cache ore
-            OreStats ore = inventory.GetLastOre();
+            //Check if object has IDepositable interface
+            if (collision.gameObject.TryGetComponent(out IDepositable instance))
+            {
+                //Cache ore
+                OreStats ore = inventory.GetLastOre();
 
-            //If inventory empty, break
-            if (ore == null) return;
+                //If inventory empty, break
+                if (ore == null) return;
 
-            //Deposit
-            instance.Deposit(ore);
+                //Deposit
+                instance.Deposit(ore);
+            }
         }
-
+        
         //Reset
         //Invoke(nameof(ResetCanInteract), currentDelay);
     }

@@ -824,8 +824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d88cb508a44614f8a82b73cfc057e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingDelay: 0.6
+  swingDelay: 0.2
   eventChannel: {fileID: 11400000, guid: 2b07584494888614d9c2e69a584f3819, type: 2}
+  bagEventChannel: {fileID: 11400000, guid: ca3b676dc42eb5346b8e7650baf34c2f, type: 2}
 --- !u!114 &2952183625535801109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1077,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &9029177105003694483
 GameObject:
