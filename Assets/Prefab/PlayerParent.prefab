@@ -941,6 +941,8 @@ MonoBehaviour:
   swingDelay: 0.2
   eventChannel: {fileID: 11400000, guid: 2b07584494888614d9c2e69a584f3819, type: 2}
   bagEventChannel: {fileID: 11400000, guid: ca3b676dc42eb5346b8e7650baf34c2f, type: 2}
+  dynamiteCooldown: 5
+  dynamitePrefab: {fileID: 2840846865385838032, guid: 5c88ece8cda320e40b4583afc27b8392, type: 3}
 --- !u!114 &2952183625535801109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,7 +962,7 @@ MonoBehaviour:
   addHealthUI_Event: {fileID: 11400000, guid: a808048ea45c15046af9af857fc46f4b, type: 2}
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
   deathSceneSwitch: {fileID: 11400000, guid: 9461f800e58c4014fbf2c202538bfcde, type: 2}
-  deathSlowTime: 1
+  deathSlowTime: 0.5
 --- !u!114 &2616635845315080600
 MonoBehaviour:
   m_ObjectHideFlags: 0
