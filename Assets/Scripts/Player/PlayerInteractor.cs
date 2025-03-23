@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
@@ -14,9 +13,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private Inventory inventory;
 
-    private bool hasInteracted;
-    private bool canInteract = true;
-
+    private bool canInteract;
     private void Start()
     {
         inventory = GetComponentInParent<Inventory>();
@@ -24,8 +21,7 @@ public class PlayerInteractor : MonoBehaviour
 
     public void CanInteract(bool canInteract)
     {
-        hasInteracted = canInteract;
-        currentDelay = interactCooldownMax;
+        this.canInteract = canInteract;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -40,9 +36,6 @@ public class PlayerInteractor : MonoBehaviour
         //Speed up deposit
         currentDelay = Mathf.Lerp(interactCooldownMax, interactCooldownMin, Time.deltaTime);
 
-        //Reset
-        Invoke(nameof(ResetCanInteract), currentDelay);
-
         //Check if object has IDepositable interface
         if (collision.gameObject.TryGetComponent(out IDepositable instance))
         {
@@ -55,16 +48,13 @@ public class PlayerInteractor : MonoBehaviour
             //Deposit
             instance.Deposit(ore);
         }
+
+        //Reset
+        //Invoke(nameof(ResetCanInteract), currentDelay);
     }
 
     private void ResetCanInteract()
     {
         canInteract = true;
-    }
-   
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //Clear text prompt
     }
 }

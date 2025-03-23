@@ -80,8 +80,13 @@ public class PlayerHealthUI : MonoBehaviour
     /// </summary>
     private void FadeOut()
     {
+        DOTween.CompleteAll();
+        DOTween.Clear();
+        DOTween.KillAll();
+
         foreach (GameObject obj in heartList)
         {
+            if (obj == null) continue;
             obj.GetComponent<Image>().DOFade(0, fadeTime);
         }
     }
@@ -90,6 +95,7 @@ public class PlayerHealthUI : MonoBehaviour
         //Kill all tweens
         DOTween.CompleteAll();
         DOTween.Clear();
+        DOTween.KillAll();
 
         foreach (GameObject obj in heartList)
         {

@@ -25,13 +25,9 @@ public class InputController : MonoBehaviour
     private VoidEvent theEvent;
 
     private bool isMoving;
-    private bool hasInteracted;
 
     //Getters 
     public bool IsMoving { get { return isMoving; } }
-    public bool HasInteracted { get { return hasInteracted;} }
-
-
     private void Awake()
     {
         inputAction = new InputSystem_Actions();

@@ -7,6 +7,7 @@ public class Drill : MonoBehaviour, IDepositable
 {
     [Header("Repair Cost")]
     [SerializeField] private OreCost repairCost;
+    [SerializeField] private OreEventChannel updateOreUI_Event;
 
     [SerializeField] private int 
         currentSapphires,
@@ -32,6 +33,8 @@ public class Drill : MonoBehaviour, IDepositable
             case OreType.Sapphire:
                 currentSapphires++;
 
+                updateOreUI_Event.CallEvent(new(oreToDeposit, currentSapphires));
+
                 if (currentSapphires >= repairCost.requiredSapphires)
                 {
                     //Check off
@@ -42,6 +45,8 @@ public class Drill : MonoBehaviour, IDepositable
             case OreType.Ruby:
                 currentRubies++;
 
+                updateOreUI_Event.CallEvent(new(oreToDeposit, currentRubies));
+
                 if (currentRubies >= repairCost.requiredRubies)
                 {
                     //Check off
@@ -50,6 +55,8 @@ public class Drill : MonoBehaviour, IDepositable
 
             case OreType.Topaz:
                 currentTopaz++;
+
+                updateOreUI_Event.CallEvent(new(oreToDeposit, currentTopaz));
 
                 if (currentTopaz >= repairCost.requiredTopaz)
                 {
@@ -60,6 +67,8 @@ public class Drill : MonoBehaviour, IDepositable
             case OreType.Emerald:
                 currentEmerald++;
 
+                updateOreUI_Event.CallEvent(new(oreToDeposit, currentEmerald));
+
                 if (currentEmerald >= repairCost.requiredEmerald)
                 {
                     //Check off
@@ -68,6 +77,7 @@ public class Drill : MonoBehaviour, IDepositable
         }
 
         //Update UI with checkmark if ore is complete
+       
 
         //If true start defence
         //procceed once player has survived 30 seconds
