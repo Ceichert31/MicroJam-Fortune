@@ -28,7 +28,7 @@ public class Drill : MonoBehaviour, IDepositable
 
         source = GetComponent<AudioSource>();
         
-        if (true)
+        if (PlayerPrefs.GetInt("hardMode") == 0)
         {
             repairCost.requiredSapphires = Random.Range(repairCost.minRequiredSapphires, repairCost.maxRequiredSapphires);
             repairCost.requiredEmerald = Random.Range(repairCost.minRequiredEmerald, repairCost.maxRequiredEmerald);
