@@ -23,11 +23,40 @@ public class PlayerInteractor : MonoBehaviour
     {
         this.canInteract = canInteract;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Check layer
+        if (collision.gameObject.layer != interactLayer) return;
+
+        Debug.Log("Interactable");
+
+        if (!canInteract) return;
+
+        canInteract = false;
+
+        //Speed up deposit
+        //currentDelay = Mathf.Lerp(interactCooldownMax, interactCooldownMin, Time.deltaTime);
+
+        //Check if object has IDepositable interface
+        if (collision.gameObject.TryGetComponent(out IDepositable instance))
+        {
+            //Cache ore
+            OreStats ore = inventory.GetLastOre();
+
+            //If inventory empty, break
+            if (ore == null) return;
+
+            //Deposit
+            instance.Deposit(ore);
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Check layer
         if (collision.gameObject.layer != interactLayer) return;
+
+        Debug.Log("Interactable");
 
         if (!canInteract) return;
 

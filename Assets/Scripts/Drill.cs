@@ -17,14 +17,12 @@ public class Drill : MonoBehaviour, IDepositable
         currentTopaz,
         currentEmerald;
 
-    [Header("UI")]
-    private GameObject canvas;
+    
 
     private AudioSource source;
 
     private void Awake()
     {
-        canvas = transform.GetChild(1).gameObject;
 
         source = GetComponent<AudioSource>();
         
@@ -110,24 +108,6 @@ public class Drill : MonoBehaviour, IDepositable
                 break;
         }
         depositAudio.Play(source);
-    }
-
-    //open when player near
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canvas.transform.DOScaleX(1, 0.2f).SetEase(Ease.OutQuint);
-        }
-    }
-
-    //close when player not near
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canvas.transform.DOScaleX(0, 0.2f).SetEase(Ease.OutQuint);
-        }
     }
 }
 
