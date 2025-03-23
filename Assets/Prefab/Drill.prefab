@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 449092216679887877}
   - component: {fileID: 8609677807504725}
   - component: {fileID: 3700043636635803078}
+  - component: {fileID: 2903818293509077131}
   m_Layer: 5
   m_Name: DrillUI
   m_TagString: Untagged
@@ -994,6 +995,52 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!61 &2903818293509077131
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567963191275044817}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.035, y: -0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.0625, y: 2.0625}
+    newSize: {x: 2.0625, y: 2.0625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6, y: 3.5}
+  m_EdgeRadius: 0
 --- !u!1 &3740142780283328732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1477,6 @@ GameObject:
   - component: {fileID: 7641044398090760499}
   - component: {fileID: 3472841100222645830}
   - component: {fileID: 1521385438718204359}
-  - component: {fileID: 8462993153727409352}
   - component: {fileID: 1529151999742380176}
   - component: {fileID: 248616591733188996}
   - component: {fileID: 5560759588049588240}
@@ -1474,6 +1520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairCost: {fileID: 11400000, guid: 0121985620239d941b252cf519a998d6, type: 2}
+  hardModeCost: {fileID: 11400000, guid: 85c7efce14807174ca9c27b3580c01ec, type: 2}
   updateOreUI_Event: {fileID: 11400000, guid: e0e102b1dc0e38746b720da0539f7d71, type: 2}
   depositAudio: {fileID: 11400000, guid: 1b2a2a212a55ec04f9a76c20ad6c63a2, type: 2}
   currentSapphires: 0
@@ -1525,52 +1572,6 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1.4, y: 0.565}
-  m_EdgeRadius: 0
---- !u!61 &8462993153727409352
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5823331240803283213}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.035, y: -0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.0625, y: 2.0625}
-    newSize: {x: 2.0625, y: 2.0625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 6, y: 3.5}
   m_EdgeRadius: 0
 --- !u!114 &1529151999742380176
 MonoBehaviour:
@@ -1879,7 +1880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2709365056869892394
 Transform:
   m_ObjectHideFlags: 0
