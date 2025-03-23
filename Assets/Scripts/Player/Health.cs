@@ -10,6 +10,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private float spriteFlashInterval = 0.8f;
     [SerializeField] private FloatEventChannel removeHealthUI_Event;
     [SerializeField] private FloatEventChannel addHealthUI_Event;
+    [SerializeField] private AudioPitcherSO damageAudio;
     private int maxHealth => GameManager.Instance.MaxHealth;
 
     private SpriteRenderer playerRenderer;
@@ -17,6 +18,8 @@ public class Health : MonoBehaviour, IDamageable
     private Inventory inventory;
 
     private bool isDamageable = true;
+
+    private AudioSource source;
 
     [Header("Death Settings")]
     [SerializeField] private float deathSlowTime = 0.5f;
@@ -27,6 +30,8 @@ public class Health : MonoBehaviour, IDamageable
 
         inventory = GetComponent<Inventory>();
 
+        source = GetComponent<AudioSource>();
+
         playerRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
@@ -34,6 +39,8 @@ public class Health : MonoBehaviour, IDamageable
     {
         //Prevent damage
         if (!isDamageable) return;
+
+        damageAudio.Play(source);
 
         //Deal damage
         currentHealth -= damage;
