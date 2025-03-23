@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
     public int MaxHealth { get { return Mathf.Clamp(playerStats.maxHealth, 1, 100); } }
-    public int MovementSpeed { get { return Mathf.Clamp(playerStats.movementSpeed, 1, 3); } }
+    public int MovementSpeed { get { return playerStats.movementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
     public int AttackDamage { get { return Mathf.Clamp(playerStats.attackDamage, 1, 100); } }
     public int CarryingCapacity { get { return Mathf.Clamp(playerStats.carryingCapacity, 1, 100); } }

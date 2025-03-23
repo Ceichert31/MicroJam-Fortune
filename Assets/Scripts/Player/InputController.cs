@@ -75,8 +75,10 @@ public class InputController : MonoBehaviour
         float dragForce = encumberance;
         dragForce = Mathf.Clamp(dragForce, 0, movementSpeed - 1);
 
+        float speed = Mathf.Clamp(movementSpeed, 1, 5);
+
         //Calculate target velocity
-        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (movementSpeed - dragForce)* MoveDirection();
+        Vector2 targetVelocity = (Time.fixedDeltaTime * 100) * (speed - dragForce)* MoveDirection();
 
         rb.linearVelocity = (targetVelocity);
     }
