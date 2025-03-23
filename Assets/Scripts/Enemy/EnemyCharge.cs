@@ -11,15 +11,21 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     [SerializeField] private float chargeSpeed = 6f;
     [SerializeField] private float drawBackDistance = 1.5f;
     [SerializeField] private float drawBackDuration = 0.5f;
+    [SerializeField] private LayerMask obstacleLayer;
+    [Header("Wall Collision Settings")]
+    [SerializeField] private float postChargeBackupDistance = 1.5f;
+    [SerializeField] private float postChargeBackupDuration = 0.3f;
 
     private Animator animator;
     private SpriteRenderer enemyRenderer;
     private BoxCollider2D boxCollider;
+    private Rigidbody2D rb;
 
     private bool isCharging = false;
     private bool isDrawingBack = false;
     private bool canCharge = true;
     private Vector3 chargeDirection;
+    private Coroutine drawbackCoroutine;
 
     private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
@@ -28,6 +34,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         enemyRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -44,11 +51,13 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         {
             transform.position += chargeDirection * chargeSpeed * Time.deltaTime;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, chargeDirection, 0.5f, 0);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, chargeDirection, 0.5f, obstacleLayer);
 
             if (hit.collider != null)
             {
+                Vector3 wallPosition = transform.position;
                 StopCharging();
+                StartCoroutine(BackupFromWall(wallPosition));
             }
         }
         else
@@ -102,14 +111,12 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     private void StopCharging()
     {
         isCharging = false;
-
         StartCoroutine(StartCooldown());
     }
 
     private IEnumerator StartCooldown()
     {
         yield return new WaitForSeconds(chargeCooldown);
-
         canCharge = true;
     }
 
@@ -145,7 +152,25 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         }
         else if (collision.gameObject.CompareTag("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
+            Vector3 wallPosition = transform.position;
             StopCharging();
+            StartCoroutine(BackupFromWall(wallPosition));
+        }
+    }
+
+    private IEnumerator BackupFromWall(Vector3 wallHitPosition)
+    {
+        Vector3 backupDirection = -chargeDirection;
+        Vector3 backupPosition = wallHitPosition + (backupDirection * postChargeBackupDistance);
+
+        float elapsed = 0;
+        Vector3 backupStart = transform.position;
+
+        while (elapsed < postChargeBackupDuration)
+        {
+            transform.position = Vector3.Lerp(backupStart, backupPosition, elapsed / postChargeBackupDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
         }
     }
 }
