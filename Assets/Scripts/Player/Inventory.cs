@@ -180,4 +180,59 @@ public class Inventory : MonoBehaviour
 
         return ore;
     }
+
+    public void DeleteOre(int num)
+    {
+        OreType ore = OreType.Sapphire;
+
+        switch (num)
+        {
+            case 0:
+                ore = OreType.Sapphire;
+                break;
+
+            case 1:
+                ore = OreType.Emerald;
+                break;
+
+            case 2:
+                ore = OreType.Ruby;
+                break;
+
+            case 3:
+                ore = OreType.Topaz;
+                break;
+        }
+
+        //Guard Clause
+        if (inventory.Count <= 0) return;
+
+        //Decrease current carry capacity
+        currentCarryCapacity--;
+
+        //If dropping ore sets us below max carry capacity, reduce encumbrance
+        if (GameManager.Instance.Encumbrance > 0)
+        {
+            GameManager.Instance.Encumbrance--;
+        }
+
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].oreType == ore)
+            {
+                oreEvent.Value = inventory[i];
+                //Remove ore from stack
+                inventory.RemoveAt(i);
+                break;
+            }
+        }
+
+        //Update capacity text
+        capacityEvent.FloatValue = currentCarryCapacity;
+        setCapacityText_Event.CallEvent(capacityEvent);
+
+        //Update ore UI
+        oreEvent.Count = GetOreTypeCount(oreEvent.Value.oreType);
+        updateOreUI_Event.CallEvent(oreEvent);
+    }
 }
