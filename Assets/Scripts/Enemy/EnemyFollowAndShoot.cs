@@ -13,6 +13,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     [SerializeField] private float shootDelayTime = 2.5f;
 
     private Animator animator;
+    private Transform enemySpr;
     private Transform bulletSpawn;
 
     private bool delay = false;
@@ -23,12 +24,24 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         bulletSpawn = transform.GetChild(0);
+        enemySpr = transform.GetChild(1);
     }
 
     private Vector3 enemyToPlayer;
     private void Update()
     {
         enemyToPlayer = transform.position - playerTransform.position;
+
+        if (enemyToPlayer.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+
         if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= chaseRadius && Vector3.Distance(transform.position, playerTransform.position) > shootRadius)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
@@ -37,7 +50,7 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
         if (Vector3.Distance(transform.position, playerTransform.position) <= shootRadius && !delay)
         {
             // add delya and shot
-            Shoot();
+            animator.SetTrigger("FireAttack");
             StartCoroutine(IShootDelay());
         }
 
