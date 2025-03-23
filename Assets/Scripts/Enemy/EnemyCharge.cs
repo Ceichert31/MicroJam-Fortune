@@ -173,4 +173,9 @@ public class EnemyCharge : MonoBehaviour, IDamageable
             yield return null;
         }
     }
+
+    public void SetDetectionRadius(float radius)
+    {
+        detectionRadius = radius;
+    }
 }

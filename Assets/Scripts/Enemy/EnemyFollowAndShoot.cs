@@ -88,4 +88,9 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
             Destroy(gameObject);
         }
     }
+
+    public void SetDetectionRadius(float radius)
+    {
+        chaseRadius = radius;
+    }
 }

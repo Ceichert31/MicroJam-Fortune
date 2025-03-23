@@ -8,7 +8,9 @@ public class PickaxeMovement : MonoBehaviour
     private Animator animator;
     private RotatePickaxe rotatePickaxe;
 
-    private const float PICKAXE_SWING_TIME = 0.6f;
+    private float agility => GameManager.Instance.Agility;
+
+    private const float PICKAXE_SWING_TIME = 0.8f;
 
     private void Awake()
     {
@@ -16,7 +18,10 @@ public class PickaxeMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rotatePickaxe = transform.parent.GetComponent<RotatePickaxe>();
     }
-
+    private void Update()
+    {
+        animator.speed = Mathf.Clamp(agility, 1, 2);
+    }
     public void PickaxeSwing()
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameStates.Death) return;
