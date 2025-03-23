@@ -10,6 +10,7 @@ public class DrillUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI topazText;
 
     [SerializeField] private OreCost repairCost;
+    [SerializeField] OreCost hard;
 
     public void Start()
     {
@@ -19,6 +20,22 @@ public class DrillUIController : MonoBehaviour
         rubyText.text = $"00/{repairCost.requiredRubies}";
         emeraldText.text = $"00/{repairCost.requiredEmerald}";
         topazText.text = $"00/{repairCost.requiredTopaz}";
+
+        if (PlayerPrefs.GetInt("hardMode") == 0)
+        {
+            sapphireText.text = $"00/{repairCost.requiredSapphires}";
+            rubyText.text = $"00/{repairCost.requiredRubies}";
+            emeraldText.text = $"00/{repairCost.requiredEmerald}";
+            topazText.text = $"00/{repairCost.requiredTopaz}";
+        }
+        else
+        {
+            //Hard
+            sapphireText.text = $"00/{hard.requiredSapphires}";
+            rubyText.text = $"00/{hard.requiredRubies}";
+            emeraldText.text = $"00/{hard.requiredEmerald}";
+            topazText.text = $"00/{hard.requiredTopaz}";
+        }
     }
 
     public void UpdateOreUI(OreEvent ctx)

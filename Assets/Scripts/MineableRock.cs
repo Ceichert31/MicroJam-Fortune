@@ -8,6 +8,7 @@ public class MineableRock : MonoBehaviour, IDamageable
     [SerializeField] AudioPitcherSO damageSound;
     [SerializeField] AudioPitcherSO breakSound;
 
+    [SerializeField] ParticleSystem breakParticle;
 
     private GameObject childObject;
 
@@ -56,6 +57,8 @@ public class MineableRock : MonoBehaviour, IDamageable
             oreEvent.Value = oreStats;
             oreEvent.Count = Random.Range(oreStats.minValue, oreStats.maxValue);
             addOre_Event.CallEvent(oreEvent);
+
+            breakParticle.Play();
 
             //Disable
             SetObjectStatus(false);
