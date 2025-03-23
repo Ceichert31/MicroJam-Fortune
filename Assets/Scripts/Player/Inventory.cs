@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<OreStats> inventory = new();
 
     //Gets stat from game manager
-    [SerializeField] private int maxCarryCapacity => GameManager.Instance.CarryCapacity;
+    [SerializeField] private int maxCarryCapacity => GameManager.Instance.Confidence;
     [SerializeField] private int currentCarryCapacity;
 
     private FloatEvent capacityEvent;

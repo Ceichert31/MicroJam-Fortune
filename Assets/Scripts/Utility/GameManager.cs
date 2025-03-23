@@ -45,13 +45,13 @@ public class GameManager : MonoBehaviour
         Health,
         MovementSpeed,
         AttackDamage,
-        Energy
+        CarryingCapacity
     }
 
     public enum SideStats
     {
         Vision,
-        CarryingCapacity,
+        Confidence,
         Luck,
         Swag,
         Agility
@@ -80,10 +80,10 @@ public class GameManager : MonoBehaviour
     public int MovementSpeed { get { return playerStats.movementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
     public int AttackDamage { get { return playerStats.attackDamage; } }
-    public int MaxEnergy { get { return playerStats.maxEnergy; } }
+    public int CarryingCapacity { get { return playerStats.carryingCapacity; } }
     //Side stat getters
     public int Vision { get { return playerStats.vision; } }
-    public int CarryCapacity { get { return playerStats.carryingCapacity; } }
+    public int Confidence { get { return playerStats.confidence; } }
     public int Luck { get { return playerStats.luck; } }
     public int Swag { get { return playerStats.swag; } }
     public int Agility { get { return playerStats.agility; } }
@@ -166,8 +166,8 @@ public class GameManager : MonoBehaviour
             case CoreStats.AttackDamage:
                 playerStats.attackDamage += value;
                 break;
-            case CoreStats.Energy:
-                playerStats.maxEnergy += value;
+            case CoreStats.CarryingCapacity:
+                playerStats.carryingCapacity += value;
                 break;
         }
     }
@@ -179,8 +179,8 @@ public class GameManager : MonoBehaviour
             case SideStats.Vision:
                 playerStats.vision += value;
                 break;
-            case SideStats.CarryingCapacity:
-                playerStats.carryingCapacity += value;
+            case SideStats.Confidence:
+                playerStats.confidence += value;
                 break;
             case SideStats.Luck:
                 playerStats.luck += value;
@@ -234,11 +234,11 @@ public struct PlayerStats
     public int maxHealth;
     public int movementSpeed;
     public int attackDamage;
-    public int maxEnergy;
+    public int carryingCapacity;
 
     //Side stats
     public int vision;
-    public int carryingCapacity;
+    public int confidence;
     public int luck;
     public int swag;
     public int agility;
@@ -248,10 +248,10 @@ public struct PlayerStats
         maxHealth = baseStats.maxHealth;
         movementSpeed = baseStats.movementSpeed;
         attackDamage = baseStats.attackDamage;
-        maxEnergy = baseStats.maxEnergy;
+        carryingCapacity = baseStats.carryingCapacity;
 
         vision = baseStats.vision;
-        carryingCapacity = baseStats.carryingCapacity;
+        confidence = baseStats.confidence;
         luck = baseStats.luck;
         swag = baseStats.swag;
         agility = baseStats.agility;

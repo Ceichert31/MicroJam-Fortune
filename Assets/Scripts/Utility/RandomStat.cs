@@ -17,9 +17,9 @@ public class RandomStat : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private MonoScript storeNumber;
     [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4, randomNum5, randomNum6, randomNum7, randomNum8, randomNum9, 
-        health, movementSpeed, attackDamage, energy, vision, carryingCapacity, luck, swag, agility;
+        health, movementSpeed, attackDamage, carryingCapacity, vision, confidence, luck, swag, agility;
     [SerializeField] public TextMeshProUGUI randomNum1Text, randomNum2Text, randomNum3Text, randomNum4Text, randomNum5Text, randomNum6Text, randomNum7Text, randomNum8Text, randomNum9Text, 
-        healthText, movementSpeedText, attackDamageText, energyText, visionText, carryingCapacityText, luckText, swagText, agilityText;
+        healthText, movementSpeedText, attackDamageText, carryingCapacityText, visionText, confidenceText, luckText, swagText, agilityText;
 
     public static List<int> randomNum = new List<int>();
     System.Random random = new System.Random();
@@ -43,7 +43,7 @@ public class RandomStat : MonoBehaviour
 
         GameManager.Instance.UpdateSideStat(GameManager.SideStats.Vision, randomNumber);
         randomNumber = random.Next(-3, 0);
-        GameManager.Instance.UpdateSideStat(GameManager.SideStats.CarryingCapacity, randomNumber);
+        GameManager.Instance.UpdateSideStat(GameManager.SideStats.Confidence, randomNumber);
         randomNumber = random.Next(-3, 0);
         GameManager.Instance.UpdateSideStat(GameManager.SideStats.Luck, randomNumber);
         randomNumber = random.Next(0, 3);
@@ -54,9 +54,9 @@ public class RandomStat : MonoBehaviour
         health.onClick.AddListener(() => OnButtonClickStats(health));
         movementSpeed.onClick.AddListener(() => OnButtonClickStats(movementSpeed));
         attackDamage.onClick.AddListener(() => OnButtonClickStats(attackDamage));
-        energy.onClick.AddListener(() => OnButtonClickStats(energy));
-        vision.onClick.AddListener(() => OnButtonClickStats(vision));
         carryingCapacity.onClick.AddListener(() => OnButtonClickStats(carryingCapacity));
+        vision.onClick.AddListener(() => OnButtonClickStats(vision));
+        confidence.onClick.AddListener(() => OnButtonClickStats(confidence));
         luck.onClick.AddListener(() => OnButtonClickStats(luck));
         swag.onClick.AddListener(() => OnButtonClickStats(swag));
         agility.onClick.AddListener(() => OnButtonClickStats(agility));
@@ -64,9 +64,9 @@ public class RandomStat : MonoBehaviour
         healthText.text = GameManager.Instance.MaxHealth.ToString();
         movementSpeedText.text = GameManager.Instance.MovementSpeed.ToString();
         attackDamageText.text = GameManager.Instance.AttackDamage.ToString();
-        energyText.text = GameManager.Instance.MaxEnergy.ToString();
+        carryingCapacityText.text = GameManager.Instance.CarryingCapacity.ToString();
         visionText.text = GameManager.Instance.Vision.ToString();
-        carryingCapacityText.text = GameManager.Instance.CarryCapacity.ToString();
+        confidenceText.text = GameManager.Instance.Confidence.ToString();
         luckText.text = GameManager.Instance.Luck.ToString();
         swagText.text = GameManager.Instance.Swag.ToString();
         agilityText.text = GameManager.Instance.Agility.ToString();
@@ -182,11 +182,11 @@ public class RandomStat : MonoBehaviour
             attackDamage.interactable = false;
             buttonDisabledCount++;
         }
-        else if (selectedButton == energy)
+        else if (selectedButton == carryingCapacity)
         {
-            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.Energy, storeNum);
-            energyText.text = GameManager.Instance.MaxEnergy.ToString();
-            energy.interactable = false;
+            GameManager.Instance.UpdateCoreStat(GameManager.CoreStats.CarryingCapacity, storeNum);
+            carryingCapacityText.text = GameManager.Instance.CarryingCapacity.ToString();
+            carryingCapacity.interactable = false;
             buttonDisabledCount++;
         }
         else if (selectedButton == vision)
@@ -196,11 +196,11 @@ public class RandomStat : MonoBehaviour
             vision.interactable = false;
             buttonDisabledCount++;
         }
-        else if (selectedButton == carryingCapacity)
+        else if (selectedButton == confidence)
         {
-            GameManager.Instance.UpdateSideStat(GameManager.SideStats.CarryingCapacity, storeNum);
-            carryingCapacityText.text = GameManager.Instance.CarryCapacity.ToString();
-            carryingCapacity.interactable = false;
+            GameManager.Instance.UpdateSideStat(GameManager.SideStats.Confidence, storeNum);
+            confidenceText.text = GameManager.Instance.Confidence.ToString();
+            confidence.interactable = false;
             buttonDisabledCount++;
         }
         else if (selectedButton == luck)
