@@ -434,7 +434,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.314
   m_Color: {r: 1, g: 0.8284428, b: 0.44968545, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 054c08560000000085a596a1eb00a519
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.14
+  m_PointLightOuterRadius: 6.44
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -546,7 +546,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1583962747
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3677999197142227536, guid: c8f2f31c71a67e84e963cb504efad59e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -843,6 +843,7 @@ MonoBehaviour:
   spriteFlashInterval: 0.05
   removeHealthUI_Event: {fileID: 11400000, guid: c9050f227fa23434cac9a7fd5cf738d2, type: 2}
   addHealthUI_Event: {fileID: 11400000, guid: a808048ea45c15046af9af857fc46f4b, type: 2}
+  deathSlowTime: 0
 --- !u!114 &2616635845315080600
 MonoBehaviour:
   m_ObjectHideFlags: 0

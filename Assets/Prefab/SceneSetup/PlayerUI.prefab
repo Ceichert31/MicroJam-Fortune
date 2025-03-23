@@ -248,6 +248,18 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -281,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 230
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -295,6 +307,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 529099292063009809, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2398096813686404504, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_Name
       value: BagUI
@@ -302,11 +318,11 @@ PrefabInstance:
     - target: {fileID: 4526962675943070634, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
     - target: {fileID: 4526962675943070634, guid: e8e14a21ed254ac4eb5fb1f01c5eca2f, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

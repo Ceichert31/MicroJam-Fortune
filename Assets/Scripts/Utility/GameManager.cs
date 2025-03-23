@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Event Channel")]
     [SerializeField] private VoidEventChannel oreRespawn_Event;
     [SerializeField] private VoidEventChannel gameTickUpdate_Event;
+    [SerializeField] private VoidEventChannel defenseStarted_Event;
 
     private VoidEvent gameTickEvent;
 
@@ -228,6 +229,8 @@ public class GameManager : MonoBehaviour
         if (ReachedSapphireQuota && ReachedRubyQuota && reachedEmeraldQuota && ReachedTopazQuota) 
         {
             currentGameState = GameStates.Defense;
+            //Call defense started event
+            defenseStarted_Event.CallEvent(theEvent);
         }
     }
 }

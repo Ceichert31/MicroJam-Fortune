@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f6543352c1392459693c9be0476164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTransitionTime: 5
+  volumeTransitionTime: 3
   defaultProfile: {fileID: 2204625574748764105}
   blueProfile: {fileID: 7541629004080564459}
   redProfile: {fileID: 9160529466036832856}

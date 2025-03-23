@@ -39,6 +39,7 @@ public class Drill : MonoBehaviour, IDepositable
                 {
                     //Check off
                     //Set game manager bool
+                    GameManager.Instance.QuotaReached(OreType.Sapphire);
                 }
                 break;
 
@@ -50,6 +51,7 @@ public class Drill : MonoBehaviour, IDepositable
                 if (currentRubies >= repairCost.requiredRubies)
                 {
                     //Check off
+                    GameManager.Instance.QuotaReached(OreType.Ruby);
                 }
                 break;
 
@@ -61,6 +63,7 @@ public class Drill : MonoBehaviour, IDepositable
                 if (currentTopaz >= repairCost.requiredTopaz)
                 {
                     //Check off
+                    GameManager.Instance.QuotaReached(OreType.Topaz);
                 }
                 break;
 
@@ -72,15 +75,10 @@ public class Drill : MonoBehaviour, IDepositable
                 if (currentEmerald >= repairCost.requiredEmerald)
                 {
                     //Check off
+                    GameManager.Instance.QuotaReached(OreType.Emerald);
                 }
                 break;
         }
-
-        //Update UI with checkmark if ore is complete
-       
-
-        //If true start defence
-        //procceed once player has survived 30 seconds
     }
 
     //open when player near
