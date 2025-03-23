@@ -19,6 +19,11 @@ public class EnemySentry : MonoBehaviour, IDamageable
     [SerializeField] private AudioPitcherSO damageAudio;
     [SerializeField] private AudioPitcherSO fireAudio;
     [SerializeField] private GameObject deathAudioObject;
+    private SpriteRenderer enemyRenderer;
+
+    [Header("Sprite Flash")]
+    [SerializeField] private int iFrameDuration = 10;
+    [SerializeField] private float spriteFlashInterval = 0.05f;
 
     private AudioSource source;
 
@@ -26,6 +31,7 @@ public class EnemySentry : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+        enemyRenderer = transform.GetChild(1).GetComponent<SpriteRenderer>();
         particleObject = transform.GetChild(0).gameObject;
         particleSys = particleObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
@@ -68,10 +74,25 @@ public class EnemySentry : MonoBehaviour, IDamageable
 
         damageAudio.Play(source);
 
+        StartCoroutine(DamageFlash());
+
         if (enemyHealth <= 0)
         {
             Instantiate(deathAudioObject, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        float flashNumber = 0;
+        while (flashNumber < iFrameDuration)
+        {
+            enemyRenderer.enabled = false;
+            yield return new WaitForSeconds(spriteFlashInterval);
+            enemyRenderer.enabled = true;
+            flashNumber++;
+            yield return new WaitForSeconds(spriteFlashInterval);
         }
     }
 }

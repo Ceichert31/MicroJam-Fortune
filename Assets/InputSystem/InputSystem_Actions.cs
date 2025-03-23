@@ -155,6 +155,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlaceMine"",
+                    ""type"": ""Button"",
+                    ""id"": ""972763b5-8642-4430-91e4-6c870462d8be"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ced8430-a31a-4c3b-8bfe-0ae4b2b8a84f"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceMine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -925,6 +945,7 @@ namespace UnityEngine.InputSystem
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_Bag = m_Player.FindAction("Bag", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_PlaceMine = m_Player.FindAction("PlaceMine", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1025,6 +1046,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_Bag;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_PlaceMine;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1064,6 +1086,10 @@ namespace UnityEngine.InputSystem
             /// Provides access to the underlying input action "Player/Pause".
             /// </summary>
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/PlaceMine".
+            /// </summary>
+            public InputAction @PlaceMine => m_Wrapper.m_Player_PlaceMine;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1111,6 +1137,9 @@ namespace UnityEngine.InputSystem
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @PlaceMine.started += instance.OnPlaceMine;
+                @PlaceMine.performed += instance.OnPlaceMine;
+                @PlaceMine.canceled += instance.OnPlaceMine;
             }
 
             /// <summary>
@@ -1143,6 +1172,9 @@ namespace UnityEngine.InputSystem
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @PlaceMine.started -= instance.OnPlaceMine;
+                @PlaceMine.performed -= instance.OnPlaceMine;
+                @PlaceMine.canceled -= instance.OnPlaceMine;
             }
 
             /// <summary>
@@ -1492,6 +1524,13 @@ namespace UnityEngine.InputSystem
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnPause(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "PlaceMine" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPlaceMine(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -31,6 +31,12 @@ public class InputController : MonoBehaviour
 
     private bool isMoving;
 
+    [Header("Dynamite Settings")]
+    [SerializeField] private float dynamiteCooldown = 5f;
+    [SerializeField] private GameObject dynamitePrefab;
+
+    private bool canPlaceDynamite = true;
+
     //Getters 
     public bool IsMoving { get { return isMoving; } }
     private void Awake()
@@ -124,6 +130,23 @@ public class InputController : MonoBehaviour
         GameManager.Instance.SetPauseState();
     }
 
+    private void PlaceDynamite(InputAction.CallbackContext ctx)
+    {
+        if (!canPlaceDynamite) return;
+
+        canPlaceDynamite = false;
+
+        //Instantiate dynamite
+        Instantiate(dynamitePrefab, transform.position, Quaternion.identity);
+
+        Invoke(nameof(ResetPlaceDynamite), dynamiteCooldown);
+    }
+
+    private void ResetPlaceDynamite()
+    {
+        canPlaceDynamite = true;
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -150,6 +173,8 @@ public class InputController : MonoBehaviour
         playerActions.Bag.performed += SetBag;
 
         playerActions.Pause.performed += Pause;
+
+        playerActions.PlaceMine.performed += PlaceDynamite;
     }
 
     private void OnDisable()
@@ -166,5 +191,7 @@ public class InputController : MonoBehaviour
         playerActions.Bag.performed -= SetBag;
 
         playerActions.Pause.performed -= Pause;
+
+        playerActions.PlaceMine.performed -= PlaceDynamite;
     }
 }

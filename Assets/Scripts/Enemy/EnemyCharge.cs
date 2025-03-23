@@ -15,6 +15,9 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     [Header("Wall Collision Settings")]
     [SerializeField] private float postChargeBackupDistance = 1.5f;
     [SerializeField] private float postChargeBackupDuration = 0.3f;
+    [Header("Sprite Flash")]
+    [SerializeField] private int iFrameDuration = 10;
+    [SerializeField] private float spriteFlashInterval = 0.05f;
 
     private Animator animator;
     private SpriteRenderer enemyRenderer;
@@ -154,6 +157,7 @@ public class EnemyCharge : MonoBehaviour, IDamageable
         Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
 
         KnockBack(-dir * knockbackForce);
+        StartCoroutine(DamageFlash());
 
         if (enemyHealth <= 0)
         {
@@ -204,5 +208,18 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     public void SetDetectionRadius(float radius)
     {
         detectionRadius = radius;
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        float flashNumber = 0;
+        while (flashNumber < iFrameDuration)
+        {
+            enemyRenderer.enabled = false;
+            yield return new WaitForSeconds(spriteFlashInterval);
+            enemyRenderer.enabled = true;
+            flashNumber++;
+            yield return new WaitForSeconds(spriteFlashInterval);
+        }
     }
 }

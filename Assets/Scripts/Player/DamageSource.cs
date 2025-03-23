@@ -13,6 +13,7 @@ public class DamageSource : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         //Return if not target layer
         if (collision.gameObject.layer != targetLayer) return;
 
@@ -21,7 +22,7 @@ public class DamageSource : MonoBehaviour
             //If player use player stats
             if (isPlayer)
             {
-                instance.DealDamage(GameManager.Instance.AttackDamage);
+                instance.DealDamage(GameManager.Instance.AttackDamage * 2);
                 return;
             }
             //Otherwise use preset damage 

@@ -234,6 +234,8 @@ MonoBehaviour:
   damageAudio: {fileID: 11400000, guid: ad6b83cc5822d7641bb56f7ee840b325, type: 2}
   flyAudio: {fileID: 11400000, guid: 920b5d5aff2c8be4b8121ef670e45b7e, type: 2}
   deathAudioObject: {fileID: 445899319095006209, guid: 6f91bc129bb64454eb570729462379ec, type: 3}
+  iFrameDuration: 10
+  spriteFlashInterval: 0.05
   flyingAudioDelay: 1
 --- !u!114 &490992115313106132
 MonoBehaviour:
