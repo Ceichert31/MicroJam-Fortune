@@ -307,7 +307,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: " - WASD to move\n - Left Click to swing your pickaxe\n - Right Click to
     place dynamite\n - Q to drop most recently collected ore\n - E to deposit ores
-    in your drill\n - Tab to open your inventory"
+    in your drill\n - Tab to open your inventory\n - Esc to pause game"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
   m_sharedMaterial: {fileID: 7934238945643645769, guid: c17288e282532ec4d86c36c0508dd756, type: 2}
