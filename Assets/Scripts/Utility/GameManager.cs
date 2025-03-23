@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         if (currentTotalOres < 20)
         {
             RestartDay();
-            currentTotalOres = maxTotalOres;
+            currentTotalOres += 5;
         }
     }
 
