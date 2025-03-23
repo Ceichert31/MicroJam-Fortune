@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7676735294350525029}
   - component: {fileID: 2555789176881953989}
   - component: {fileID: 4291051291820042708}
+  - component: {fileID: 5607620741215690971}
+  - component: {fileID: 5631592579928871671}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -109,3 +111,37 @@ MonoBehaviour:
   defenseStarted_Event: {fileID: 11400000, guid: 552075644cda98549950ab144cf77324, type: 2}
   defaultBiomeRadius: 17
   gameTick: 2.5
+--- !u!114 &5607620741215690971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582298246427147196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48ff31133e583f4e93a3faab33e1dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    maxHealth: 0
+    movementSpeed: 0
+    attackDamage: 0
+    carryingCapacity: 0
+    vision: 0
+    confidence: 0
+    luck: 0
+    swag: 0
+    agility: 0
+--- !u!114 &5631592579928871671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582298246427147196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de3c28f9448da24aa1fe9fcf09ba5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

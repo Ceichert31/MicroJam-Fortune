@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventChannel: {fileID: 11400000, guid: 9461f800e58c4014fbf2c202538bfcde, type: 2}
   value:
-    SceneType: 2
+    SceneType: 1
 --- !u!1 &2436941605141732920
 GameObject:
   m_ObjectHideFlags: 0
