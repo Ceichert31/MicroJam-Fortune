@@ -16,4 +16,20 @@ public class Bullet : MonoBehaviour
     {
         rb.linearVelocity = bulletPath * bulletSpeed;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") || collision.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

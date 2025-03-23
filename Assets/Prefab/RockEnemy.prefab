@@ -143,6 +143,11 @@ MonoBehaviour:
   chargeSpeed: 6
   drawBackDistance: 1.5
   drawBackDuration: 0.5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  postChargeBackupDistance: 1.5
+  postChargeBackupDuration: 0.3
 --- !u!114 &3405841274893630958
 MonoBehaviour:
   m_ObjectHideFlags: 0
