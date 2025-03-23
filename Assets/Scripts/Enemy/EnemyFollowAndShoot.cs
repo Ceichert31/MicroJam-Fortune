@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,11 +21,17 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
+    private Rigidbody2D rb;
+    [SerializeField] private float stunTime = 1f;
+    [SerializeField] private float knockbackForce = 10f; 
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         bulletSpawn = transform.GetChild(0);
         enemySpr = transform.GetChild(1);
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private Vector3 enemyToPlayer;
@@ -57,6 +64,17 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
 
     }
 
+    public void KnockBack(Vector2 knockbackDir)
+    {
+        rb.linearVelocity = knockbackDir;
+        Invoke(nameof(ResetCanMove), stunTime);
+    }
+
+    private void ResetCanMove()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
+
     private void Shoot()
     {
         Instantiate(EnemyBullet, transform.position, Quaternion.identity);
@@ -82,6 +100,10 @@ public class EnemyFollowAndShoot : MonoBehaviour, IDamageable
     void IDamageable.DealDamage(int damage)
     {
         enemyHealth -= damage;
+
+        Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
+
+        KnockBack(-dir * knockbackForce);
 
         if (enemyHealth <= 0)
         {

@@ -29,6 +29,9 @@ public class EnemyCharge : MonoBehaviour, IDamageable
 
     private Transform playerTransform => GameManager.Instance.PlayerTransform;
 
+    [SerializeField] private float stunTime = 1f;
+    [SerializeField] private float knockbackForce = 10f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -65,6 +68,18 @@ public class EnemyCharge : MonoBehaviour, IDamageable
             boxCollider.enabled = true;
         }
     }
+
+    public void KnockBack(Vector2 knockbackDir)
+    {
+        rb.linearVelocity = knockbackDir;
+        Invoke(nameof(ResetCanMove), stunTime);
+    }
+
+    private void ResetCanMove()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
+
 
     private IEnumerator ChargeSequence()
     {
@@ -129,6 +144,10 @@ public class EnemyCharge : MonoBehaviour, IDamageable
     void IDamageable.DealDamage(int damage)
     {
         enemyHealth -= damage;
+
+        Vector2 dir = (GameManager.Instance.PlayerTransform.position - transform.position).normalized;
+
+        KnockBack(-dir * knockbackForce);
 
         if (enemyHealth <= 0)
         {
