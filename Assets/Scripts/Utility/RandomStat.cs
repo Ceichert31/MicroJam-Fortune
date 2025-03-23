@@ -10,12 +10,10 @@ using UnityEngine.UI;
 using UnityEditor;
 using DG.Tweening.Core.Easing;
 using System.Security.Cryptography.X509Certificates;
-using UnityEditor.Playables;
 
 public class RandomStat : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
-    [SerializeField] private MonoScript storeNumber;
     [SerializeField] public Button randomNum1, randomNum2, randomNum3, randomNum4, randomNum5, randomNum6, randomNum7, randomNum8, randomNum9, 
         health, movementSpeed, attackDamage, carryingCapacity, vision, confidence, luck, swag, agility;
     [SerializeField] public TextMeshProUGUI randomNum1Text, randomNum2Text, randomNum3Text, randomNum4Text, randomNum5Text, randomNum6Text, randomNum7Text, randomNum8Text, randomNum9Text, 
