@@ -861,8 +861,29 @@ MonoBehaviour:
   setCapacityText_Event: {fileID: 11400000, guid: b1a8ade8e2217364d911527b0f3bbf11, type: 2}
   updateOreUI_Event: {fileID: 11400000, guid: f313ab4778e594944ab7214a351bbd00, type: 2}
   resetOreUI_Event: {fileID: 11400000, guid: 34f2c3359f86d2045a268d09ff7f2129, type: 2}
-  inventory: []
-  currentCarryCapacity: 0
+  inventory:
+  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
+  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
+  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
+  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
+  - {fileID: 11400000, guid: 586fe42041725934f95f3b9a685daeb3, type: 2}
+  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
+  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
+  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
+  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
+  - {fileID: 11400000, guid: da1e280df0ad98d48bb76c0cc1e5205e, type: 2}
+  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
+  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
+  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
+  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
+  - {fileID: 11400000, guid: 0b4521cde374a2f449f9de46e87f574b, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  - {fileID: 11400000, guid: 149a38ed43217af428d105e46a4173e1, type: 2}
+  currentCarryCapacity: 21
 --- !u!114 &2694248041791492929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,7 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicTransitionTime: 5
   mixer: {fileID: 24100000, guid: ccd44edd4a1c65945a8b9ed2b96c0ae0, type: 2}
-  battleSource: {fileID: 0}
+  battleSource: {fileID: 5225425102402152396}
 --- !u!82 &2937812349549624271
 AudioSource:
   m_ObjectHideFlags: 0
