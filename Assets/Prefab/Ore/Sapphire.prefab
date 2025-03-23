@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 8193793469137119275}
   - component: {fileID: 5183579900825587504}
   - component: {fileID: -840528819522264573}
-  - component: {fileID: 27444838343504796}
+  - component: {fileID: -4224805374194250462}
   m_Layer: 6
   m_Name: Sapphire
   m_TagString: Untagged
@@ -335,7 +335,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!61 &27444838343504796
+--- !u!61 &-4224805374194250462
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,7 +351,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
