@@ -20,6 +20,10 @@ public class InputController : MonoBehaviour
 
     private PlayerInteractor playerInteractor;
 
+    [Header("Mining Delay Settings")]
+    [SerializeField] private float swingDelay = 0.1f;
+    private bool canSwing = true;
+
     [Header("Event Variables")]
     [SerializeField] private VoidEventChannel eventChannel;
     private VoidEvent theEvent;
@@ -41,7 +45,6 @@ public class InputController : MonoBehaviour
         playerInventory = GetComponent<Inventory>();    
         playerInteractor = GetComponentInChildren<PlayerInteractor>();
     }
-
     private Vector2 MoveDirection()
     {
         Vector2 moveDirection = playerActions.Move.ReadValue<Vector2>().normalized;
@@ -73,8 +76,19 @@ public class InputController : MonoBehaviour
 
     private void LeftClickFunc(InputAction.CallbackContext ctx)
     {
+        if (!canSwing) return;
+
+        canSwing = false;
+
+        Invoke(nameof(ResetCanSwing), swingDelay);
+
         // send pickaxe swing event
         eventChannel.CallEvent(theEvent);
+    }
+
+    private void ResetCanSwing()
+    {
+        canSwing = true;
     }
 
     private void DropLatestItem(InputAction.CallbackContext ctx)

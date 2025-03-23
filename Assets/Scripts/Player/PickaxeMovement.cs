@@ -8,7 +8,7 @@ public class PickaxeMovement : MonoBehaviour
     private Animator animator;
     private RotatePickaxe rotatePickaxe;
 
-    private const float PICKAXE_SWING_TIME = 0.5f;
+    private const float PICKAXE_SWING_TIME = 0.6f;
 
     private void Awake()
     {

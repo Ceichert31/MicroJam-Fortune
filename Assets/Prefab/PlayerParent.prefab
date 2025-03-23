@@ -824,6 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d88cb508a44614f8a82b73cfc057e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swingDelay: 0.6
   eventChannel: {fileID: 11400000, guid: 2b07584494888614d9c2e69a584f3819, type: 2}
 --- !u!114 &2952183625535801109
 MonoBehaviour:
