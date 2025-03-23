@@ -88,6 +88,7 @@ public class TowerDefense : MonoBehaviour
         }
     }
 
+    [ContextMenu("Start Wave")]
     public void ManualStartWave()
     {
         if (!isSpawning)
