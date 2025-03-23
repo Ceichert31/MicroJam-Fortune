@@ -29,22 +29,27 @@ public class GlobalVolumeController : MonoBehaviour
         switch (currentBiome)
         {
             case GameManager.Biomes.DEFAULT:
+                //ResetVolumes();
                 instance = StartCoroutine(SwitchVolumes(defaultProfile));
                 break;
 
             case GameManager.Biomes.BLUE:
+                //ResetVolumes();
                 instance = StartCoroutine(SwitchVolumes(blueProfile));
                 break;
 
             case GameManager.Biomes.YELLOW:
+                //ResetVolumes();
                 instance = StartCoroutine(SwitchVolumes(yellowProfile));
                 break;
 
             case GameManager.Biomes.GREEN:
+                //ResetVolumes();
                 instance = StartCoroutine(SwitchVolumes(greenProfile));
                 break;
 
             case GameManager.Biomes.RED:
+                //();
                 instance = StartCoroutine(SwitchVolumes(redProfile));
                 break;
         }
@@ -75,5 +80,16 @@ public class GlobalVolumeController : MonoBehaviour
         currentVolume = newVolume;
 
         instance = null;
+    }
+
+    private void ResetVolumes()
+    {
+        defaultProfile.weight = 0;
+        blueProfile.weight = 0;
+        yellowProfile.weight = 0;
+        redProfile.weight = 0;
+        greenProfile.weight = 0;
+
+        StopAllCoroutines();
     }
 }

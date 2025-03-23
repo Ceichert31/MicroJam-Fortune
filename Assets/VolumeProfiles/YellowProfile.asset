@@ -358,10 +358,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   shadows:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 0.55345905, g: 0.47419697, b: 0.16186059, a: 1}
   highlights:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   balance:
     m_OverrideState: 1
