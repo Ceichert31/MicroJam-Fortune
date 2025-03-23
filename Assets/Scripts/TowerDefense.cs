@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TowerDefense : MonoBehaviour
 {
     [Header("Spawner Settings")]
@@ -16,6 +16,13 @@ public class TowerDefense : MonoBehaviour
 
     [SerializeField] private SceneEventChannel eventChannel;
     [SerializeField] private SceneEvent value;
+
+    [Header("UI References")]
+    [SerializeField] private GameObject quotaUI;
+    [SerializeField] private GameObject chargeMeterGO;
+    [SerializeField] private Image chargeMeter;
+
+    private GameManager.GameStates gameState => GameManager.Instance.CurrentGameState;
 
     private SceneEvent theEvent;
 
@@ -49,6 +56,19 @@ public class TowerDefense : MonoBehaviour
             float variation = Random.Range(-spawnTimeVariation, spawnTimeVariation);
             nextSpawnTime = Time.time + spawnInterval + variation;
         }
+
+        if (gameState == GameManager.GameStates.Defense)
+        {
+            UpdateChargeMeter();
+        }
+    }
+
+    private void UpdateChargeMeter()
+    {
+        quotaUI.SetActive(false);
+        chargeMeterGO.SetActive(true);
+
+        chargeMeter.fillAmount = waveTimer / waveDuration;
     }
 
     private void StartSpawning()
