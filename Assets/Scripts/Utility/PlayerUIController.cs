@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PlayerUIController : MonoBehaviour
 {
- 
-
     [Header("Bag UI References")]
     [SerializeField] private TextMeshProUGUI carryCapacityText;
     [SerializeField] private TextMeshProUGUI sapphireText;
@@ -18,12 +16,12 @@ public class PlayerUIController : MonoBehaviour
     {
         bagAnimator = GetComponent<Animator>();
 
-        carryCapacityText.text = $"0/{GameManager.Instance.Confidence}";
+        carryCapacityText.text = $"0/{GameManager.Instance.CarryingCapacity}";
     }
 
     public void SetCapacityText(FloatEvent ctx)
     {
-        carryCapacityText.text = $"{ctx.FloatValue}/{GameManager.Instance.Confidence}";
+        carryCapacityText.text = $"{ctx.FloatValue}/{GameManager.Instance.CarryingCapacity}";
     }
 
     /// <summary>
