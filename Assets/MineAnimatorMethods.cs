@@ -8,6 +8,8 @@ public class MineAnimatorMethods : MonoBehaviour
     [SerializeField] private AudioPitcherSO explosionAudio;
     private AudioSource source;
 
+    [SerializeField] private ParticleSystem explosion;
+
     private void Start()
     {
         source = GetComponent<AudioSource>();
@@ -27,6 +29,7 @@ public class MineAnimatorMethods : MonoBehaviour
     public void BlowUP()
     {
         explosionAudio.Play(source);
+        explosion.Play();
         Destroy(transform.GetChild(0).gameObject);
     }
 }
