@@ -5,6 +5,8 @@ public class RotatePickaxe : MonoBehaviour
     [SerializeField] private Camera targetCamera;
     private Vector3 baseScale, flippedScale;
 
+    private bool canRotate = true;
+
     private void Start()
     {
         baseScale = new Vector3(1, 1, 1);
@@ -13,6 +15,8 @@ public class RotatePickaxe : MonoBehaviour
 
     void Update()
     {
+        if (!canRotate) return;
+
         Vector3 mousePos = targetCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 perpendicular = transform.position - mousePos;
         transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
@@ -26,4 +30,11 @@ public class RotatePickaxe : MonoBehaviour
             transform.localScale = baseScale;
         }
     }
+    public void TimedFreeze(float time)
+    {
+        canRotate = false;
+
+        Invoke(nameof(ResetDoRotation), time);
+    }
+    void ResetDoRotation() => canRotate = true;
 }
