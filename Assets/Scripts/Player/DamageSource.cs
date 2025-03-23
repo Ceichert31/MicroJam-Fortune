@@ -28,4 +28,17 @@ public class DamageSource : MonoBehaviour
             instance.DealDamage(damageValue);
         }
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.TryGetComponent(out IDamageable instance))
+        {
+            if (isPlayer)
+            {
+                instance.DealDamage(GameManager.Instance.AttackDamage);
+                return;
+            }
+            instance.DealDamage(damageValue);
+        }
+    }
 }
