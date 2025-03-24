@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     [Header("Current Stats")]
     [SerializeField] private PlayerStats playerStats;
 
-    //[Header("Scriptable Object Reference")]
-    //[SerializeField] private PlayerBaseStats baseStats;
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private PlayerBaseStats baseStats;
 
     [Header("Event Channel")]
     [SerializeField] private VoidEventChannel oreRespawn_Event;
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
 
         //Init player stats
-        //playerStats = new PlayerStats(baseStats);
+        playerStats = new PlayerStats(baseStats);
 
         gameTickTimer = gameTick;
     }
@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
     /// <param name="stats"></param>
     public void SetStats(PlayerStats stats)
     {
-        Debug.Log("1");
         playerStats = stats;
     }
 
