@@ -15,7 +15,7 @@ public class HandlePause : MonoBehaviour
     {
         pauseMenu = transform.GetChild(0).gameObject;
         if (SceneManager.GetActiveScene().name == "TitleScreen")
-            tutorialMenu = GameObject.Find("Canvas").transform.GetChild(4).GetComponent<CanvasGroup>();
+            tutorialMenu = GameObject.Find("Canvas").transform.GetChild(3).GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -36,21 +36,21 @@ public class HandlePause : MonoBehaviour
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
             }
-        }
 
-        if (SceneManager.GetActiveScene().name == "TitleScreen")
-        {
-            if (isTutorial)
+            if (SceneManager.GetActiveScene().name == "TitleScreen")
             {
-                tutorialMenu.alpha = 0.95f;
-                tutorialMenu.interactable = true;
-                tutorialMenu.blocksRaycasts = true;
-            }
-            else
-            {
-                tutorialMenu.alpha = 0f;
-                tutorialMenu.interactable = false;
-                tutorialMenu.blocksRaycasts = false;
+                if (isTutorial)
+                {
+                    tutorialMenu.alpha = 0.95f;
+                    tutorialMenu.interactable = true;
+                    tutorialMenu.blocksRaycasts = true;
+                }
+                else
+                {
+                    tutorialMenu.alpha = 0f;
+                    tutorialMenu.interactable = false;
+                    tutorialMenu.blocksRaycasts = false;
+                }
             }
         }
     }
