@@ -25,15 +25,15 @@ public class PlayerUIController : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
-        capacity = carryCapacity;
-        capacity = Mathf.Clamp(capacity, 1, 100);
+        //capacity = carryCapacity;
+        //capacity = Mathf.Clamp(capacity, 1, 100);
 
-        carryCapacityText.text = $"0/{capacity}";
+        carryCapacityText.text = $"0/{carryCapacity}";
     }
 
     public void SetCapacityText(FloatEvent ctx)
     {
-        carryCapacityText.text = $"{ctx.FloatValue}/{capacity}";
+        carryCapacityText.text = $"{ctx.FloatValue}/{carryCapacity}";
     }
 
     /// <summary>
