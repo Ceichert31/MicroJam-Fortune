@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LoadData : MonoBehaviour
 {
-    private void OnEnable()
+    private void Awake()
     {
         PlayerDataManager.Instance.Load();
     }

@@ -1,13 +1,11 @@
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerDataManager : MonoBehaviour
 {
     public static PlayerDataManager Instance;
     public PlayerStats playerStats;
-    public PlayerBaseStats baseStats;
 
     private void Awake()
     {
@@ -17,19 +15,6 @@ public class PlayerDataManager : MonoBehaviour
             Instance = this;
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        ////Reset stats
-        //if (SceneManager.GetActiveScene().name == "UITestScene")
-        //{
-        //    playerStats = new(baseStats);
-        //}
-        //else if (SceneManager.GetActiveScene().name == "EnemyScene")
-        //{
-        //    Load();
-        //}
     }
 
     /// <summary>

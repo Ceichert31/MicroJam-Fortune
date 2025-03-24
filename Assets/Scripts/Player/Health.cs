@@ -12,7 +12,8 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private FloatEventChannel addHealthUI_Event;
     [SerializeField] private AudioPitcherSO damageAudio;
     [SerializeField] private SceneEventChannel deathSceneSwitch;
-    private int maxHealth => GameManager.Instance.MaxHealth;
+    private int health => GameManager.Instance.MaxHealth;
+    private int maxHealth;
 
     private SpriteRenderer playerRenderer;
 
@@ -27,8 +28,10 @@ public class Health : MonoBehaviour, IDamageable
 
     private void Start()
     {
-      
-        currentHealth = maxHealth;
+        maxHealth = health;
+        maxHealth = Mathf.Clamp(maxHealth, 0, 100);
+
+        currentHealth = health;
 
         inventory = GetComponent<Inventory>();
 

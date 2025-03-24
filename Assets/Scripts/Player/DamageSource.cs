@@ -12,9 +12,12 @@ public class DamageSource : MonoBehaviour
     [SerializeField] private int targetLayer;
 
     private int attackDamage => GameManager.Instance.AttackDamage;
+    private int damage;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      
+        damage = attackDamage;
+        damage = Mathf.Clamp(damage, 0, 100);    
 
         //Return if not target layer
         if (collision.gameObject.layer != targetLayer) return;
@@ -24,7 +27,7 @@ public class DamageSource : MonoBehaviour
             //If player use player stats
             if (isPlayer)
             {
-                instance.DealDamage(attackDamage * 2);
+                instance.DealDamage(damage * 2);
                 return;
             }
             //Otherwise use preset damage 
@@ -34,12 +37,14 @@ public class DamageSource : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        damage = attackDamage;
+        damage = Mathf.Clamp(damage, 0, 100);
 
         if (other.TryGetComponent(out IDamageable instance))
         {
             if (isPlayer)
             {
-                instance.DealDamage(attackDamage);
+                instance.DealDamage(damage);
                 return;
             }
             instance.DealDamage(damageValue);
