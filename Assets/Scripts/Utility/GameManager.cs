@@ -126,10 +126,19 @@ public class GameManager : MonoBehaviour
         gameTickTimer = gameTick;
     }
 
+    [SerializeField] private PlayerBaseStats temp;
     private void OnEnable()
     {
         Debug.Log("GAME MANAGER ENABLED");
-        
+        playerStats.maxHealth = temp.maxHealth;
+        playerStats.movementSpeed = temp.movementSpeed;
+        playerStats.carryingCapacity = temp.carryingCapacity;
+        playerStats.attackDamage = temp.attackDamage;
+        playerStats.vision = temp.vision;
+        playerStats.swag = temp.swag;
+        playerStats.confidence = temp.confidence;
+        playerStats.agility = temp.agility;
+        playerStats.luck = temp.luck;
     }
 
     private void OnDisable()
