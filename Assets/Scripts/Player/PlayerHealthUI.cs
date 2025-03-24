@@ -10,7 +10,7 @@ public class PlayerHealthUI : MonoBehaviour
 
     [SerializeField] GameObject heartPrefab;
 
-    [SerializeField] private List<GameObject> heartList;
+    [SerializeField] private List<GameObject> heartList = new();
     private HorizontalLayoutGroup layoutGroup;
 
     [Header("Heart Settings")]
@@ -23,6 +23,8 @@ public class PlayerHealthUI : MonoBehaviour
     private void Start()
     {
         layoutGroup = GetComponentInChildren<HorizontalLayoutGroup>();
+
+        Debug.Log("Max HEARTS: " + MaxHearts);
 
         //Add max hearts at start
         AddHearts(new FloatEvent(MaxHearts));

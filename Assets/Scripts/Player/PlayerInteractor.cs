@@ -28,8 +28,6 @@ public class PlayerInteractor : MonoBehaviour
         //Check layer
         if (collision.gameObject.layer != interactLayer) return;
 
-        Debug.Log("Interactable");
-
         if (!canInteract) return;
 
         canInteract = false;
@@ -56,7 +54,7 @@ public class PlayerInteractor : MonoBehaviour
         //Check layer
         if (collision.gameObject.layer != interactLayer) return;
 
-        Debug.Log("Interactable");
+        //Debug.Log("Interactable");
 
         if (!canInteract) return;
 

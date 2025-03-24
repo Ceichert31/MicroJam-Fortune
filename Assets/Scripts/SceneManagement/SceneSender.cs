@@ -13,10 +13,14 @@ public class SceneSender : MonoBehaviour
 
     public void SendScene()
     {
-        if (saveScene)
-        {
-            PlayerDataManager.Instance.Save();
-        }
+        //if (saveScene)
+        //{
+        //    if (GameObject.Find("Data").TryGetComponent(out PlayerDataManager instance))
+        //    {
+        //        Debug.Log("SAVED1");
+        //        instance.Save();
+        //    }
+        //}
 
         theEvent.SceneType = value.SceneType;
         eventChannel.CallEvent(theEvent);

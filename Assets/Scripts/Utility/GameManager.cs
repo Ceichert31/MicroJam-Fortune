@@ -82,7 +82,9 @@ public class GameManager : MonoBehaviour
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
-    public int MaxHealth { get { return playerStats.maxHealth; } }
+    public int MaxHealth { get {
+            Debug.Log("GETTING HEALTH: " + playerStats.maxHealth);
+            return playerStats.maxHealth; } }
     public int MovementSpeed { get { return playerStats.movementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
     public int AttackDamage { get { return playerStats.attackDamage; } }
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !isPaused;
     }
+   // private bool hasReset = false;  
 
     private void Awake()
     {
@@ -111,22 +114,83 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-        //Init player stats
-        playerStats = new PlayerStats(baseStats);
+        //if (!hasReset)
+        //{
+        //    hasReset = true;
+        //    Debug.Log("RESET STATS");
+        //    //Init player stats
+        //    playerStats = new PlayerStats(baseStats);
+        //}
+
 
         gameTickTimer = gameTick;
     }
+
+    private void OnEnable()
+    {
+        Debug.Log("GAME MANAGER ENABLED");
+        
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("GAME MANAGER DISABLED!!");
+
+        baseStats.maxHealth = playerStats.maxHealth;
+        baseStats.movementSpeed = playerStats.movementSpeed;
+        baseStats.carryingCapacity = playerStats.carryingCapacity;
+        baseStats.attackDamage = playerStats.attackDamage;
+        baseStats.vision = playerStats.vision;
+        baseStats.swag = playerStats.swag;
+        baseStats.confidence = playerStats.confidence;
+        baseStats.agility = playerStats.agility;
+        baseStats.luck = playerStats.luck;
+    }
+
+    public void Load()
+    {
+        playerStats.maxHealth = baseStats.maxHealth;
+        playerStats.movementSpeed = baseStats.movementSpeed;
+        playerStats.carryingCapacity = baseStats.carryingCapacity;
+        playerStats.attackDamage = baseStats.attackDamage;
+        playerStats.vision = baseStats.vision;
+        playerStats.swag = baseStats.swag;
+        playerStats.confidence = baseStats.confidence;
+        playerStats.agility = baseStats.agility;
+        playerStats.luck = baseStats.luck;
+    }
+
     /// <summary>
     /// Sets stats
     /// </summary>
     /// <param name="stats"></param>
     public void SetStats(PlayerStats stats)
     {
-        playerStats = stats;
+        playerStats.maxHealth = stats.maxHealth;
+        playerStats.attackDamage = stats.attackDamage;
+        playerStats.carryingCapacity = stats.carryingCapacity;
+        playerStats.luck = stats.luck;
+        playerStats.swag = stats.swag;
+        playerStats.agility = stats.agility;
+        playerStats.confidence = stats.confidence;
+        playerStats.movementSpeed = stats.movementSpeed;
+        playerStats.vision = stats.vision;
+
+        Debug.Log("STATS SET");
+        Debug.Log("health "+stats.maxHealth);
+        Debug.Log("vision "+stats.vision);
+        Debug.Log("carry "+stats.carryingCapacity);
+        Debug.Log("health2 " + playerStats.maxHealth);
+        Debug.Log("vision2 " + playerStats.vision);
+        Debug.Log("carry2 " + playerStats.carryingCapacity);
     }
 
     private void Update()
     {
+        //Debug.Log("health2 " + playerStats.maxHealth);
+        //Debug.Log("vision2 " + playerStats.vision);
+        //Debug.Log("carry2 " + playerStats.carryingCapacity);
+
         //Game tick logic
         gameTickTimer -= Time.deltaTime;
         if (gameTickTimer <= 0)
@@ -187,6 +251,7 @@ public class GameManager : MonoBehaviour
     // Updating player stats
     public void UpdateCoreStat(CoreStats coreStats, int value)
     {
+        Debug.Log("CoreStatUpdated!");
         switch (coreStats)
         {
             case CoreStats.Health:
@@ -206,6 +271,7 @@ public class GameManager : MonoBehaviour
 
      public void UpdateSideStat(SideStats sideStats, int value)
     {
+        Debug.Log("SideStatUpdated!");
         switch (sideStats)
         {
             case SideStats.Vision:

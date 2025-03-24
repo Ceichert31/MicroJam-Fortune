@@ -149,10 +149,12 @@ public class RandomStat : MonoBehaviour
         }
     }
 
+    private bool hasLoadedScene = false;
     private void Update()
     {
-        if (allButtonsDisabled)
+        if (allButtonsDisabled && !hasLoadedScene)
         {
+            hasLoadedScene = true;
             sceneSender.SendScene();
         }
     }

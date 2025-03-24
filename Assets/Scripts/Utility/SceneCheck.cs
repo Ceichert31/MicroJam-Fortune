@@ -1,12 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SceneCheck : MonoBehaviour
 {
     [SerializeField] private PlayerBaseStats baseStats;
-    private void Awake()
+    private void Start()
     {
         GameManager.Instance.SetStats(new(baseStats));
-        PlayerDataManager.Instance.Save();
+
+        //if (GameObject.Find("Data").TryGetComponent(out PlayerDataManager instance))
+        //{
+        //    Debug.Log("SAVED2");
+        //    instance.Save();
+        //}
+        //PlayerDataManager.Instance.Save();
     }
 }
