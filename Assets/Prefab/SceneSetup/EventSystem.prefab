@@ -94,23 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerStats:
-    maxHealth: 0
-    movementSpeed: 0
-    attackDamage: 0
-    carryingCapacity: 0
-    vision: 0
-    confidence: 0
-    luck: 0
-    swag: 0
-    agility: 0
-  oreRespawn_Event: {fileID: 11400000, guid: f29133a892a7e1741a8679e2a47ee11e, type: 2}
-  gameTickUpdate_Event: {fileID: 11400000, guid: 329e493b030e7c4479e7c9bffbfaed54, type: 2}
-  defenseStarted_Event: {fileID: 11400000, guid: 552075644cda98549950ab144cf77324, type: 2}
-  maxTotalOres: 39
-  currentTotalOres: 39
-  defaultBiomeRadius: 17
-  gameTick: 2.5
+  baseStats: {fileID: 11400000, guid: 9b4a64d1ecfb97748bd3852ec0888e36, type: 2}
   savedHealth: 0
   savedMovementSpeed: 0
   savedAttackDamage: 0
@@ -120,7 +104,13 @@ MonoBehaviour:
   savedLuck: 0
   savedSwag: 0
   savedAgility: 0
-  baseStats: {fileID: 11400000, guid: 9b4a64d1ecfb97748bd3852ec0888e36, type: 2}
+  oreRespawn_Event: {fileID: 11400000, guid: f29133a892a7e1741a8679e2a47ee11e, type: 2}
+  gameTickUpdate_Event: {fileID: 11400000, guid: 329e493b030e7c4479e7c9bffbfaed54, type: 2}
+  defenseStarted_Event: {fileID: 11400000, guid: 552075644cda98549950ab144cf77324, type: 2}
+  maxTotalOres: 39
+  currentTotalOres: 39
+  defaultBiomeRadius: 17
+  gameTick: 2.5
 --- !u!114 &2307788923007204001
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,22 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
 
-    [Header("Current Stats")]
-    [SerializeField] private PlayerStats playerStats;
+    //[Header("Current Stats")]
+    //[SerializeField] private PlayerStats playerStats;
+
+    [Header("Scriptable Object Reference")]
+    [SerializeField] private PlayerBaseStats baseStats;
+
+    [Header("Stats References")]
+    [SerializeField] private int savedHealth;
+    [SerializeField] private int savedMovementSpeed;
+    [SerializeField] private int savedAttackDamage;
+    [SerializeField] private int savedCarryingCapacity;
+    [SerializeField] private int savedVision;
+    [SerializeField] private int savedConfidence;
+    [SerializeField] private int savedLuck;
+    [SerializeField] private int savedSwag;
+    [SerializeField] private int savedAgility;
 
     [Header("Event Channel")]
     [SerializeField] private VoidEventChannel oreRespawn_Event;
@@ -37,6 +51,8 @@ public class GameManager : MonoBehaviour
     private bool reachedRubyQuota;
     private bool reachedEmeraldQuota;
     private bool reachedTopazQuota;
+
+    private bool firstLoad = true;
 
     public bool ReachedSapphireQuota { get { return reachedSapphireQuota; } }
     public bool ReachedRubyQuota { get { return reachedRubyQuota; } }
@@ -77,36 +93,21 @@ public class GameManager : MonoBehaviour
         DEFAULT
     }
 
-    [Header("Base Stat References")]
-    [SerializeField] private int savedHealth;
-    [SerializeField] private int savedMovementSpeed;
-    [SerializeField] private int savedAttackDamage;
-    [SerializeField] private int savedCarryingCapacity;
-    [SerializeField] private int savedVision;
-    [SerializeField] private int savedConfidence;
-    [SerializeField] private int savedLuck;
-    [SerializeField] private int savedSwag;
-    [SerializeField] private int savedAgility;
-
-    [SerializeField] private PlayerBaseStats baseStats;
-
-    private bool firstLoad = true;
-
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
-    public int MaxHealth { get { return playerStats.maxHealth; } }
-    public int MovementSpeed { get { return playerStats.movementSpeed; } }
+    public int MaxHealth { get { return savedHealth; } }
+    public int MovementSpeed { get { return savedMovementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
-    public int AttackDamage { get { return playerStats.attackDamage; } }
-    public int CarryingCapacity { get { return playerStats.carryingCapacity; } }
+    public int AttackDamage { get { return savedAttackDamage; } }
+    public int CarryingCapacity { get { return savedCarryingCapacity; } }
     //Side stat getters
-    public int Vision { get { return playerStats.vision; } }
-    public int Confidence { get { return playerStats.confidence; } }
-    public int Luck { get { return playerStats.luck; } }
-    public int Swag { get { return playerStats.swag; } }
-    public int Agility { get { return playerStats.agility; } }
-    public PlayerStats PlayerStats { get { return playerStats; } }
+    public int Vision { get { return savedVision; } }
+    public int Confidence { get { return savedConfidence; } }
+    public int Luck { get { return savedLuck; } }
+    public int Swag { get { return savedSwag; } }
+    public int Agility { get { return savedAgility; } }
+    //public PlayerStats PlayerStats { get { return playerStats; } }
     public GameStates CurrentGameState { get { return currentGameState; } }
     public Biomes CurrentBiome { get { return currentBiome; } }
     // getter for pause state
@@ -124,11 +125,24 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-        //Check scene and load stats
+        //Init player stats
+        //playerStats = new PlayerStats(baseStats);
+
         SetPlayerPrefStats();
 
         gameTickTimer = gameTick;
     }
+
+    /*
+    /// <summary>
+    /// Sets stats
+    /// </summary>
+    /// <param name="stats"></param>
+    public void SetStats(PlayerStats stats)
+    {
+        playerStats = stats;
+    }
+    */
 
     public void SetPlayerPrefStats()
     {
@@ -242,7 +256,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-     public void UpdateSideStat(SideStats sideStats, int value)
+    public void UpdateSideStat(SideStats sideStats, int value)
     {
         switch (sideStats)
         {
@@ -295,7 +309,7 @@ public class GameManager : MonoBehaviour
         }
 
         //If all quotas are reached, change game state
-        if (ReachedSapphireQuota && ReachedRubyQuota && reachedEmeraldQuota && ReachedTopazQuota) 
+        if (ReachedSapphireQuota && ReachedRubyQuota && reachedEmeraldQuota && ReachedTopazQuota)
         {
             currentGameState = GameStates.Defense;
             //Call defense started event
@@ -309,6 +323,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
+/*
 [System.Serializable]
 public struct PlayerStats
 {
@@ -339,3 +354,4 @@ public struct PlayerStats
         agility = baseStats.agility;
     }
 }
+*/

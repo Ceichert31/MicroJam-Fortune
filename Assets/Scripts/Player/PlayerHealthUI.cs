@@ -24,8 +24,6 @@ public class PlayerHealthUI : MonoBehaviour
     {
         layoutGroup = GetComponentInChildren<HorizontalLayoutGroup>();
 
-        Debug.Log("Max HEARTS: " + MaxHearts);
-
         //Add max hearts at start
         AddHearts(new FloatEvent(MaxHearts));
         UpdateSpacing(new FloatEvent(MaxHearts));

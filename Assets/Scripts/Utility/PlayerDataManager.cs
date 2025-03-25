@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerDataManager : MonoBehaviour
 {
     public static PlayerDataManager Instance;
-    public PlayerStats playerStats;
+    //public PlayerStats playerStats;
 
     private void Awake()
     {
