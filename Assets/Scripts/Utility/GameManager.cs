@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +11,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Current Stats")]
     [SerializeField] private PlayerStats playerStats;
-
-    [Header("Scriptable Object Reference")]
-    [SerializeField] private PlayerBaseStats baseStats;
 
     [Header("Event Channel")]
     [SerializeField] private VoidEventChannel oreRespawn_Event;
@@ -79,12 +77,25 @@ public class GameManager : MonoBehaviour
         DEFAULT
     }
 
+    [Header("Base Stat References")]
+    [SerializeField] private int savedHealth;
+    [SerializeField] private int savedMovementSpeed;
+    [SerializeField] private int savedAttackDamage;
+    [SerializeField] private int savedCarryingCapacity;
+    [SerializeField] private int savedVision;
+    [SerializeField] private int savedConfidence;
+    [SerializeField] private int savedLuck;
+    [SerializeField] private int savedSwag;
+    [SerializeField] private int savedAgility;
+
+    [SerializeField] private PlayerBaseStats baseStats;
+
+    private bool firstLoad = true;
+
     //Getters
     public Transform PlayerTransform { get { return player; } }
     //Core stat getters
-    public int MaxHealth { get {
-            Debug.Log("GETTING HEALTH: " + playerStats.maxHealth);
-            return playerStats.maxHealth; } }
+    public int MaxHealth { get { return playerStats.maxHealth; } }
     public int MovementSpeed { get { return playerStats.movementSpeed; } }
     public float Encumbrance { get { return encumbrance; } set { encumbrance = value; } }
     public int AttackDamage { get { return playerStats.attackDamage; } }
@@ -105,7 +116,6 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !isPaused;
     }
-   // private bool hasReset = false;  
 
     private void Awake()
     {
@@ -114,92 +124,43 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-        //if (!hasReset)
-        //{
-        //    hasReset = true;
-        //    Debug.Log("RESET STATS");
-        //    //Init player stats
-        //    playerStats = new PlayerStats(baseStats);
-        //}
-
+        //Check scene and load stats
+        SetPlayerPrefStats();
 
         gameTickTimer = gameTick;
     }
 
-    [SerializeField] private PlayerBaseStats temp;
-    private void OnEnable()
+    public void SetPlayerPrefStats()
     {
-        Debug.Log("GAME MANAGER ENABLED");
-        playerStats.maxHealth = temp.maxHealth;
-        playerStats.movementSpeed = temp.movementSpeed;
-        playerStats.carryingCapacity = temp.carryingCapacity;
-        playerStats.attackDamage = temp.attackDamage;
-        playerStats.vision = temp.vision;
-        playerStats.swag = temp.swag;
-        playerStats.confidence = temp.confidence;
-        playerStats.agility = temp.agility;
-        playerStats.luck = temp.luck;
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log("GAME MANAGER DISABLED!!");
-
-        baseStats.maxHealth = playerStats.maxHealth;
-        baseStats.movementSpeed = playerStats.movementSpeed;
-        baseStats.carryingCapacity = playerStats.carryingCapacity;
-        baseStats.attackDamage = playerStats.attackDamage;
-        baseStats.vision = playerStats.vision;
-        baseStats.swag = playerStats.swag;
-        baseStats.confidence = playerStats.confidence;
-        baseStats.agility = playerStats.agility;
-        baseStats.luck = playerStats.luck;
-    }
-
-    public void Load()
-    {
-        playerStats.maxHealth = baseStats.maxHealth;
-        playerStats.movementSpeed = baseStats.movementSpeed;
-        playerStats.carryingCapacity = baseStats.carryingCapacity;
-        playerStats.attackDamage = baseStats.attackDamage;
-        playerStats.vision = baseStats.vision;
-        playerStats.swag = baseStats.swag;
-        playerStats.confidence = baseStats.confidence;
-        playerStats.agility = baseStats.agility;
-        playerStats.luck = baseStats.luck;
-    }
-
-    /// <summary>
-    /// Sets stats
-    /// </summary>
-    /// <param name="stats"></param>
-    public void SetStats(PlayerStats stats)
-    {
-        playerStats.maxHealth = stats.maxHealth;
-        playerStats.attackDamage = stats.attackDamage;
-        playerStats.carryingCapacity = stats.carryingCapacity;
-        playerStats.luck = stats.luck;
-        playerStats.swag = stats.swag;
-        playerStats.agility = stats.agility;
-        playerStats.confidence = stats.confidence;
-        playerStats.movementSpeed = stats.movementSpeed;
-        playerStats.vision = stats.vision;
-
-        Debug.Log("STATS SET");
-        Debug.Log("health "+stats.maxHealth);
-        Debug.Log("vision "+stats.vision);
-        Debug.Log("carry "+stats.carryingCapacity);
-        Debug.Log("health2 " + playerStats.maxHealth);
-        Debug.Log("vision2 " + playerStats.vision);
-        Debug.Log("carry2 " + playerStats.carryingCapacity);
+        if (firstLoad && SceneManager.GetActiveScene().name == "UITestScene")
+        {
+            savedHealth = baseStats.maxHealth;
+            savedMovementSpeed = baseStats.movementSpeed;
+            savedAttackDamage = baseStats.attackDamage;
+            savedCarryingCapacity = baseStats.carryingCapacity;
+            savedVision = baseStats.vision;
+            savedConfidence = baseStats.confidence;
+            savedLuck = baseStats.luck;
+            savedSwag = baseStats.swag;
+            savedAgility = baseStats.agility;
+            firstLoad = false;
+        }
+        else
+        {
+            savedHealth = PlayerPrefs.GetInt("Health");
+            savedMovementSpeed = PlayerPrefs.GetInt("Speed");
+            savedAttackDamage = PlayerPrefs.GetInt("Damage");
+            savedCarryingCapacity = PlayerPrefs.GetInt("Capacity");
+            savedVision = PlayerPrefs.GetInt("Vision");
+            savedConfidence = PlayerPrefs.GetInt("Confidence");
+            savedLuck = PlayerPrefs.GetInt("Luck");
+            savedSwag = PlayerPrefs.GetInt("Swag");
+            savedAgility = PlayerPrefs.GetInt("Agility");
+        }
     }
 
     private void Update()
     {
-        //Debug.Log("health2 " + playerStats.maxHealth);
-        //Debug.Log("vision2 " + playerStats.vision);
-        //Debug.Log("carry2 " + playerStats.carryingCapacity);
-
         //Game tick logic
         gameTickTimer -= Time.deltaTime;
         if (gameTickTimer <= 0)
@@ -260,43 +221,50 @@ public class GameManager : MonoBehaviour
     // Updating player stats
     public void UpdateCoreStat(CoreStats coreStats, int value)
     {
-        Debug.Log("CoreStatUpdated!");
         switch (coreStats)
         {
             case CoreStats.Health:
-                playerStats.maxHealth += value;
+                savedHealth += value;
+                PlayerPrefs.SetInt("Health", savedHealth);
                 break;
             case CoreStats.MovementSpeed:
-                playerStats.movementSpeed += value;
+                savedMovementSpeed += value;
+                PlayerPrefs.SetInt("Speed", savedMovementSpeed);
                 break;
             case CoreStats.AttackDamage:
-                playerStats.attackDamage += value;
+                savedAttackDamage += value;
+                PlayerPrefs.SetInt("Damage", savedAttackDamage);
                 break;
             case CoreStats.CarryingCapacity:
-                playerStats.carryingCapacity += value;
+                savedCarryingCapacity += value;
+                PlayerPrefs.SetInt("Capacity", savedCarryingCapacity);
                 break;
         }
     }
 
      public void UpdateSideStat(SideStats sideStats, int value)
     {
-        Debug.Log("SideStatUpdated!");
         switch (sideStats)
         {
             case SideStats.Vision:
-                playerStats.vision += value;
+                savedVision += value;
+                PlayerPrefs.SetInt("Vision", savedVision);
                 break;
             case SideStats.Confidence:
-                playerStats.confidence += value;
+                savedConfidence += value;
+                PlayerPrefs.SetInt("Confidence", savedConfidence);
                 break;
             case SideStats.Luck:
-                playerStats.luck += value;
+                savedLuck += value;
+                PlayerPrefs.SetInt("Luck", savedLuck);
                 break;
             case SideStats.Swag:
-                playerStats.swag += value;
+                savedSwag += value;
+                PlayerPrefs.SetInt("Swag", savedSwag);
                 break;
             case SideStats.Agility:
-                playerStats.agility += value;
+                savedAgility += value;
+                PlayerPrefs.SetInt("Agility", savedAgility);
                 break;
         }
     }

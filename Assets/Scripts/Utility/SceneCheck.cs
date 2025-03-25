@@ -5,7 +5,7 @@ public class SceneCheck : MonoBehaviour
     [SerializeField] private PlayerBaseStats baseStats;
     private void Start()
     {
-        GameManager.Instance.SetStats(new(baseStats));
+        ///GameManager.Instance.SetStats(new(baseStats));
 
         //if (GameObject.Find("Data").TryGetComponent(out PlayerDataManager instance))
         //{

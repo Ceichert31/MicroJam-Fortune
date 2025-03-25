@@ -29,7 +29,7 @@ public class PlayerDataManager : MonoBehaviour
         ////write
         //System.IO.File.WriteAllText(path, json);
 
-        playerStats = GameManager.Instance.PlayerStats;
+        //playerStats = GameManager.Instance.PlayerStats;
         //PlayerPrefs.SetInt("Health", playerStats.maxHealth);
         //PlayerPrefs.SetInt("Speed", playerStats.movementSpeed);
         //PlayerPrefs.SetInt("Damage", playerStats.attackDamage);
@@ -70,7 +70,7 @@ public class PlayerDataManager : MonoBehaviour
         //stats.swag = PlayerPrefs.GetInt("Swag");
         //stats.agility = PlayerPrefs.GetInt("Agility");
 
-        GameManager.Instance.SetStats(playerStats);
+       // GameManager.Instance.SetStats(playerStats);
     }
 
     private void OnEnable()
